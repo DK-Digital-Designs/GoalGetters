@@ -1,0 +1,5 @@
+[
+  { "q": "How long does a site build take?", "a": "Typically 2–4 weeks from kickoff to launch." },
+  { "q": "Do you provide hosting?", "a": "We recommend Netlify/Vercel but can help you set it up." },
+  { "q": "Can you update my existing site?", "a": "Absolutely—just send us the link and we’ll audit it." }
+]
