@@ -1,6 +1,0 @@
-[
-  { "icon": "icon-design.svg", "title": "Web Design", "desc": "Cutting-edge layouts & vibrant visuals." },
-  { "icon": "icon-dev.svg", "title": "Development", "desc": "Robust, scalable, and lightning-fast." },
-  { "icon": "icon-seo.svg", "title": "SEO & Marketing", "desc": "Get found & convert with ease." },
-  { "icon": "icon-support.svg", "title": "Support", "desc": "24/7 assistance & peace of mind." }
-]
