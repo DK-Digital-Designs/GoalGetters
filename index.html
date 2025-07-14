@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- include shared <head> here, with title “Home” -->
-    <head>
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Goal Getters – [Page Title]</title>
+  <title>Goal Getters – Home</title>
+
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- AOS -->
@@ -13,54 +13,74 @@
   <link href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" rel="stylesheet">
   <!-- GLightbox -->
   <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
-  <!-- Custom -->
+  <!-- Locomotive Scroll -->
+  <link href="https://cdn.jsdelivr.net/npm/locomotive-scroll/dist/locomotive-scroll.min.css" rel="stylesheet">
+  <!-- Custom Styles -->
   <link href="assets/css/style.css" rel="stylesheet">
 </head>
+<body>
 
-  <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-      <div class="container">
-        <a class="navbar-brand text-warning" href="index.html">Goal Getters</a>
-        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div id="nav" class="collapse navbar-collapse">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-            <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
-            <li class="nav-item"><a class="nav-link" href="booking.html">Booking</a></li>
-            <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
-            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-          </ul>
-        </div>
+  <!-- Particle Soccer Balls Background -->
+  <div id="particles-bg"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand text-warning" href="index.html">Goal Getters</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+          <li class="nav-item"><a class="nav-link" href="booking.html">Booking</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <!-- Hero -->
-    <section class="hero">
-      <div data-aos="fade-up">
-        <h1>Goal Getters</h1>
-        <a href="booking.html" class="btn btn-primary">Join the Family</a>
-      </div>
-    </section>
+  <!-- Hero Video + Parallax -->
+  <section class="hero-video">
+    <video autoplay muted loop playsinline class="hero-bg">
+      <source src="assets/videos/hero.mp4" type="video/mp4"/>
+    </video>
+    <div class="hero-content" data-scroll data-scroll-speed="1">
+      <h1 class="reveal">GOAL GETTERS</h1>
+      <a href="booking.html" class="btn btn-gradient reveal" data-aos="fade-up" data-aos-delay="200">Join the Family</a>
+    </div>
+  </section>
 
-    <!-- About -->
-    <section id="about">
-      <div class="container">
-        <h2 class="section-title" data-aos="fade-right">About Us</h2>
-        <p data-aos="fade-left">
-          We’re dedicated to elevating player development through modern training and expert coaching...
-        </p>
-      </div>
-    </section>
+  <!-- Wave into About -->
+  <svg class="wave" viewBox="0 0 1440 100">
+    <path fill="#151515" d="M0,20 C360,80 1080,0 1440,60 L1440,100 L0,100 Z">
+      <animate attributeName="d" dur="8s" repeatCount="indefinite"
+        values="
+          M0,20 C360,80 1080,0 1440,60 L1440,100 L0,100 Z;
+          M0,30 C360,10 1080,80 1440,20 L1440,100 L0,100 Z;
+          M0,20 C360,80 1080,0 1440,60 L1440,100 L0,100 Z
+        "/>
+    </path>
+  </svg>
 
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2025 Goal Getters FC. All rights reserved.</p>
-    </footer>
-    
+  <!-- About -->
+  <section id="about" data-aos="fade-up">
+    <div class="container">
+      <h2 class="section-title reveal">About Us</h2>
+      <p class="reveal">
+        We’re dedicated to elevating player development through modern training and expert coaching...
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Goal Getters FC. All rights reserved.</p>
+  </footer>
+
   <!-- Bootstrap JS + Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <!-- AOS -->
@@ -69,9 +89,14 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   <!-- GLightbox -->
   <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+  <!-- Locomotive Scroll -->
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll/dist/locomotive-scroll.min.js"></script>
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
   <!-- Main JS -->
   <script src="assets/js/main.js"></script>
-
-    <!-- Include shared scripts here -->
-  </body>
+</body>
 </html>
