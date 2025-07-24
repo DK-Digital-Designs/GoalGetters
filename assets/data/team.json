@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Kyle Coimbra",
+    "role": "Head Coach & Founder",
+    "bio": "Highly dedicated and passionate coach with years of experience developing winning teams and empowering athletes.",
+    "img": "assets/images/team-kyle.jpg"
+  },
+  {
+    "name": "Jane Doe",
+    "role": "Assistant Coach",
+    "bio": "Former semi-pro player with a knack for tactical insight and individual player development.",
+    "img": "assets/images/team-jane.jpg"
+  }
+]

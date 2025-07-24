@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Elite Training",
+    "description": "One-on-one coaching tailored to your needs.",
+    "img": "assets/images/service-elite.jpg"
+  },
+  {
+    "title": "Team Coaching",
+    "description": "Small group sessions to build teamwork and tactics.",
+    "img": "assets/images/service-team.jpg"
+  },
+  {
+    "title": "Skill Development",
+    "description": "Focus on technical skills and ball mastery.",
+    "img": "assets/images/service-skill.jpg"
+  }
+]

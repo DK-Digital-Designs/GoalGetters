@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Gym Program",
+    "price": "R150",
+    "img": "assets/images/shop-gym.jpg",
+    "link": "mailto:goalgetterscontact@mail.com?subject=Gym%20Program%20Inquiry"
+  },
+  {
+    "title": "Custom Kit",
+    "price": "R350",
+    "img": "assets/images/shop-kit.jpg",
+    "link": "mailto:goalgetterscontact@mail.com?subject=Custom%20Kit%20Inquiry"
+  }
+]

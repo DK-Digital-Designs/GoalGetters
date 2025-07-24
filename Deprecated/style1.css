@@ -1,0 +1,288 @@
+/*────────────────────────────────────────────────────────────────*
+ |  Variables & Reset
+ *────────────────────────────────────────────────────────────────*/
+:root {
+  --primary: #bb8f00;
+  --accent: #f4b41a;
+  --dark: #151515;
+  --light: #ffffff;
+  --transition: 0.3s ease;
+}
+* { margin:0; padding:0; box-sizing: border-box; }
+body {
+  background: var(--dark);
+  color: var(--light);
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/*────────────────────────────────────────────────────────────────*
+ |  Navbar
+ *────────────────────────────────────────────────────────────────*/
+.navbar {
+  background: rgba(0,0,0,0.8);
+  transition: background var(--transition);
+}
+
+/* Make all navbar links white */
+.navbar .nav-link,
+.navbar .navbar-brand {
+  color: var(--light) !important;
+  transition: color var(--transition);
+}
+
+/* Hover / active state */
+.navbar .nav-link:hover,
+.navbar .nav-link.active,
+.navbar .navbar-brand:hover {
+  color: var(--accent) !important;
+}
+
+.navbar.scrolled {
+  background: var(--dark);
+}
+
+
+/*────────────────────────────────────────────────────────────────*
+ |  Hero Video + Parallax
+ *────────────────────────────────────────────────────────────────*/
+.hero-video {
+  position: relative; height: 100vh; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; top:50%; left:50%;
+  min-width:100%; min-height:100%;
+  width:auto; height:auto;
+  transform:translate(-50%,-50%);
+  z-index:1; filter: brightness(0.4);
+}
+.hero-content {
+  position: relative; z-index:2;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; height:100vh;
+  text-align:center;
+}
+.hero-content h1 {
+  font-size:4rem; letter-spacing:0.3em; text-transform:uppercase;
+  color: var(--light); text-shadow:0 0 10px rgba(0,0,0,0.7);
+}
+.btn-gradient {
+  background: linear-gradient(45deg,#f4b41a,#bb8f00,#f4b41a);
+  background-size:200% 200%;
+  color: #111; font-weight:bold;
+  border:none; padding:0.75rem 2rem;
+  border-radius:50px;
+  animation:gradientBG 3s ease infinite;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+@keyframes gradientBG {
+  0% { background-position:0% 50%; }
+  50% { background-position:100% 50%; }
+  100% { background-position:0% 50%; }
+}
+.btn-gradient:hover {
+  transform:scale(1.05);
+  box-shadow:0 8px 20px rgba(0,0,0,0.4);
+}
+
+/*────────────────────────────────────────────────────────────────*
+ |  Sections & Waves
+ *────────────────────────────────────────────────────────────────*/
+section {
+  padding:5rem 0;
+  position: relative;
+  z-index: 2;
+}
+.section-title {
+  text-align:center; font-size:2.5rem; margin-bottom:2rem; position:relative;
+}
+.section-title::after {
+  content:''; width:80px; height:4px;
+  background: var(--accent); display:block; margin:0.5rem auto 0;
+}
+.wave {
+  display:block; width:100%; margin-top:-5px;
+}
+
+/*────────────────────────────────────────────────────────────────*
+ |  Particle Background
+ *────────────────────────────────────────────────────────────────*/
+#particles-bg {
+  position:fixed; top:0; left:0;
+  width:100%; height:100%; z-index:0;
+}
+
+/*────────────────────────────────────────────────────────────────*
+ |  Footer
+ *────────────────────────────────────────────────────────────────*/
+footer {
+  background:#000; text-align:center; padding:2rem 0; font-size:0.9rem;
+}
+
+/*────────────────────────────────────────────────────────────────*
+ |  Utility Reveals
+ *────────────────────────────────────────────────────────────────*/
+.reveal {
+  opacity:0; transform: translateY(20px);
+}
+
+
+/* -------------------------------
+   Booking Page Styles
+   ------------------------------- */
+#booking .section-title {
+  color: var(--accent);
+}
+#booking form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #1a1a1a;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+#booking form .form-control,
+#booking form .form-select {
+  background: #222;
+  border: 1px solid #333;
+  color: #eee;
+  transition: border var(--transition), background var(--transition);
+}
+#booking form .form-control:focus,
+#booking form .form-select:focus {
+  background: #1a1a1a;
+  border-color: var(--accent);
+  box-shadow: none;
+}
+#booking form label {
+  color: #ccc;
+}
+
+/* -------------------------------
+   Contact Page Styles
+   ------------------------------- */
+#contact .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+}
+#contact .contact-info,
+#contact .contact-form {
+  flex: 1 1 300px;
+}
+#contact .contact-info h3 {
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+#contact .contact-info p,
+#contact .contact-info a {
+  color: #ddd;
+  line-height: 1.6;
+}
+#contact .contact-info a:hover {
+  color: var(--primary);
+}
+#contact .contact-form form {
+  background: #1a1a1a;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+#contact .contact-form .form-control {
+  background: #222;
+  border: 1px solid #333;
+  color: #eee;
+}
+#contact iframe {
+  width: 100%;
+  height: 250px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+/* -------------------------------
+   Services Page Styles
+   ------------------------------- */
+#services .row > div {
+  text-align: center;
+}
+#services .row img {
+  max-width: 100%;
+  border-radius: 8px;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+#services .row img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+#services h4 {
+  margin-top: 1rem;
+  color: var(--accent);
+}
+
+/* -------------------------------
+   Events Page Styles
+   ------------------------------- */
+#events .swiper {
+  padding: 2rem 0;
+}
+#events .swiper-slide {
+  background: #111;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+#events .swiper-slide img {
+  width: 100%;
+  object-fit: cover;
+  height: 180px;
+}
+#events .swiper-slide h5 {
+  margin: 0.75rem 0 0.25rem;
+  color: var(--accent);
+}
+#events .swiper-slide p {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* -------------------------------
+   Shop Page Styles
+   ------------------------------- */
+#shop .row > div {
+  text-align: center;
+}
+#shop .row img {
+  width: 100%;
+  border-radius: 8px;
+  transition: transform var(--transition), filter var(--transition);
+}
+#shop .row img:hover {
+  transform: scale(1.03);
+  filter: brightness(1.1);
+}
+#shop h5 {
+  margin-top: 0.75rem;
+  color: var(--accent);
+}
+#shop p {
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+/* -------------------------------
+   Utility: Section IDs on HTML
+   ------------------------------- */
+/*
+  Make sure you’ve added these IDs to each <section> in your HTML:
+
+  <section id="booking">…</section>
+  <section id="contact">…</section>
+  <section id="services">…</section>
+  <section id="events">…</section>
+  <section id="shop">…</section>
+*/

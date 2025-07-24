@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Youth Holiday Camp",
+    "date": "June 2025",
+    "img": "assets/images/event-camp.jpg",
+    "link": "mailto:goalgetterscontact@mail.com?subject=Youth%20Holiday%20Camp"
+  },
+  {
+    "title": "Summer Skills Camp",
+    "date": "December 2025",
+    "img": "assets/images/event-skill.jpg",
+    "link": "mailto:goalgetterscontact@mail.com?subject=Summer%20Skills%20Camp"
+  }
+]
