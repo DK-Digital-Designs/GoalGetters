@@ -15,8 +15,14 @@
   <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
   <!-- Locomotive Scroll -->
   <link href="https://cdn.jsdelivr.net/npm/locomotive-scroll/dist/locomotive-scroll.min.css" rel="stylesheet">
-  <!-- Custom Styles -->
-  <link href="assets/css/style.css" rel="stylesheet">
+
+
+  <!-- 1) Your primary index.css (base layout, colours, typography) -->
+  <link rel="stylesheet" href="assets/css/index.css">
+
+  <!-- 2) The “extra” cinema-vibe styles we built (styles.css) -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+
 </head>
 <body>
 
@@ -32,7 +38,7 @@
       </button>
       <div id="nav" class="collapse navbar-collapse">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
           <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
           <li class="nav-item"><a class="nav-link" href="booking.html">Booking</a></li>
@@ -46,7 +52,7 @@
   <!-- Hero Video + Parallax -->
   <section class="hero-video">
     <video autoplay muted loop playsinline class="hero-bg">
-      <source src="assets/videos/hero.mp4" type="video/mp4"/>
+      <source src="assets/videos/corner-flag.mp4" type="video/mp4"/>
     </video>
     <div class="hero-content" data-scroll data-scroll-speed="1">
       <h1 class="reveal">GOAL GETTERS</h1>
@@ -96,6 +102,8 @@
   <!-- GSAP + ScrollTrigger -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+
+  
   <!-- Main JS -->
   <script src="assets/js/main.js"></script>
 </body>
