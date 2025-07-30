@@ -26,10 +26,10 @@ async function loadJSON(path) {
 // ============================
 async function loadEvents() {
   const data = await loadJSON('assets/data/events.json');
-  const container = document.getElementById('events-container');
-  data.forEach((ev, i) => {
-    container.innerHTML += `
-      <div class="card" data-aos="fade-up" data-aos-delay="${i * 100}">
+  const c = document.getElementById('events-container');
+  data.forEach((ev,i) => {
+    c.innerHTML += `
+      <div class="card" data-aos="fade-up" data-aos-delay="${i*100}">
         <img src="${ev.img}" alt="${ev.title}">
         <h3>${ev.title}</h3>
         <p>${ev.date}</p>
@@ -40,24 +40,24 @@ async function loadEvents() {
 
 async function loadShop() {
   const data = await loadJSON('assets/data/shop.json');
-  const container = document.getElementById('shop-container');
-  data.forEach((item, i) => {
-    container.innerHTML += `
-      <div class="card" data-aos="fade-up" data-aos-delay="${i * 100}">
-        <img src="${item.img}" alt="${item.title}">
-        <h3>${item.title}</h3>
-        <p><strong>${item.price}</strong></p>
-        <a href="${item.link}" class="btn small">Inquire</a>
+  const c = document.getElementById('shop-container');
+  data.forEach((it,i) => {
+    c.innerHTML += `
+      <div class="card" data-aos="fade-up" data-aos-delay="${i*100}">
+        <img src="${it.img}" alt="${it.title}">
+        <h3>${it.title}</h3>
+        <p><strong>${it.price}</strong></p>
+        <a href="${it.link}" class="btn small">Inquire</a>
       </div>`;
   });
 }
 
 async function loadServices() {
   const data = await loadJSON('assets/data/services.json');
-  const container = document.getElementById('services-container');
-  data.forEach((svc, i) => {
-    container.innerHTML += `
-      <div class="card" data-aos="fade-up" data-aos-delay="${i * 100}">
+  const c = document.getElementById('services-container');
+  data.forEach((svc,i) => {
+    c.innerHTML += `
+      <div class="card" data-aos="fade-up" data-aos-delay="${i*100}">
         <img src="${svc.img}" alt="${svc.title}">
         <h3>${svc.title}</h3>
         <p>${svc.description}</p>
@@ -67,39 +67,39 @@ async function loadServices() {
 
 async function loadPricing() {
   const data = await loadJSON('assets/data/pricing.json');
-  const container = document.getElementById('pricing-container');
-  data.forEach((plan, i) => {
-    const features = plan.features.map(f => `<li>${f}</li>`).join('');
-    container.innerHTML += `
-      <div class="card" data-aos="fade-up" data-aos-delay="${i * 100}">
-        <h3>${plan.plan}</h3>
-        <h4>${plan.title}</h4>
-        <ul>${features}</ul>
-        <a href="${plan.link}" class="btn small">Book Now</a>
+  const c = document.getElementById('pricing-container');
+  data.forEach((pl,i) => {
+    const feats = pl.features.map(f => `<li>${f}</li>`).join('');
+    c.innerHTML += `
+      <div class="card" data-aos="fade-up" data-aos-delay="${i*100}">
+        <h3>${pl.plan}</h3>
+        <h4>${pl.title}</h4>
+        <ul>${feats}</ul>
+        <a href="${pl.link}" class="btn small">Book Now</a>
       </div>`;
   });
 }
 
 async function loadTeam() {
   const data = await loadJSON('assets/data/team.json');
-  const container = document.getElementById('team-container');
-  data.forEach((member, i) => {
-    container.innerHTML += `
-      <div class="card" data-aos="fade-up" data-aos-delay="${i * 100}">
-        <img src="${member.img}" alt="${member.name}">
-        <h4>${member.name}</h4>
-        <h5>${member.role}</h5>
-        <p>${member.bio}</p>
+  const c = document.getElementById('team-container');
+  data.forEach((m,i) => {
+    c.innerHTML += `
+      <div class="card" data-aos="fade-up" data-aos-delay="${i*100}">
+        <img src="${m.img}" alt="${m.name}">
+        <h4>${m.name}</h4>
+        <h5>${m.role}</h5>
+        <p>${m.bio}</p>
       </div>`;
   });
 }
 
 async function loadTestimonials() {
   const data = await loadJSON('assets/data/testimonials.json');
-  const container = document.getElementById('testimonials-container');
-  data.forEach((t, i) => {
-    container.innerHTML += `
-      <div class="card" data-aos="fade-up" data-aos-delay="${i * 100}">
+  const c = document.getElementById('testimonials-container');
+  data.forEach((t,i) => {
+    c.innerHTML += `
+      <div class="card" data-aos="fade-up" data-aos-delay="${i*100}">
         <p>${t.text}</p>
         <h4>${t.name}</h4>
       </div>`;
@@ -119,9 +119,9 @@ function initCultureCarousel() {
   const btnNext  = wrapper.querySelector('.next');
   let index = 0;
 
-  const update = () => {
+  function update() {
     slidesEl.style.transform = `translateX(-${index * 100}%)`;
-  };
+  }
 
   btnNext.addEventListener('click', () => {
     index = (index + 1) % slides.length;
@@ -134,37 +134,66 @@ function initCultureCarousel() {
 }
 
 // ============================
-// Main Initialization
+// Floating Action Button (FAB)
 // ============================
-document.addEventListener('DOMContentLoaded', async () => {
-  // 1) Shared includes
-  await includeHTML('#header-placeholder', 'assets/includes/header.html');
-  await includeHTML('#footer-placeholder', 'assets/includes/footer.html');
+function initFAB() {
+  const fab = document.querySelector('.fab-container');
+  if (!fab) return;
 
-  // 2) Mobile Nav Toggle
+  const mainBtn   = fab.querySelector('.fab-main');
+  const scrollBtn = fab.querySelector('#scrollTopBtn');
+
+  // Toggle the action list
+  mainBtn.addEventListener('click', () => fab.classList.toggle('open'));
+
+  // Scroll to top
+  scrollBtn.addEventListener('click', () =>
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  );
+
+  // Close if clicked outside
+  document.addEventListener('click', e => {
+    if (!fab.contains(e.target)) fab.classList.remove('open');
+  });
+}
+
+// ============================
+// Navigation & Scroll Header
+// ============================
+function initNav() {
+  // Mobile menu toggle
   const navToggle = document.querySelector('.nav-toggle');
   const navMenu   = document.querySelector('.nav-menu');
   navToggle?.addEventListener('click', () => {
     navMenu.classList.toggle('open');
   });
 
-  // 3) Navbar background on scroll
+  // Navbar background on scroll
   const navbar = document.querySelector('.navbar');
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 50);
   });
+}
 
-  // 4) AOS init
+// ============================
+// App EntryPoint
+// ============================
+document.addEventListener('DOMContentLoaded', async () => {
+  // 1) Load shared header & footer
+  await includeHTML('#header-placeholder', 'assets/includes/header.html');
+  await includeHTML('#footer-placeholder', 'assets/includes/footer.html');
+
+  // 2) Kick off UI components
+  initNav();
   AOS.init({ duration: 800, once: true });
-
-  // 5) Culture carousel
+  initFAB();
   initCultureCarousel();
 
-  // 6) Dynamic section loading
-  if (document.getElementById('events-container'))      loadEvents();
-  if (document.getElementById('shop-container'))        loadShop();
-  if (document.getElementById('services-container'))    loadServices();
-  if (document.getElementById('pricing-container'))     loadPricing();
-  if (document.getElementById('team-container'))        loadTeam();
-  if (document.getElementById('testimonials-container')) loadTestimonials();
+  // 3) Load dynamic sections
+  if (document.getElementById('events-container'))       await loadEvents();
+  if (document.getElementById('shop-container'))         await loadShop();
+  if (document.getElementById('services-container'))     await loadServices();
+  if (document.getElementById('pricing-container'))      await loadPricing();
+  if (document.getElementById('team-container'))         await loadTeam();
+  if (document.getElementById('testimonials-container')) await loadTestimonials();
 });

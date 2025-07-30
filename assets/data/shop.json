@@ -1,14 +1,14 @@
 [
   {
-    "title": "Gym Program",
-    "price": "R150",
-    "img": "assets/images/shop-gym.jpg",
-    "link": "mailto:goalgetterscontact@mail.com?subject=Gym%20Program%20Inquiry"
+    "title": "Diet Guidelines (PDF)",
+    "price": "Contact for details",
+    "img": "assets/images/Diet-preview.png",
+    "link": "mailto:goalgetterscontact@mail.com?subject=Diet%20Guidelines"
   },
   {
-    "title": "Custom Kit",
-    "price": "R350",
-    "img": "assets/images/shop-kit.jpg",
-    "link": "mailto:goalgetterscontact@mail.com?subject=Custom%20Kit%20Inquiry"
+    "title": "Elite Footballer Workout (PDF)",
+    "price": "Contact for details",
+    "img": "assets/images/workout-preview.jpg",
+    "link": "mailto:goalgetterscontact@mail.com?subject=Elite%20Footballer%20Workout"
   }
 ]

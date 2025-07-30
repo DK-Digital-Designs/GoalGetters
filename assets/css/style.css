@@ -320,3 +320,97 @@ footer {
     padding: 0.2rem 0.5rem;
   }
 }
+
+/* —— FAB Container —— */
+.fab-container {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 56px;
+  height: 56px;
+  z-index: 9999;
+}
+
+/* —— Main “+” Button —— */
+.fab-main {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform var(--transition);
+}
+.fab-main:hover {
+  transform: scale(1.1);
+}
+
+/* —— Action List (hidden by default) —— */
+.fab-actions {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* —— Individual Action Buttons —— */
+.fab-action {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  opacity: 0;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+/* —— When Open: show & position actions —— */
+.fab-container.open .fab-action {
+  opacity: 1;
+}
+
+/* 9 o’clock: first action (scrollTop) —— */
+.fab-container.open .fab-actions li:nth-child(1) .fab-action {
+  transform: translateX(-70px);
+}
+
+/* 12 o’clock: second action (WhatsApp) —— */
+.fab-container.open .fab-actions li:nth-child(2) .fab-action {
+  transform: translateY(-70px);
+}
+
+/* —— Tapping outside closes it —— */
+/* 1) Prevent clicks on hidden actions */
+.fab-actions,
+.fab-action {
+  pointer-events: none;
+}
+
+/* 2) Once open, allow clicks */
+.fab-container.open .fab-actions,
+.fab-container.open .fab-action {
+  pointer-events: auto;
+}
+
+/* 3) Make sure the main “+” is always on top */
+.fab-main {
+  z-index: 2;
+}
+.fab-action {
+  z-index: 1;
+}
