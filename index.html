@@ -10,46 +10,30 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <!-- NAVBAR -->
-  <header class="navbar">
-    <a href="index.html" class="logo">
-      <img src="assets/images/hero.jpg" alt="Goal Getters FC Logo">
-    </a>
-    <button class="nav-toggle" aria-label="toggle menu">
-      <span class="hamburger"></span>
-    </button>
-    <ul class="nav-menu">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="booking.html">Booking</a></li>
-      <li><a href="shop.html">Shop</a></li>
-    </ul>
-  </header>
+  <!-- SHARED HEADER -->
+  <div id="header-placeholder"></div>
 
   <main>
-     <!-- HERO with video background -->
-  <section class="hero video-hero" data-aos="fade-in">
-    <!-- HTML5 video: autoplay, muted, loop, playsinline -->
-    <video
-      class="hero-video"
-      autoplay
-      muted
-      loop
-      playsinline
-      poster="assets/images/hero.jpg"
-    >
-      <source src="assets/images/training-cones.mp4" type="video/mp4">
-      <!-- fallback text if video unsupported -->
-      Your browser doesn’t support HTML5 video.
-    </video>
+    <!-- HERO with video background -->
+    <section class="hero video-hero" data-aos="fade-in">
+      <video
+        class="hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        poster="assets/images/hero.jpg"
+      >
+        <source src="assets/images/training-cones.mp4" type="video/mp4">
+        Your browser doesn’t support HTML5 video.
+      </video>
 
-    <!-- your existing content -->
-    <div class="container hero-content">
-      <h1>Reach New Heights with Goal Getters</h1>
-      <p>Your journey to elite football starts here.</p>
-      <a href="booking.html" class="btn">Get Started</a>
-    </div>
-  </section>
+      <div class="container hero-content">
+        <h1>Reach New Heights with Goal Getters</h1>
+        <p>Your journey to elite football starts here.</p>
+        <a href="booking.html" class="btn">Get Started</a>
+      </div>
+    </section>
 
     <!-- EVENTS PREVIEW -->
     <section id="events" class="teaser-section">
@@ -82,9 +66,8 @@
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Goal Getters FC. All rights reserved.</p>
-  </footer>
+  <!-- SHARED FOOTER -->
+  <div id="footer-placeholder"></div>
 
   <!-- Scripts -->
   <script src="https://unpkg.com/aos/dist/aos.js"></script>
