@@ -226,3 +226,61 @@ footer {
   .hero p  { font-size: 1rem; }
   .cards  { grid-template-columns: 1fr; }
 }
+
+/* Carousel wrapper */
+.carousel-container {
+  position: relative;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+/* Overflow-hidden viewport */
+.culture-slider {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+/* Slides in a row */
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Each slide 100% width */
+.slide {
+  min-width: 100%;
+}
+.slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Arrow buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.carousel-btn:hover {
+  background: rgba(0,0,0,0.8);
+}
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
+
+/* Responsive tweak */
+@media(max-width: 600px) {
+  .carousel-btn {
+    font-size: 1.5rem;
+    padding: 0.2rem 0.5rem;
+  }
+}

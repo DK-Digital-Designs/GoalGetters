@@ -117,3 +117,35 @@ async function loadTestimonials() {
       </div>`;
   });
 }
+
+// CULTURE CAROUSEL
+function initCultureCarousel() {
+  const container = document.querySelector('#culture .carousel-container');
+  if (!container) return;
+
+  const slidesEl = container.querySelector('.slides');
+  const slides   = Array.from(slidesEl.children);
+  const prevBtn  = container.querySelector('.prev');
+  const nextBtn  = container.querySelector('.next');
+  let index = 0;
+
+  function updateCarousel() {
+    slidesEl.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  nextBtn.addEventListener('click', () => {
+    index = (index + 1) % slides.length;
+    updateCarousel();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    index = (index - 1 + slides.length) % slides.length;
+    updateCarousel();
+  });
+}
+
+// init on DOM ready (after your other loaders)
+document.addEventListener('DOMContentLoaded', () => {
+  initCultureCarousel();
+});
+

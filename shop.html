@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Shop – Goal Getters FC</title>
+  <!-- AOS CSS for scroll animations -->
+  <link href="https://unpkg.com/aos/dist/aos.css" rel="stylesheet">
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- HEADER / NAVBAR -->
+  <header class="navbar">
+    <a href="index.html" class="logo">
+      <img src="assets/images/merch.jpg" alt="Goal Getters FC Logo">
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <span class="hamburger"></span>
+    </button>
+    <ul class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="booking.html">Booking</a></li>
+      <li><a href="shop.html" class="active">Shop</a></li>
+    </ul>
+  </header>
+
+  <main>
+    <!-- HERO BANNER -->
+    <section class="hero small" style="background-image:url('assets/images/merch.jpg')" data-aos="fade-in">
+      <div class="container">
+        <h1>Official Merch & Programs</h1>
+        <p>Gear up with Goal Getters FC – from beanies to training kits, we've got you covered.</p>
+        <a href="#merchandise" class="btn">Browse Merch</a>
+      </div>
+    </section>
+
+    <!-- MERCHANDISE GRID -->
+    <section id="merchandise" class="teaser-section alt-bg">
+      <div class="container">
+        <h2>All Merchandise</h2>
+        <div id="shop-container" class="grid cards">
+          <!-- JS will inject cards here from assets/data/shop.json -->
+        </div>
+        <p style="text-align:center; margin-top:1.5rem; color:#ccc;">
+          Have questions or bulk orders? <br>
+          <a href="mailto:goalgetterscontact@mail.com" class="btn small">Contact Us</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Goal Getters FC. All rights reserved.</p>
+  </footer>
+
+  <!-- AOS & Main JS -->
+  <script src="https://unpkg.com/aos/dist/aos.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
