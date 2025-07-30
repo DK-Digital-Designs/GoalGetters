@@ -27,14 +27,29 @@
   </header>
 
   <main>
-    <!-- HERO -->
-    <section class="hero" style="background-image:url('assets/images/hero.jpg')" data-aos="fade-in">
-      <div class="container">
-        <h1>Reach New Heights with Goal Getters</h1>
-        <p>Your journey to elite football starts here.</p>
-        <a href="booking.html" class="btn">Get Started</a>
-      </div>
-    </section>
+     <!-- HERO with video background -->
+  <section class="hero video-hero" data-aos="fade-in">
+    <!-- HTML5 video: autoplay, muted, loop, playsinline -->
+    <video
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      poster="assets/images/hero.jpg"
+    >
+      <source src="assets/images/training-cones.mp4" type="video/mp4">
+      <!-- fallback text if video unsupported -->
+      Your browser doesn’t support HTML5 video.
+    </video>
+
+    <!-- your existing content -->
+    <div class="container hero-content">
+      <h1>Reach New Heights with Goal Getters</h1>
+      <p>Your journey to elite football starts here.</p>
+      <a href="booking.html" class="btn">Get Started</a>
+    </div>
+  </section>
 
     <!-- EVENTS PREVIEW -->
     <section id="events" class="teaser-section">
