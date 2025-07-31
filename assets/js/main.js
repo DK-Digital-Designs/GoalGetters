@@ -161,11 +161,22 @@ function initFAB() {
 // Navigation & Scroll Header
 // ============================
 function initNav() {
-  // Mobile menu toggle
   const navToggle = document.querySelector('.nav-toggle');
   const navMenu   = document.querySelector('.nav-menu');
+  const links     = document.querySelectorAll('.nav-link');
+
+  // Mobile toggle
   navToggle?.addEventListener('click', () => {
+    const open = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', String(!open));
     navMenu.classList.toggle('open');
+  });
+
+  // Active link highlighting
+  links.forEach(link => {
+    if (link.href === location.href || location.pathname.endsWith(link.getAttribute('href'))) {
+      link.classList.add('active');
+    }
   });
 
   // Navbar background on scroll

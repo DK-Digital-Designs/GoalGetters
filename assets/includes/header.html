@@ -1,15 +1,30 @@
-<header class="navbar">
-  <a href="index.html" class="logo">
-    <img src="assets/images/merch.jpg" alt="Goal Getters FC Logo">
+<header id="site-header" class="navbar" role="banner">
+  <a href="index.html" class="logo" aria-label="Goal Getters FC Home">
+    <img
+      src="assets/images/gg_applogo_500.png"
+      class="logo-img"
+      loading="lazy"
+      width="150"
+      height="150"
+      alt="Goal Getters FC Logo"
+    >
   </a>
-  <button class="nav-toggle" aria-label="Toggle menu">
+
+  <button
+    class="nav-toggle"
+    aria-label="Toggle menu"
+    aria-expanded="false"
+    aria-controls="nav-menu"
+  >
     <span class="hamburger"></span>
   </button>
-  <ul class="nav-menu">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="booking.html">Booking</a></li>
-    <li><a href="shop.html">Shop</a></li>
-  </ul>
+
+  <nav id="nav-menu" class="nav-menu" role="navigation">
+    <ul>
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="booking.html" class="nav-link">Booking</a></li>
+      <li><a href="shop.html" class="nav-link">Shop</a></li>
+    </ul>
+  </nav>
 </header>
- 

@@ -28,32 +28,52 @@ img { max-width: 100%; display: block; }
   3. Navbar
 ------------------------------------*/
 .navbar {
-  position: fixed; top: 0; left: 0; width: 100%;
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  display: flex; align-items: center; justify-content: space-between;
   padding: 1rem 2rem;
-  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
   z-index: 1000;
-  background: rgba(0,0,0,0.6); 
-  transition: background var(--transition);
+  transition: background var(--transition), backdrop-filter var(--transition);
 }
-.navbar.scrolled { background: rgba(0,0,0,0.85); }
-
-.logo img { height: 50px; }
-
-.nav-menu {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
+.navbar.scrolled {
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(10px);
 }
-.nav-menu a {
+
+/* Logo */
+.logo-img { display: block; max-height: 85px; }
+
+/* Nav Menu */
+.nav-menu ul { 
+  display: flex; 
+  gap: 2rem; 
+  list-style: none; 
+  margin: 0; padding: 0;
+}
+.nav-menu a.nav-link {
+  color: var(--fg);
   font-weight: 600;
+  position: relative;
   transition: color var(--transition);
 }
-.nav-menu a:hover { color: var(--accent); }
+/* Active link underline */
+.nav-menu a.nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 100%; height: 2px;
+  background: var(--accent);
+}
+.nav-menu a.nav-link:hover {
+  color: var(--accent);
+}
 
+/* Mobile Toggle */
 .nav-toggle {
   display: none;
-  background: none;
-  border: none;
+  background: none; border: none;
   cursor: pointer;
 }
 .hamburger,
@@ -62,7 +82,7 @@ img { max-width: 100%; display: block; }
   width: 30px; height: 3px;
   background: var(--fg);
   position: relative;
-  transition: background var(--transition);
+  transition: background var(--transition), transform 0.3s;
 }
 .hamburger::before,
 .hamburger::after {
@@ -71,18 +91,70 @@ img { max-width: 100%; display: block; }
 }
 .hamburger::before { top: -8px; }
 .hamburger::after  { top:  8px; }
+.nav-toggle[aria-expanded="true"] .hamburger {
+  background: transparent;
+}
+.nav-toggle[aria-expanded="true"] .hamburger::before {
+  transform: translateY(8px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] .hamburger::after {
+  transform: translateY(-8px) rotate(-45deg);
+}
 
 @media(max-width:768px){
-  .nav-toggle { display: block; }
-  .nav-menu {
-    position: absolute; top:100%; left:0; width:100%;
-    background: var(--bg);
-    flex-direction: column; align-items: center;
-    max-height: 0; overflow: hidden;
-    transition: max-height var(--transition);
+  .nav-toggle {
+    display: block;
   }
-  .nav-menu.open { max-height: 300px; }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 33vh;                         /* only cover top third */
+    background: rgba(0,0,0,0.4);          /* semi-transparent */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transform: translateY(-33vh);         /* hidden above the fold */
+    transition: transform var(--transition);
+    z-index: 999;                         /* below header (z-index:1000) */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;           /* items sit at the bottom of this container */
+    align-items: center;
+  }
+
+  .nav-menu.open {
+    transform: translateY(0);             /* slide into view */
+  }
+
+  .nav-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .nav-menu a.nav-link {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+    color: var(--fg);
+    transition: background var(--transition), color var(--transition);
+  }
+  .nav-menu a.nav-link:hover,
+  .nav-menu a.nav-link.active {
+    background: var(--accent);
+    color: var(--bg);
+  }
 }
+
 
 /*-----------------------------------
   4. Hero
@@ -333,23 +405,27 @@ footer {
 
 /* —— Main “+” Button —— */
 .fab-main {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: var(--accent);
-  color: var(--bg);
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  transition: transform var(--transition);
-}
-.fab-main:hover {
-  transform: scale(1.1);
-}
+   position: absolute;
+   bottom: 0;
+   right: 0;
+   width: 56px;
+   height: 56px;
+   border-radius: 50%;
+   background: var(--accent);
+   color: var(--bg);
+   border: none;
+   font-size: 1.5rem;
+   cursor: pointer;
+   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+   transition: transform var(--transition);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+ }
+ .fab-main:hover {
+   transform: scale(1.1);
+ }
+
 
 /* —— Action List (hidden by default) —— */
 .fab-actions {
@@ -377,6 +453,9 @@ footer {
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   opacity: 0;
   transition: transform var(--transition), opacity var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* —— When Open: show & position actions —— */
@@ -413,4 +492,20 @@ footer {
 }
 .fab-action {
   z-index: 1;
+}
+
+/* Color the scroll‐to‐top button red */
+.fab-scroll {
+  background: #e53e3e;
+}
+.fab-scroll:hover {
+  background: #c53030;
+}
+
+/* Color the WhatsApp button green */
+.fab-whatsapp {
+  background: #25d366;
+}
+.fab-whatsapp:hover {
+  background: #1ebe5d;
 }
