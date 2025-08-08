@@ -1,210 +1,207 @@
-// ============================
-// Simple HTML Include Helper
-// ============================
-async function includeHTML(selector, url) {
+/* @reference: https://developer.mozilla.org/en-US/docs/Web/Guide/DOM/Using_event_listeners */
+/* Main site JS:
+   - single loader for JSON-driven sections
+   - carousel with touch support
+   - nav toggle + active link highlighting
+   - FAB actions
+   - AOS init after content inserted
+*/
+
+(async () => {
+  // 1) inject header + footer
+  await includeHTML('#header', 'assets/includes/header.html').catch(()=>{});
+  await includeHTML('#footer', 'assets/includes/footer.html').catch(()=>{});
+  // our placeholders are named header-placeholder / footer-placeholder in pages
+  await includeHTML('#header-placeholder', 'assets/includes/header.html').catch(()=>{});
+  await includeHTML('#footer-placeholder', 'assets/includes/footer.html').catch(()=>{});
+
+  // 2) wire nav toggle
+  initNavToggle();
+
+  // 3) load dynamic sections (data-driven)
+  await Promise.all([
+    loadSection('events-container', 'assets/data/events.json', cardEventTemplate),
+    loadSection('shop-container', 'assets/data/shop.json', cardShopTemplate),
+    loadSection('services-container', 'assets/data/services.json', cardServiceTemplate),
+    loadSection('pricing-container', 'assets/data/pricing.json', cardPricingTemplate),
+    loadSection('team-container', 'assets/data/team.json', cardTeamTemplate),
+    loadSection('testimonials-container', 'assets/data/testimonials.json', cardTestimonialTemplate),
+  ]);
+
+  // 4) initialize UI components
+  initAOS();
+  initCarousel(); // handles any .carousel instances
+  initFAB();
+  highlightActiveLinks();
+})();
+
+/* ---------- Generic section loader ---------- */
+async function loadSection(containerId, dataPath, tmplFn) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
   try {
-    const resp = await fetch(url);
-    if (!resp.ok) throw new Error(`Failed to load ${url}`);
-    const html = await resp.text();
-    document.querySelector(selector).innerHTML = html;
+    const r = await fetch(dataPath);
+    if (!r.ok) throw new Error(`Failed to load ${dataPath}`);
+    const data = await r.json();
+    el.innerHTML = data.map((item, i) => tmplFn(item, i)).join('');
   } catch (err) {
     console.error(err);
+    el.innerHTML = `<div class="muted">Unable to load content.</div>`;
   }
 }
 
-// ============================
-// JSON Data Loader
-// ============================
-async function loadJSON(path) {
-  const resp = await fetch(path);
-  if (!resp.ok) throw new Error(`Failed to fetch ${path}`);
-  return resp.json();
+/* ---------- Template functions ---------- */
+function cardEventTemplate(ev) {
+  return `<article class="card" data-aos="fade-up">
+    <img src="${ev.img}" alt="${escapeHtml(ev.title)}">
+    <div class="card-body">
+      <h3>${escapeHtml(ev.title)}</h3>
+      <p class="muted">${escapeHtml(ev.date)}</p>
+      <div class="meta"><a class="btn small" href="${ev.link}">Learn more</a></div>
+    </div>
+  </article>`;
 }
 
-// ============================
-// Section Renderers
-// ============================
-async function loadEvents() {
-  const data = await loadJSON('assets/data/events.json');
-  const c = document.getElementById('events-container');
-  data.forEach((ev,i) => {
-    c.innerHTML += `
-      <div class="card" data-aos="fade-up" data-aos-delay="${i*100}">
-        <img src="${ev.img}" alt="${ev.title}">
-        <h3>${ev.title}</h3>
-        <p>${ev.date}</p>
-        <a href="${ev.link}" class="btn small">Learn More</a>
-      </div>`;
-  });
+function cardShopTemplate(it){
+  return `<article class="card" data-aos="fade-up">
+    <img src="${it.img}" alt="${escapeHtml(it.title)}">
+    <div class="card-body">
+      <h3>${escapeHtml(it.title)}</h3>
+      <p class="muted"><strong>${escapeHtml(it.price||'')}</strong></p>
+      <div class="meta"><a class="btn small" href="${it.link}">Inquire</a></div>
+    </div>
+  </article>`;
 }
 
-async function loadShop() {
-  const data = await loadJSON('assets/data/shop.json');
-  const c = document.getElementById('shop-container');
-  data.forEach((it,i) => {
-    c.innerHTML += `
-      <div class="card" data-aos="fade-up" data-aos-delay="${i*100}">
-        <img src="${it.img}" alt="${it.title}">
-        <h3>${it.title}</h3>
-        <p><strong>${it.price}</strong></p>
-        <a href="${it.link}" class="btn small">Inquire</a>
-      </div>`;
-  });
+function cardServiceTemplate(s){
+  return `<article class="card" data-aos="fade-up">
+    <img src="${s.img}" alt="${escapeHtml(s.title)}">
+    <div class="card-body">
+      <h3>${escapeHtml(s.title)}</h3>
+      <p class="muted">${escapeHtml(s.description||'')}</p>
+    </div>
+  </article>`;
 }
 
-async function loadServices() {
-  const data = await loadJSON('assets/data/services.json');
-  const c = document.getElementById('services-container');
-  data.forEach((svc,i) => {
-    c.innerHTML += `
-      <div class="card" data-aos="fade-up" data-aos-delay="${i*100}">
-        <img src="${svc.img}" alt="${svc.title}">
-        <h3>${svc.title}</h3>
-        <p>${svc.description}</p>
-      </div>`;
-  });
+function cardPricingTemplate(p){
+  const feats = (p.features||[]).map(f=>`<li>${escapeHtml(f)}</li>`).join('');
+  return `<article class="card" data-aos="fade-up">
+    <div class="card-body">
+      <h3>${escapeHtml(p.plan)}</h3>
+      <h4>${escapeHtml(p.title)}</h4>
+      <ul>${feats}</ul>
+      <div class="meta"><a class="btn small" href="${p.link}">Book now</a></div>
+    </div>
+  </article>`;
 }
 
-async function loadPricing() {
-  const data = await loadJSON('assets/data/pricing.json');
-  const c = document.getElementById('pricing-container');
-  data.forEach((pl,i) => {
-    const feats = pl.features.map(f => `<li>${f}</li>`).join('');
-    c.innerHTML += `
-      <div class="card" data-aos="fade-up" data-aos-delay="${i*100}">
-        <h3>${pl.plan}</h3>
-        <h4>${pl.title}</h4>
-        <ul>${feats}</ul>
-        <a href="${pl.link}" class="btn small">Book Now</a>
-      </div>`;
-  });
+function cardTeamTemplate(m){
+  return `<article class="card" data-aos="fade-up">
+    <img src="${m.img}" alt="${escapeHtml(m.name)}">
+    <div class="card-body">
+      <h3>${escapeHtml(m.name)}</h3>
+      <p class="muted">${escapeHtml(m.role)}</p>
+      <p class="muted">${escapeHtml(m.bio||'')}</p>
+    </div>
+  </article>`;
 }
 
-async function loadTeam() {
-  const data = await loadJSON('assets/data/team.json');
-  const c = document.getElementById('team-container');
-  data.forEach((m,i) => {
-    c.innerHTML += `
-      <div class="card" data-aos="fade-up" data-aos-delay="${i*100}">
-        <img src="${m.img}" alt="${m.name}">
-        <h4>${m.name}</h4>
-        <h5>${m.role}</h5>
-        <p>${m.bio}</p>
-      </div>`;
-  });
+function cardTestimonialTemplate(t){
+  return `<article class="card" data-aos="fade-up">
+    <div class="card-body">
+      <p>${escapeHtml(t.text)}</p>
+      <h4 style="color:var(--accent);margin-top:1rem">${escapeHtml(t.name)}</h4>
+    </div>
+  </article>`;
 }
 
-async function loadTestimonials() {
-  const data = await loadJSON('assets/data/testimonials.json');
-  const c = document.getElementById('testimonials-container');
-  data.forEach((t,i) => {
-    c.innerHTML += `
-      <div class="card" data-aos="fade-up" data-aos-delay="${i*100}">
-        <p>${t.text}</p>
-        <h4>${t.name}</h4>
-      </div>`;
-  });
-}
+/* small helper to escape user data in templates */
+function escapeHtml(s){ return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 
-// ============================
-// Culture Carousel
-// ============================
-function initCultureCarousel() {
-  const wrapper = document.querySelector('#culture .carousel-container');
-  if (!wrapper) return;
-
-  const slidesEl = wrapper.querySelector('.slides');
-  const slides   = Array.from(slidesEl.children);
-  const btnPrev  = wrapper.querySelector('.prev');
-  const btnNext  = wrapper.querySelector('.next');
-  let index = 0;
-
-  function update() {
-    slidesEl.style.transform = `translateX(-${index * 100}%)`;
+/* ---------- AOS init ---------- */
+function initAOS(){
+  if (window.AOS) {
+    AOS.init({duration:700, once:true, easing:'ease-out-cubic'});
+    // refresh after content inserted
+    window.setTimeout(()=>AOS.refresh(), 50);
   }
-
-  btnNext.addEventListener('click', () => {
-    index = (index + 1) % slides.length;
-    update();
-  });
-  btnPrev.addEventListener('click', () => {
-    index = (index - 1 + slides.length) % slides.length;
-    update();
-  });
 }
 
-// ============================
-// Floating Action Button (FAB)
-// ============================
-function initFAB() {
-  const fab = document.querySelector('.fab-container');
-  if (!fab) return;
-
-  const mainBtn   = fab.querySelector('.fab-main');
-  const scrollBtn = fab.querySelector('#scrollTopBtn');
-
-  // Toggle the action list
-  mainBtn.addEventListener('click', () => fab.classList.toggle('open'));
-
-  // Scroll to top
-  scrollBtn.addEventListener('click', () =>
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  );
-
-  // Close if clicked outside
-  document.addEventListener('click', e => {
-    if (!fab.contains(e.target)) fab.classList.remove('open');
-  });
-}
-
-// ============================
-// Navigation & Scroll Header
-// ============================
-function initNav() {
-  const navToggle = document.querySelector('.nav-toggle');
-  const navMenu   = document.querySelector('.nav-menu');
-  const links     = document.querySelectorAll('.nav-link');
-
-  // Mobile toggle
-  navToggle?.addEventListener('click', () => {
-    const open = navToggle.getAttribute('aria-expanded') === 'true';
-    navToggle.setAttribute('aria-expanded', String(!open));
-    navMenu.classList.toggle('open');
+/* ---------- Nav toggle + close on link click ---------- */
+function initNavToggle(){
+  const btn = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('.primary-nav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!open));
+    nav.classList.toggle('open', !open);
   });
 
-  // Active link highlighting
-  links.forEach(link => {
-    if (link.href === location.href || location.pathname.endsWith(link.getAttribute('href'))) {
-      link.classList.add('active');
+  // close when a link clicked
+  nav.addEventListener('click', e => {
+    if (e.target.matches('.nav__link')) {
+      nav.classList.remove('open');
+      btn.setAttribute('aria-expanded','false');
     }
   });
+}
 
-  // Navbar background on scroll
-  const navbar = document.querySelector('.navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 50);
+/* highlight active nav links */
+function highlightActiveLinks(){
+  const links = document.querySelectorAll('.nav__link');
+  links.forEach(a=>{
+    try{
+      const href = new URL(a.href, location.href);
+      if (href.pathname === location.pathname) a.classList.add('active');
+    }catch(e){}
   });
 }
 
-// ============================
-// App EntryPoint
-// ============================
-document.addEventListener('DOMContentLoaded', async () => {
-  // 1) Load shared header & footer
-  await includeHTML('#header-placeholder', 'assets/includes/header.html');
-  await includeHTML('#footer-placeholder', 'assets/includes/footer.html');
+/* ---------- Simple carousel with touch support ---------- */
+function initCarousel(){
+  const carousels = document.querySelectorAll('.carousel');
+  carousels.forEach(car => {
+    const slidesWrap = car.querySelector('.carousel__slides');
+    if (!slidesWrap) return;
+    const slides = Array.from(slidesWrap.children);
+    const prev = car.querySelector('.carousel__btn--prev');
+    const next = car.querySelector('.carousel__btn--next');
+    let idx = 0;
 
-  // 2) Kick off UI components
-  initNav();
-  AOS.init({ duration: 800, once: true });
-  initFAB();
-  initCultureCarousel();
+    function go(i){
+      idx = (i + slides.length) % slides.length;
+      slidesWrap.style.transform = `translateX(-${idx*100}%)`;
+    }
+    prev?.addEventListener('click', ()=>go(idx-1));
+    next?.addEventListener('click', ()=>go(idx+1));
 
-  // 3) Load dynamic sections
-  if (document.getElementById('events-container'))       await loadEvents();
-  if (document.getElementById('shop-container'))         await loadShop();
-  if (document.getElementById('services-container'))     await loadServices();
-  if (document.getElementById('pricing-container'))      await loadPricing();
-  if (document.getElementById('team-container'))         await loadTeam();
-  if (document.getElementById('testimonials-container')) await loadTestimonials();
-});
+    // touch support
+    let startX = 0, dist = 0;
+    slidesWrap.addEventListener('touchstart', e => startX = e.changedTouches[0].clientX);
+    slidesWrap.addEventListener('touchend', e=>{
+      dist = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dist) > 40) go(dist > 0 ? idx-1 : idx+1);
+    });
+  });
+}
+
+/* ---------- Floating action button ---------- */
+function initFAB(){
+  const fab = document.querySelector('.fab');
+  if (!fab) return;
+  const main = fab.querySelector('.fab__main');
+  const actions = fab.querySelector('.fab__actions');
+  const scrollBtn = document.getElementById('scrollTopBtn');
+
+  main?.addEventListener('click', () => {
+    fab.classList.toggle('open');
+    const open = fab.classList.contains('open');
+    actions?.setAttribute('aria-hidden', String(!open));
+  });
+
+  scrollBtn?.addEventListener('click', ()=>window.scrollTo({top:0,behavior:'smooth'}));
+  document.addEventListener('click', (ev) => {
+    if (!fab.contains(ev.target)) fab.classList.remove('open');
+  });
+}

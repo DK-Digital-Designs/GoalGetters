@@ -1,46 +1,27 @@
-<body>
-<footer>
-  <p>&copy; 2025 Goal Getters FC. All rights reserved.</p>
-    <p>Follow us on social media for updates and news!</p>
-    <ul class="social-links">
-        <li><a href="https://www.facebook.com/GoalGettersFC" target="_blank">Facebook</a></li>
-        <li><a href="https://www.instagram.com/GoalGettersFC" target="_blank">Instagram</a></li>
-        <li><a href="https://www.twitter.com/GoalGettersFC" target="_blank">Twitter</a></li>
-        <li><a href="https://www.youtube.com/GoalGettersFC" target="_blank">YouTube</a></li>
+<!-- @reference: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container footer__inner">
+    <div class="footer__left">
+      <p>&copy; 2025 Goal Getters FC. All rights reserved.</p>
+      <p class="muted">Follow us on social for updates and news.</p>
+      <ul class="social-links">
+        <li><a href="https://www.facebook.com/GoalGettersFC" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+        <li><a href="https://www.instagram.com/GoalGettersFC" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="https://www.twitter.com/GoalGettersFC" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+        <li><a href="https://www.youtube.com/GoalGettersFC" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+      </ul>
+    </div>
 
+    <div class="footer__right">
+      <!-- Floating Action Button -->
+      <div class="fab" aria-hidden="false">
+        <button class="fab__main" aria-label="Quick actions" title="Quick actions">+</button>
+        <ul class="fab__actions" aria-hidden="true">
+          <li><button id="scrollTopBtn" class="fab__action fab__action--scroll" title="Scroll to top">↑</button></li>
+          <li><a href="https://wa.me/27XXXXXXXXX" class="fab__action fab__action--whatsapp" target="_blank" rel="noopener noreferrer" title="WhatsApp">💬</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </footer>
-
-<!-- FAB: Floating Action Button -->
-<div class="fab-container">
-  <button
-  class="fab-main"
-  aria-label="Quick actions"
-  title="Quick Actions Menu"
->
-  ✚
-</button>
-
-  <ul class="fab-actions">
-    <li>
-      <button
-        id="scrollTopBtn"
-        class="fab-action fab-scroll"
-        aria-label="Scroll to top"
-        title="Scroll to top"
-      >↑</button>
-    </li>
-    <li>
-      <a
-        href="https://wa.me/27XXXXXXXXX"
-        class="fab-action fab-whatsapp"
-        aria-label="WhatsApp"
-        title="WhatsApp"
-        target="_blank"
-        rel="noopener noreferrer"
-      >📲</a>
-    </li>
-  </ul>
-</div>
-
-
 

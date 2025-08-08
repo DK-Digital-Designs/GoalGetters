@@ -1,75 +1,66 @@
-<!DOCTYPE html>
+<!-- @reference: https://developer.mozilla.org/en-US/docs/Web/HTML -->
+<!doctype html>
 <html lang="en">
-<head>
-  <!-- page-specific title -->
-  <title>Home – Goal Getters FC</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Home – Goal Getters FC</title>
+    <meta name="description" content="Reach New Heights with Goal Getters — Goal Getters FC" />
+    <!-- load shared head partial -->
+    <script src="assets/js/includes.js" defer></script>
+    <script>document.addEventListener('DOMContentLoaded', () => includeHTML('head', 'assets/includes/head.html'));</script>
+  </head>
+  <body>
+    <!-- shared header -->
+    <div id="header-placeholder"></div>
 
-  <!-- loader for the shared head.partial -->
-  <script src="assets/js/include-head.js" defer></script>
-</head>
+    <main>
+      <!-- HERO -->
+      <section class="hero hero--video" aria-label="Site hero">
+        <video class="hero__video" autoplay muted loop playsinline poster="assets/images/hero.jpg">
+          <source src="assets/images/training-cones.mp4" type="video/mp4" />
+        </video>
 
-<body>
-  <!-- SHARED HEADER -->
-  <div id="header-placeholder"></div>
+        <div class="hero__overlay">
+          <div class="container">
+            <h1>Reach New Heights with Goal Getters</h1>
+            <p>Your journey to elite football starts here.</p>
+            <a class="btn" href="booking.html">Get Started</a>
+          </div>
+        </div>
+      </section>
 
-  <main>
-    <!-- HERO with video background -->
-    <section class="hero video-hero" data-aos="fade-in">
-      <video
-        class="hero-video"
-        autoplay
-        muted
-        loop
-        playsinline
-        poster="assets/images/hero.jpg"
-      >
-        <source src="assets/images/training-cones.mp4" type="video/mp4">
-        Your browser doesn’t support HTML5 video.
-      </video>
+      <!-- EVENTS -->
+      <section id="events" class="section">
+        <div class="container">
+          <h2>Upcoming Events</h2>
+          <div id="events-container" class="grid cards" aria-live="polite"></div>
+        </div>
+      </section>
 
-      <div class="container hero-content">
-        <h1>Reach New Heights with Goal Getters</h1>
-        <p>Your journey to elite football starts here.</p>
-        <a href="booking.html" class="btn">Get Started</a>
-      </div>
-    </section>
+      <!-- SHOP -->
+      <section id="shop" class="section alt">
+        <div class="container">
+          <h2>Gear & Programs</h2>
+          <div id="shop-container" class="grid cards" aria-live="polite"></div>
+          <p class="muted center">We’ll send bank details & finalize your program.</p>
+        </div>
+      </section>
 
-    <!-- EVENTS PREVIEW -->
-    <section id="events" class="teaser-section">
-      <div class="container">
-        <h2>Upcoming Events</h2>
-        <div id="events-container" class="grid cards"></div>
-      </div>
-    </section>
+      <!-- CONTACT TEASER -->
+      <section class="section">
+        <div class="container">
+          <h2>Need More Info?</h2>
+          <p>Email: <a href="mailto:goalgetterscontact@mail.com">goalgetterscontact@mail.com</a><br/>Call: +27&nbsp;72&nbsp;379&nbsp;9907</p>
+        </div>
+      </section>
+    </main>
 
-    <!-- SHOP PREVIEW -->
-    <section id="shop" class="teaser-section alt-bg">
-      <div class="container">
-        <h2>Gear & Programs</h2>
-        <div id="shop-container" class="grid cards"></div>
-        <p class="small" style="text-align:center; margin-top:1rem;">
-          We’ll send bank details & finalize your program.
-        </p>
-      </div>
-    </section>
+    <!-- shared footer -->
+    <div id="footer-placeholder"></div>
 
-    <!-- CONTACT TEASER -->
-    <section class="teaser-section">
-      <div class="container">
-        <h2>Need More Info?</h2>
-        <p>
-          Email: <a href="mailto:goalgetterscontact@mail.com">goalgetterscontact@mail.com</a><br>
-          Call: +27&nbsp;72&nbsp;379&nbsp;9907
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <!-- SHARED FOOTER -->
-  <div id="footer-placeholder"></div>
-
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos/dist/aos.js"></script>
-  <script src="assets/js/main.js"></script>
-</body>
+    <!-- scripts -->
+    <script src="https://unpkg.com/aos/dist/aos.js"></script>
+    <script src="assets/js/main.js" defer></script>
+  </body>
 </html>

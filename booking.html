@@ -1,75 +1,53 @@
-<!DOCTYPE html>
+<!-- @reference: https://developer.mozilla.org/en-US/docs/Web/HTML -->
+<!doctype html>
 <html lang="en">
-<head>
-  <!-- page-specific title -->
-  <title>Booking – Goal Getters FC</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Booking – Goal Getters FC</title>
+    <meta name="description" content="Book sessions and view plans & pricing." />
+    <script src="assets/js/includes.js" defer></script>
+    <script>document.addEventListener('DOMContentLoaded', () => includeHTML('head', 'assets/includes/head.html'));</script>
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
 
-  <!-- loader for the shared head.partial -->
-  <script src="assets/js/include-head.js" defer></script>
-</head>
-<body>
-
-  <!-- SHARED HEADER -->
-  <div id="header-placeholder"></div>
-
-  <main>
-   <!-- VIDEO HERO for Booking & Services -->
-<section
-  class="hero video-hero small"
-  data-aos="fade-in"
-  style="background-image:url('assets/images/booking-hero.jpg')"
->
-  <video
-    class="hero-video"
-    autoplay
-    muted
-    loop
-    playsinline
-    poster="assets/images/booking-hero.jpg"
-  >
-    <source src="assets/images/topcam-field.mp4" type="video/mp4">
-    Your browser doesn’t support HTML5 video.
-  </video>
-
-  <div class="container hero-content">
-    <h1>Booking &amp; Services</h1>
-    <p>Empower yourself and achieve your goals with our dedicated football programs.</p>
-  </div>
-</section>
-
-
-    <!-- SERVICES -->
-    <section class="teaser-section">
-      <div class="container">
-        <h2>Our Services</h2>
-        <div id="services-container" class="grid cards"></div>
-      </div>
-    </section>
-
-    <!-- PRICING -->
-    <section class="teaser-section alt-bg">
-      <div class="container">
-        <h2>Plans & Pricing</h2>
-        <div id="pricing-container" class="grid cards pricing"></div>
-      </div>
-    </section>
-
-    <!-- CALENDAR / SCHEDULING -->
-    <section class="teaser-section">
-      <div class="container">
-        <h2>Pick Your Date</h2>
-        <div class="calendar" data-aos="fade-up">
-          <!-- If you have an embedded widget, drop it here. -->
-          <p>Contact us to schedule your session on your preferred date.</p>
+    <main>
+      <section class="hero hero--video small">
+        <video class="hero__video" autoplay muted loop playsinline poster="assets/images/booking-hero.jpg"><source src="assets/images/topcam-field.mp4" type="video/mp4" /></video>
+        <div class="hero__overlay">
+          <div class="container">
+            <h1>Booking & Services</h1>
+            <p>Empower yourself and achieve your goals with our dedicated football programmes.</p>
+          </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
 
-  <!-- SHARED FOOTER -->
-  <div id="footer-placeholder"></div>
+      <section class="section">
+        <div class="container">
+          <h2>Our Services</h2>
+          <div id="services-container" class="grid cards"></div>
+        </div>
+      </section>
 
-  <script src="https://unpkg.com/aos/dist/aos.js"></script>
-  <script src="assets/js/main.js"></script>
-</body>
+      <section class="section alt">
+        <div class="container">
+          <h2>Plans & Pricing</h2>
+          <div id="pricing-container" class="grid cards pricing"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2>Pick Your Date</h2>
+          <div class="calendar"><p>Contact us to schedule your session on your preferred date.</p></div>
+        </div>
+      </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://unpkg.com/aos/dist/aos.js"></script>
+    <script src="assets/js/main.js" defer></script>
+  </body>
 </html>
