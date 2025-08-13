@@ -1,14 +1,59 @@
 [
   {
+    "slug": "kyle-coimbra",
     "name": "Kyle Coimbra",
     "role": "Head Coach & Founder",
     "bio": "Highly dedicated and passionate coach with years of experience developing winning teams and empowering athletes.",
-    "img": "assets/images/team-kyle.jpg"
+    "img": "assets/images/team-kyle.jpg",
+    "quote": "Hard work is not optional; it’s the foundation of success. At Goal Getters FC, effort is the bare minimum.",
+    "qualifications": {
+      "player": [
+        "Bonero Park FC (2010–2014)",
+        "Metro Stars Academy (2014–2015)",
+        "Easterns Schools (A) Team (2016)",
+        "Easterns Clubs (A) Team (2016)",
+        "AmaZulu FC (2017–2019)",
+        "KZN Schools (A) (2017 & 2018)",
+        "Bidvest Wits (2019–2020)",
+        "SAB League – Bedfordview FC (2020)",
+        "SA Preliminary U/20 Afcon (2020)",
+        "SAB League – Fleetwood Town (2021)"
+      ],
+      "referee": [
+        "SAFA Level 1 (2016)",
+        "SAFA Level 2 (2016)",
+        "SAFA Level 3 (2023)",
+        "SAFA Level 4 (2023)",
+        "SAFA Level 5 (2023)"
+      ],
+      "coaching": [
+        "UEFA C License (2024)",
+        "SAFA D License (2024)",
+        "UEFA B License (2025)",
+        "CAF C License (2025)"
+      ],
+      "experience": [
+        "Bonaro Park FC (2022)",
+        "Owner – Goal Getters FC (2023)",
+        "Coach – Easterns FC (2024)",
+        "Hollywood Bets Coach – Goal Getters",
+        "Current U/15 Coach – Goal Getters",
+        "Current U/13 Coach – Goal Getters"
+      ]
+    }
   },
-  {
-    "name": "Jane Doe",
-    "role": "Assistant Coach",
-    "bio": "Former semi-pro player with a knack for tactical insight and individual player development.",
-    "img": "assets/images/team-jane.jpg"
+ {
+  "slug": "jane-doe",
+  "name": "Coming soon",
+  "role": "Coming soon",
+  "bio": "Coming soon.",
+  "img": "assets/images/team-jane.jpg",
+  "qualifications": {
+    "player": ["Coming soon"],
+    "referee": ["Coming soon"],
+    "coaching": ["Coming soon"],
+    "experience": ["Coming soon"]
   }
+}
+
 ]
