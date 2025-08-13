@@ -1,14 +1,14 @@
 [
   {
-    "title": "Youth Holiday Camp",
-    "date": "June 2025",
-    "img": "assets/images/event-camp.jpg",
-    "link": "mailto:goalgetterscontact@mail.com?subject=Youth%20Holiday%20Camp"
+    "title": "Skills Clinic",
+    "date": "Sat, 24 Aug – 10:00",
+    "img": "assets/images/event-skill.jpg",
+    "link": "#"
   },
   {
-    "title": "Summer Skills Camp",
-    "date": "December 2025",
-    "img": "assets/images/event-skill.jpg",
-    "link": "mailto:goalgetterscontact@mail.com?subject=Summer%20Skills%20Camp"
+    "title": "Holiday Camp",
+    "date": "Mon–Fri, 2–6 Sep",
+    "img": "assets/images/event-camp.jpg",
+    "link": "#"
   }
 ]

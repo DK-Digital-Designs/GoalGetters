@@ -1,17 +1,17 @@
 [
   {
     "title": "Elite Training",
-    "description": "One-on-one coaching tailored to your needs.",
+    "description": "One-on-one coaching tailored to your goals and playing style.",
     "img": "assets/images/service-elite.jpg"
   },
   {
     "title": "Team Coaching",
-    "description": "Small group sessions to build teamwork and tactics.",
+    "description": "Small group sessions to build teamwork, tactics, and chemistry.",
     "img": "assets/images/service-team.jpg"
   },
   {
     "title": "Skill Development",
-    "description": "Focus on technical skills and ball mastery.",
+    "description": "Technical skills: first touch, dribbling, passing, finishing.",
     "img": "assets/images/service-skill.jpg"
   }
 ]

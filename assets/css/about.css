@@ -1,0 +1,186 @@
+/* ===== About-only styles ===== */
+:root {
+  --font-display: 'Bebas Neue', sans-serif;
+  --muted: #cfcfcf;
+}
+
+.mega-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  line-height: .95;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  margin: .25rem 0 1rem 0;
+}
+.eyebrow {
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: .9rem;
+  color: var(--muted);
+  display: block;
+  margin-bottom: .5rem;
+}
+.lead-narrow {
+  font-size: 1.05rem;
+  color: #e6e6e6;
+  max-width: 52ch;
+}
+
+/* Team grid */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+.team-card {
+  background: #111;
+  border: 1px solid #1f1f1f;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+/* Make the card a layering context */
+.team-card { position: relative; isolation: isolate; }
+
+
+/* subtle gradient overlay */
+.team-card::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.65), rgba(0,0,0,0));
+  opacity: 0;
+  transition: opacity .25s ease;
+  z-index: 0;
+}
+
+/* CTA pill — no extra HTML needed */
+.team-card::after {
+  content: "View profile";
+  position: absolute; left: 14px; bottom: 12px;
+  font-weight: 800; letter-spacing: .02em;
+  padding: .4rem .75rem;
+  border-radius: 999px;
+  background: var(--accent); color: var(--bg);
+  transform: translateY(8px);
+  opacity: 0;
+  transition: transform .25s ease, opacity .25s ease;
+  z-index: 1;
+}
+
+/* image zoom/saturate on hover */
+.team-card img { transition: transform .35s ease, filter .35s ease; }
+.team-card:hover img { transform: scale(1.05); filter: saturate(1.15) contrast(1.05); }
+
+/* lift + glow + accent border */
+.team-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 36px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.04) inset;
+  border-color: var(--accent);
+}
+.team-card:hover::before { opacity: 1; }
+.team-card:hover::after  { opacity: 1; transform: translateY(0); }
+
+/* keyboard accessibility */
+.team-card:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 3px var(--bg),
+    0 0 0 5px var(--accent);
+  border-color: var(--accent);
+}
+.team-card:focus-visible::before { opacity: 1; }
+.team-card:focus-visible::after  { opacity: 1; transform: translateY(0); }
+
+/* Touch devices: keep CTA visible (no hover) */
+@media (hover: none) {
+  .team-card::after { opacity: 1; transform: none; }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .team-card, .team-card * { transition: none !important; }
+}
+
+.team-card .tc-body {
+  padding: 1rem;
+}
+.team-card .tc-name {
+  font-weight: 800;
+  margin: .25rem 0;
+}
+.team-card .tc-role {
+  color: #bdbdbd;
+  font-size: .95rem;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  background: rgba(0,0,0,.55);
+  backdrop-filter: blur(3px);
+  z-index: 9999;
+}
+.modal.open { display: grid; place-items: center; }
+.modal-card {
+  width: min(900px, 94vw);
+  max-height: 90vh;
+  overflow: auto;
+  background: #0f0f0f;
+  border: 1px solid #242424;
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+.modal-close {
+  position: sticky;
+  top: 0;
+  display: inline-block;
+  margin-left: auto;
+  background: #1f1f1f;
+  border: 1px solid #2e2e2e;
+  color: #fff;
+  padding: .4rem .7rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.modal-header {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+.modal-header img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.modal-title {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+}
+.modal-role { color: #cfcfcf; margin-top: .25rem; }
+.modal-quote {
+  margin-top: .75rem;
+  font-size: 1.05rem;
+  color: #e8e8e8;
+}
+.modal-section { margin-top: 1.2rem; }
+.modal-section h4 { margin-bottom: .4rem; }
+.columns-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 1rem;
+}
+.columns-3 ul { margin: 0; padding: 0; list-style: none; }
+.columns-3 li { margin: .35rem 0; color: #d7d7d7; }
+
+@media (max-width: 800px) {
+  .modal-header { grid-template-columns: 1fr; }
+  .columns-3 { grid-template-columns: 1fr; }
+}
