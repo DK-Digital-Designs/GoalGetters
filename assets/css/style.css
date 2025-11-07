@@ -246,4 +246,27 @@ footer{
     width:1px; background:var(--line); opacity:.25; align-self:stretch;
 }
 
+/* Callout block */
+.callout{
+    background:linear-gradient(180deg, rgba(0,0,0,.04), rgba(0,0,0,.06)), var(--surface);
+    border:2px solid var(--accent);
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-1);
+    padding:clamp(1.25rem,2.5vw,2rem);
+}
+.callout-title{
+    margin:0 0 .4rem;
+    font-size:clamp(1.6rem,3vw,2.2rem);
+}
+.callout-body{
+    margin:0 0 1rem;
+    color:var(--text);
+    max-width:70ch;
+}
+.callout-actions{display:flex; flex-wrap:wrap; align-items:center}
+@media (max-width:720px){
+    .callout-actions .btn{width:100%; margin:0 0 .6rem 0}
+}
+
+
 /* End ===================================================================== */
