@@ -1,74 +1,276 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Home – Goal Getters FC</title>
+    <meta charset="utf-8" />
+    <title>Home – Goal Getters FC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Goal Getters FC" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Goal Getters FC — training programs, fixtures, and booking. Your journey to elite football starts here." />
 
-  <!-- inject common <head> tags (favicons, CSS, meta, etc.) -->
-  <script src="assets/js/include-head.js" defer></script>
+    <!-- Open Graph -->
+    <meta property="og:title" content="Goal Getters FC" />
+    <meta property="og:description" content="Your journey to elite football starts here." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/images/hero.png" />
+    <meta property="og:url" content="https://example.com/" />
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+
+    <!-- Fonts + CSS -->
+    <link href="https://unpkg.com/aos/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Optional: Preload hero video poster -->
+    <link rel="preload" as="image" href="assets/images/hero.png">
 </head>
 <body>
-  <!-- SHARED HEADER -->
-  <div id="header-placeholder"></div>
+<!-- SITE HEADER -->
+<header id="site-header" class="navbar" role="banner">
+    <a href="index.html" class="logo" aria-label="Goal Getters FC Home">
+        <img
+                src="assets/images/gg_applogo_500.png"
+                class="logo-img"
+                loading="lazy"
+                width="150"
+                height="150"
+                alt="Goal Getters FC Logo"
+        >
+    </a>
 
-  <main>
-    <!-- HERO with video background -->
+    <button
+            class="nav-toggle"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+            aria-controls="nav-menu"
+    >
+        <span class="hamburger" aria-hidden="true"></span>
+    </button>
+
+    <nav id="nav-menu" class="nav-menu" role="navigation">
+        <ul>
+            <li><a href="index.html" class="nav-link" data-nav="home">Home</a></li>
+            <li><a href="pages/about.html" class="nav-link" data-nav="about">About</a></li>
+            <li><a href="pages/booking.html" class="nav-link" data-nav="booking">Booking</a></li>
+            <li><a href="pages/shop.html" class="nav-link" data-nav="shop">Shop</a></li>
+            <li class="nav-wip">
+          <span class="wip-pill" role="status" aria-label="Work in progress">
+            <span class="dot" aria-hidden="true"></span> WIP
+          </span>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <!-- HERO -->
     <section class="hero video-hero" data-aos="fade-in">
-      <video
-        class="hero-video"
-        autoplay
-        muted
-        loop
-        playsinline
-        poster="assets/images/hero.png"
-      >
-        <source src="assets/images/training-cones.mp4" type="video/mp4">
-        Your browser doesn’t support HTML5 video.
-      </video>
+        <video
+                class="hero-video"
+                autoplay
+                muted
+                loop
+                playsinline
+                poster="assets/images/hero.png"
+        >
+            <source src="assets/images/training-cones.mp4" type="video/mp4">
+            Your browser doesn’t support HTML5 video.
+        </video>
 
-      <div class="container hero-content">
-        <h1>Reach New Heights with Goal Getters</h1>
-        <p>Your journey to elite football starts here.</p>
-        <a href="booking.html" class="btn">Get Started</a>
-      </div>
+        <div class="container hero-content">
+            <h1>Reach New Heights with Goal Getters</h1>
+            <p>Your journey to elite football starts here.</p>
+            <a href="pages/booking.html" class="btn">Get Started</a>
+        </div>
     </section>
+
+    <!-- CLUB CONTEXT CALLOUT -->
+    <section class="teaser-section">
+        <div class="container">
+            <article class="callout">
+                <h2 class="callout-title">From Amateur to SAFA Hollywoodbets</h2>
+                <p class="callout-body">
+                    We field teams across grassroots and regional levels, with UEFA-qualified coaching and a clear pathway for player development.
+                    Ready to be part of it?
+                </p>
+                <div class="callout-actions">
+                    <a href="pages/booking.html" class="btn">How to Join</a>
+                    <a href="pages/about.html" class="btn btn-small" style="margin-left:.6rem;">Learn More</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
 
     <!-- EVENTS PREVIEW -->
     <section id="events" class="teaser-section">
-      <div class="container">
-        <h2>Upcoming Events</h2>
-        <div id="events-container" class="grid cards"></div>
-      </div>
+        <div class="container">
+            <h2>Upcoming Events</h2>
+            <div id="events-container" class="grid cards" aria-live="polite"></div>
+        </div>
     </section>
 
     <!-- SHOP PREVIEW -->
     <section id="shop" class="teaser-section alt-bg">
-      <div class="container">
-        <h2>Gear & Programs</h2>
-        <div id="shop-container" class="grid cards"></div>
-        <p class="small" style="text-align:center; margin-top:1rem;">
-          We’ll send bank details & finalize your program.
-        </p>
-      </div>
+        <div class="container">
+            <h2>Gear &amp; Programs</h2>
+            <div id="shop-container" class="grid cards" aria-live="polite"></div>
+            <p class="small" style="text-align:center; margin-top:1rem;">
+                We’ll send bank details and finalize your program.
+            </p>
+        </div>
     </section>
 
     <!-- CONTACT TEASER -->
     <section class="teaser-section">
-      <div class="container">
-        <h2>Need More Info?</h2>
-        <p>
-          Email: <a href="mailto:goalgetterscontact@mail.com">goalgetterscontact@mail.com</a><br>
-          Call: +27&nbsp;72&nbsp;379&nbsp;9907
-        </p>
-      </div>
+        <div class="container">
+            <h2>Need More Info?</h2>
+            <p>
+                Email: <a href="mailto:goalgetterscontact@mail.com">goalgetterscontact@mail.com</a><br>
+                Call: +27&nbsp;72&nbsp;379&nbsp;9907
+            </p>
+        </div>
     </section>
-  </main>
+</main>
 
-  <!-- SHARED FOOTER -->
-  <div id="footer-placeholder"></div>
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2025 Goal Getters FC. All rights reserved.</p>
+    <p>Follow us for updates and news.</p>
+    <ul class="social-links">
+        <li><a href="https://www.instagram.com/goal_getters_fc/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <!-- Add other real links when available -->
+    </ul>
+</footer>
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos/dist/aos.js"></script>
-  <script src="assets/js/main.js"></script>
+<!-- FAB -->
+<div class="fab-container">
+    <button class="fab-main" aria-label="Quick actions" title="Quick Actions Menu" aria-expanded="false">✚</button>
+    <ul class="fab-actions" aria-hidden="true">
+        <li>
+            <button
+                    id="scrollTopBtn"
+                    class="fab-action fab-scroll"
+                    aria-label="Scroll to top"
+                    title="Scroll to top"
+            >↑</button>
+        </li>
+        <li>
+            <a
+                    href="https://wa.me/27824656428"
+                    class="fab-action fab-whatsapp"
+                    aria-label="WhatsApp"
+                    title="WhatsApp"
+                    target="_blank"
+                    rel="noopener noreferrer"
+            >📲</a>
+        </li>
+    </ul>
+</div>
+
+<!-- Vendor -->
+<script src="https://unpkg.com/aos/dist/aos.js"></script>
+
+<!-- Minimal inline scripts: nav, AOS, FAB, placeholders for events/shop -->
+<script>
+    // AOS init
+    document.addEventListener('DOMContentLoaded', function () {
+        if (window.AOS) AOS.init({ once: true, duration: 600 });
+    });
+
+    // Mobile nav toggle
+    (function () {
+        const toggle = document.querySelector('.nav-toggle');
+        const menu = document.getElementById('nav-menu');
+        if (!toggle || !menu) return;
+
+        function setOpen(open) {
+            toggle.setAttribute('aria-expanded', String(open));
+            menu.classList.toggle('open', open);
+        }
+        toggle.addEventListener('click', () => {
+            const open = toggle.getAttribute('aria-expanded') === 'true';
+            setOpen(!open);
+        });
+        // Close when clicking a link
+        menu.addEventListener('click', (e) => {
+            if (e.target.matches('.nav-link')) setOpen(false);
+        });
+    })();
+
+    // Mark active nav
+    (function () {
+        const path = location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.nav-link').forEach(a => {
+            const href = a.getAttribute('href');
+            if ((path === '' && href === 'index.html') || href === path) a.classList.add('active');
+        });
+    })();
+
+    // FAB interactions
+    (function () {
+        const fabMain = document.querySelector('.fab-main');
+        const list = document.querySelector('.fab-actions');
+        if (!fabMain || !list) return;
+
+        function setOpen(open) {
+            fabMain.setAttribute('aria-expanded', String(open));
+            list.setAttribute('aria-hidden', String(!open));
+            list.classList.toggle('open', open);
+        }
+        fabMain.addEventListener('click', () => {
+            const open = fabMain.getAttribute('aria-expanded') === 'true';
+            setOpen(!open);
+        });
+
+        // Scroll to top
+        const scrollBtn = document.getElementById('scrollTopBtn');
+        if (scrollBtn) {
+            scrollBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+    })();
+
+    // Simple placeholders for events/shop. Replace with real fetch/render when ready.
+    (function () {
+        const events = document.getElementById('events-container');
+        const shop = document.getElementById('shop-container');
+        if (events && events.children.length === 0) {
+            events.innerHTML = `
+          <article class="card">
+            <h3>Open Training Session</h3>
+            <p>Saturday 09:00 · Randburg Sports Complex</p>
+            <a class="btn btn-small" href="pages/booking.html">Book</a>
+          </article>
+          <article class="card">
+            <h3>Trials Week</h3>
+            <p>Nov 18–22 · U15 & U17</p>
+            <a class="btn btn-small" href="pages/booking.html">Register</a>
+          </article>`;
+        }
+        if (shop && shop.children.length === 0) {
+            shop.innerHTML = `
+          <article class="card">
+            <h3>Personal Training</h3>
+            <p>1:1 sessions · Performance plan</p>
+            <a class="btn btn-small" href="pages/shop.html">Enquire</a>
+          </article>
+          <article class="card">
+            <h3>Club Kit</h3>
+            <p>Jersey, shorts, socks</p>
+            <a class="btn btn-small" href="pages/shop.html">View</a>
+          </article>`;
+        }
+    })();
+</script>
 </body>
 </html>
