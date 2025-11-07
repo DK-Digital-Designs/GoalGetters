@@ -1,123 +1,197 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <!-- PAGE-SPECIFIC TITLE & SEO -->
-  <title>About Us – Goal Getters FC</title>
-  <meta name="description" content="Dive into Goal Getters FC’s mission, values, and coaching philosophy.">
-  <meta name="keywords" content="football training, football club, soccer coaching, Goal Getters FC">
-  
-  <!-- Open Graph (for link previews) -->
-  <meta property="og:title"       content="About Us – Goal Getters FC">
-  <meta property="og:description" content="Goal Getters FC is dedicated to developing individuals through holistic football training.">
-  <meta property="og:url"         content="https://goalgettersfc.co.za/about.html">
-  <meta property="og:image"       content="https://goalgettersfc.co.za/assets/images/about-hero.jpg">
-  <meta property="og:type"        content="website">
+    <meta charset="utf-8" />
+    <title>About Us – Goal Getters FC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Goal Getters FC’s mission, values, and coaching philosophy." />
+    <meta name="theme-color" content="#000000" />
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card"        content="summary_large_image">
-  <meta name="twitter:title"       content="About Us – Goal Getters FC">
-  <meta name="twitter:description" content="Goal Getters FC is dedicated to developing individuals through holistic football training.">
-  <meta name="twitter:image"       content="https://goalgettersfc.co.za/assets/images/about-hero.jpg">
+    <!-- Open Graph -->
+    <meta property="og:title" content="About Us – Goal Getters FC" />
+    <meta property="og:description" content="Developing individuals through holistic football training." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="../assets/images/about-hero.jpg" />
 
-  <!-- Load shared head contents -->
-<script>
-  window.EXTRA_HEAD_LINKS = ['assets/css/about.css'];
-</script>
-  <script src="assets/js/include-head.js" defer></script>
+    <link rel="icon" href="../assets/favicon/favicon.ico">
+
+    <!-- CSS -->
+    <link href="https://unpkg.com/aos/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+<!-- HEADER -->
+<header id="site-header" class="navbar" role="banner">
+    <a href="../index.html" class="logo" aria-label="Goal Getters FC Home">
+        <img src="../assets/images/gg_applogo_500.png" class="logo-img" loading="lazy" width="150" height="150" alt="Goal Getters FC Logo">
+    </a>
 
-    <!-- SHARED HEADER -->
-  <div id="header-placeholder"></div>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+        <span class="hamburger" aria-hidden="true"></span>
+    </button>
 
-  <main>
-    <!-- VIDEO HERO for About Us -->
-<section
-  class="hero video-hero small"
-  data-aos="fade-in"
-  style="background-image:url('../assets/images/about-hero.jpg')"
->
-  <video
-    class="hero-video"
-    autoplay
-    muted
-    loop
-    playsinline
-    poster="../assets/images/about-hero.jpg"
-  >
-    <source src="../assets/images/net.mp4" type="video/mp4">
-    Your browser doesn’t support HTML5 video.
-  </video>
+    <nav id="nav-menu" class="nav-menu" role="navigation">
+        <ul>
+            <li><a href="../index.html" class="nav-link" data-nav="home">Home</a></li>
+            <li><a href="./about.html" class="nav-link active" data-nav="about">About</a></li>
+            <li><a href="./booking.html" class="nav-link" data-nav="booking">Booking</a></li>
+            <li><a href="./shop.html" class="nav-link" data-nav="shop">Shop</a></li>
+            <li class="nav-wip">
+                <span class="wip-pill" role="status" aria-label="Work in progress"><span class="dot" aria-hidden="true"></span> WIP</span>
+            </li>
+        </ul>
+    </nav>
+</header>
 
-  <div class="container hero-content">
-    <h1>About Us</h1>
-    <p>
-      Goal Getters FC is dedicated to developing individuals through a holistic football program—fostering skill, discipline, teamwork, and sportsmanship for success both on and off the pitch.
-    </p>
-  </div>
-</section>
-
-
-<!-- about.html -->
-<section class="teaser-section alt-bg" id="culture">
-  <div class="container">
-    <h2>Our Culture &amp; Identity</h2>
-
-    <div class="carousel-container" data-aos="fade-up">
-      <button class="carousel-btn prev" aria-label="Previous slide">&#10094;</button>
-
-      <div class="culture-slider">
-        <div class="slides">
-          <div class="slide">
-            <img src="../assets/images/culture1.jpg" alt="Non-Negotiables">
-          </div>
-          <div class="slide">
-            <img src="../assets/images/culture2.jpg" alt="Team Above Individuals">
-          </div>
-          <div class="slide">
-            <img src="../assets/images/culture3.jpg" alt="Winning Mentality">
-          </div>
+<main>
+    <!-- HERO -->
+    <section class="hero video-hero small" data-aos="fade-in">
+        <video class="hero-video" autoplay muted loop playsinline poster="../assets/images/about-hero.jpg">
+            <source src="../assets/images/net.mp4" type="video/mp4">
+            Your browser doesn’t support HTML5 video.
+        </video>
+        <div class="container hero-content">
+            <h1>About Us</h1>
+            <p>We develop players through a holistic program that builds skill, discipline, teamwork, and sportsmanship—on and off the pitch.</p>
         </div>
-      </div>
-      <button class="carousel-btn next" aria-label="Next slide">&#10095;</button>
-    </div>
-  </div>
-</section>
+    </section>
+
+    <!-- CULTURE / IDENTITY -->
+    <section class="teaser-section alt-bg" id="culture">
+        <div class="container">
+            <h2>Our Culture &amp; Identity</h2>
+
+            <div class="carousel-container" data-aos="fade-up" style="position:relative">
+                <button class="carousel-btn prev" aria-label="Previous slide" style="position:absolute;left:0;top:50%;transform:translateY(-50%);z-index:2;border:none;background:#fff;border-radius:999px;width:40px;height:40px;box-shadow:0 6px 18px rgba(0,0,0,.12);cursor:pointer;">&#10094;</button>
+
+                <div class="culture-slider" style="overflow:hidden;border-radius:var(--radius-lg);box-shadow:var(--shadow-1);border:1px solid rgba(0,0,0,.06)">
+                    <div class="slides" style="display:flex;transition:transform .35s ease;">
+                        <div class="slide" style="min-width:100%;"><img src="../assets/images/culture1.jpg" alt="Non-Negotiables"></div>
+                        <div class="slide" style="min-width:100%;"><img src="../assets/images/culture2.jpg" alt="Team Above Individuals"></div>
+                        <div class="slide" style="min-width:100%;"><img src="../assets/images/culture3.jpg" alt="Winning Mentality"></div>
+                    </div>
+                </div>
+
+                <button class="carousel-btn next" aria-label="Next slide" style="position:absolute;right:0;top:50%;transform:translateY(-50%);z-index:2;border:none;background:#fff;border-radius:999px;width:40px;height:40px;box-shadow:0 6px 18px rgba(0,0,0,.12);cursor:pointer;">&#10095;</button>
+            </div>
+        </div>
+    </section>
 
     <!-- TEAM -->
     <section class="teaser-section">
-      <div class="container">
-        <h2>Meet the Team</h2>
-        <div id="team-container" class="grid cards"></div>
-      </div>
+        <div class="container">
+            <h2>Meet the Team</h2>
+            <div id="team-container" class="grid cards" aria-live="polite">
+                <article class="card">
+                    <img src="../assets/images/team-kyle.jpg" alt="Head Coach">
+                    <h3>Head Coach</h3>
+                    <p>UEFA-qualified. Focus on player pathways, periodisation, and match intelligence.</p>
+                </article>
+                <article class="card">
+                    <img src="../assets/images/team-kyle.jpg" alt="Assistant Coach">
+                    <h3>Assistant Coach</h3>
+                    <p>Technical development and small-sided tactics. Individual improvement plans.</p>
+                </article>
+                <article class="card">
+                    <img src="../assets/images/team-kyle.jpg" alt="Goalkeeping Coach">
+                    <h3>Goalkeeping Coach</h3>
+                    <p>Footwork, distribution under pressure, and high-claim technique.</p>
+                </article>
+            </div>
+        </div>
     </section>
 
     <!-- TESTIMONIALS -->
     <section class="teaser-section alt-bg">
-      <div class="container">
-        <h2>What Our Players Say</h2>
-        <div id="testimonials-container" class="grid cards testimonials"></div>
-      </div>
+        <div class="container">
+            <h2>What Our Players Say</h2>
+            <div id="testimonials-container" class="grid cards testimonials" aria-live="polite">
+                <article class="card"><h3>Player, U17</h3><p>“Training has structure and purpose. I feel faster and smarter every week.”</p></article>
+                <article class="card"><h3>Parent</h3><p>“Clear communication and visible progress. The program builds confidence.”</p></article>
+                <article class="card"><h3>Senior Squad</h3><p>“Match prep is elite. We know our roles and the intensity expected.”</p></article>
+            </div>
+        </div>
     </section>
 
-    <!-- CONTACT TEASER -->
+    <!-- CONTACT -->
     <section class="teaser-section">
-      <div class="container">
-        <h2>Get In Touch</h2>
-        <p>
-          Email: <a href="mailto:goalgetterscontact@mail.com">goalgetterscontact@mail.com</a><br>
-          Call: +27&nbsp;72&nbsp;379&nbsp;9907
-        </p>
-      </div>
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p>Email: <a href="mailto:goalgetterscontact@mail.com">goalgetterscontact@mail.com</a><br>Call: +27&nbsp;72&nbsp;379&nbsp;9907</p>
+        </div>
     </section>
-  </main>
+</main>
 
-  <!-- SHARED FOOTER -->
-  <div id="footer-placeholder"></div>
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2025 Goal Getters FC. All rights reserved.</p>
+    <ul class="social-links">
+        <li><a href="https://www.instagram.com/goal_getters_fc/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+    </ul>
+</footer>
 
+<!-- FAB -->
+<div class="fab-container">
+    <button class="fab-main" aria-label="Quick actions" title="Quick Actions Menu" aria-expanded="false">✚</button>
+    <ul class="fab-actions" aria-hidden="true">
+        <li><button id="scrollTopBtn" class="fab-action fab-scroll" aria-label="Scroll to top" title="Scroll to top">↑</button></li>
+        <li><a href="https://wa.me/27824656428" class="fab-action fab-whatsapp" aria-label="WhatsApp" title="WhatsApp" target="_blank" rel="noopener noreferrer">📲</a></li>
+    </ul>
+</div>
+
+<!-- JS -->
 <script src="https://unpkg.com/aos/dist/aos.js"></script>
-<script src="assets/js/main.js"></script>
-<script src="assets/js/about.js"></script>
+<script>
+    // AOS
+    document.addEventListener('DOMContentLoaded', function () {
+        if (window.AOS) AOS.init({ once: true, duration: 600 });
+    });
 
+    // Mobile nav
+    (function () {
+        const toggle = document.querySelector('.nav-toggle');
+        const menu = document.getElementById('nav-menu');
+        if (!toggle || !menu) return;
+        const setOpen = (o)=>{ toggle.setAttribute('aria-expanded', String(o)); menu.classList.toggle('open', o); };
+        toggle.addEventListener('click', ()=> setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+        menu.addEventListener('click', e => { if (e.target.matches('.nav-link')) setOpen(false); });
+    })();
+
+    // FAB
+    (function () {
+        const fabMain = document.querySelector('.fab-main');
+        const list = document.querySelector('.fab-actions');
+        if (!fabMain || !list) return;
+        const setOpen = (o)=>{ fabMain.setAttribute('aria-expanded', String(o)); list.setAttribute('aria-hidden', String(!o)); list.classList.toggle('open', o); };
+        fabMain.addEventListener('click', ()=> setOpen(fabMain.getAttribute('aria-expanded') !== 'true'));
+        const scrollBtn = document.getElementById('scrollTopBtn');
+        if (scrollBtn) scrollBtn.addEventListener('click', ()=> window.scrollTo({ top: 0, behavior: 'smooth' }));
+    })();
+
+    // Simple carousel
+    (function () {
+        const track = document.querySelector('.slides');
+        const slides = document.querySelectorAll('.slide');
+        const prev = document.querySelector('.carousel-btn.prev');
+        const next = document.querySelector('.carousel-btn.next');
+        if (!track || slides.length === 0) return;
+
+        let idx = 0;
+        function update(){ track.style.transform = `translateX(-${idx * 100}%)`; }
+        prev.addEventListener('click', ()=>{ idx = (idx - 1 + slides.length) % slides.length; update(); });
+        next.addEventListener('click', ()=>{ idx = (idx + 1) % slides.length; update(); });
+
+        // Swipe
+        let startX = null;
+        track.addEventListener('touchstart', e => startX = e.touches[0].clientX, {passive:true});
+        track.addEventListener('touchend', e => {
+            if (startX == null) return;
+            const dx = e.changedTouches[0].clientX - startX;
+            if (Math.abs(dx) > 40) { idx = dx > 0 ? (idx - 1 + slides.length) % slides.length : (idx + 1) % slides.length; update(); }
+            startX = null;
+        }, {passive:true});
+    })();
+</script>
 </body>
 </html>
