@@ -1,0 +1,121 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Report an Issue – Goal Getters FC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://unpkg.com/aos/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<header class="navbar">
+    <a href="../index.html" class="logo"><img src="../assets/images/gg_applogo_500.png" class="logo-img" alt=""></a>
+    <nav class="nav-menu"><ul>
+        <li><a href="../index.html" class="nav-link">Home</a></li>
+        <li><a href="./about.html" class="nav-link">About</a></li>
+        <li><a href="./booking.html" class="nav-link">Booking</a></li>
+        <li><a href="./shop.html" class="nav-link">Shop</a></li>
+    </ul></nav>
+</header>
+
+<main>
+    <section class="teaser-section">
+        <div class="container">
+            <article class="callout">
+                <h2 class="callout-title">See an issue? Report it</h2>
+                <p class="callout-body">Describe the problem, add steps to reproduce, and your device details.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="teaser-section">
+        <div class="container">
+            <form id="issueForm" class="grid" style="grid-template-columns:1fr;gap:14px;max-width:760px;">
+                <label>Title
+                    <input id="title" required maxlength="120" style="width:100%;padding:.8rem;border-radius:12px;border:1px solid rgba(0,0,0,.15)">
+                </label>
+                <label>Description
+                    <textarea id="description" required rows="6" maxlength="4000" style="width:100%;padding:.8rem;border-radius:12px;border:1px solid rgba(0,0,0,.15)"></textarea>
+                </label>
+                <div class="grid" style="grid-template-columns:1fr 1fr;gap:12px">
+                    <label>Platform
+                        <select id="platform" required style="width:100%;padding:.8rem;border-radius:12px;border:1px solid rgba(0,0,0,.15)">
+                            <option value="Android">Android</option>
+                            <option value="iOS">iOS</option>
+                            <option value="Web">Web</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </label>
+                    <label>App Version
+                        <input id="appVersion" placeholder="e.g. 1.0.0" required pattern="^[0-9]+\.[0-9]+\.[0-9]+$" style="width:100%;padding:.8rem;border-radius:12px;border:1px solid rgba(0,0,0,.15)">
+                    </label>
+                </div>
+                <label>Contact (optional)
+                    <input id="contact" type="email" placeholder="you@example.com" style="width:100%;padding:.8rem;border-radius:12px;border:1px solid rgba(0,0,0,.15)">
+                </label>
+
+                <div>
+                    <button class="btn" type="submit">Submit Issue</button>
+                    <span id="status" class="muted" style="margin-left:.75rem;"></span>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer><p class="center muted">&copy; 2025 Goal Getters FC</p></footer>
+
+<!-- Firebase compat (no CORS needed) -->
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+
+<script>
+    // Config
+    const firebaseConfig = {
+        apiKey: "AIzaSyATxAwVYS8zSAtNgBXx0QaIR1FsC2mmXuI",
+        authDomain: "goalgetters-d1cc8.firebaseapp.com",
+        projectId: "goalgetters-d1cc8",
+        storageBucket: "goalgetters-d1cc8.appspot.com",
+        messagingSenderId: "421547540950",
+        appId: "1:421547540950:web:233033aa23a92303e92477",
+        measurementId: "G-M6K02T8JGG"
+    };
+
+    // Init (compat)
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db   = firebase.firestore();
+
+    // Ensure signed-in (anonymous)
+    auth.onAuthStateChanged(async (user) => { if (!user) await auth.signInAnonymously(); });
+
+    // Submit handler (same as before)
+    const form = document.getElementById('issueForm');
+    const status = document.getElementById('status');
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        status.textContent = 'Submitting…';
+        try {
+            const docRef = await db.collection('issues').add({
+                title: document.getElementById('title').value.trim(),
+                description: document.getElementById('description').value.trim(),
+                platform: document.getElementById('platform').value,
+                appVersion: document.getElementById('appVersion').value.trim(),
+                contact: document.getElementById('contact').value.trim() || null,
+                userAgent: navigator.userAgent,
+                uid: (auth.currentUser && auth.currentUser.uid) || null,
+                status: 'new',
+                createdAt: firebase.firestore.FieldValue.serverTimestamp()
+            });
+            status.textContent = 'Thanks. Issue ID: ' + docRef.id;
+            form.reset();
+        } catch (err) {
+            console.error(err);
+            status.textContent = 'Error submitting. Try again.';
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -29,29 +29,16 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Optional: Preload hero video poster -->
+    <!-- Preload hero poster -->
     <link rel="preload" as="image" href="assets/images/hero.png">
 </head>
 <body>
-<!-- SITE HEADER -->
 <header id="site-header" class="navbar" role="banner">
     <a href="index.html" class="logo" aria-label="Goal Getters FC Home">
-        <img
-                src="assets/images/gg_applogo_500.png"
-                class="logo-img"
-                loading="lazy"
-                width="150"
-                height="150"
-                alt="Goal Getters FC Logo"
-        >
+        <img src="assets/images/gg_applogo_500.png" class="logo-img" loading="lazy" width="150" height="150" alt="Goal Getters FC Logo">
     </a>
 
-    <button
-            class="nav-toggle"
-            aria-label="Toggle menu"
-            aria-expanded="false"
-            aria-controls="nav-menu"
-    >
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
         <span class="hamburger" aria-hidden="true"></span>
     </button>
 
@@ -61,10 +48,11 @@
             <li><a href="pages/about.html" class="nav-link" data-nav="about">About</a></li>
             <li><a href="pages/booking.html" class="nav-link" data-nav="booking">Booking</a></li>
             <li><a href="pages/shop.html" class="nav-link" data-nav="shop">Shop</a></li>
+            <li><a href="pages/report.html" class="nav-link" data-nav="report">Report</a></li>
             <li class="nav-wip">
-          <span class="wip-pill" role="status" aria-label="Work in progress">
-            <span class="dot" aria-hidden="true"></span> WIP
-          </span>
+        <span class="wip-pill" role="status" aria-label="Work in progress">
+          <span class="dot" aria-hidden="true"></span> WIP
+        </span>
             </li>
         </ul>
     </nav>
@@ -73,22 +61,35 @@
 <main>
     <!-- HERO -->
     <section class="hero video-hero" data-aos="fade-in">
-        <video
-                class="hero-video"
-                autoplay
-                muted
-                loop
-                playsinline
-                poster="assets/images/hero.png"
-        >
+        <video class="hero-video" autoplay muted loop playsinline poster="assets/images/hero.png">
             <source src="assets/images/training-cones.mp4" type="video/mp4">
             Your browser doesn’t support HTML5 video.
         </video>
-
         <div class="container hero-content">
             <h1>Reach New Heights with Goal Getters</h1>
             <p>Your journey to elite football starts here.</p>
             <a href="pages/booking.html" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <!-- SPONSORS BANNER -->
+    <section class="sponsors" aria-label="Club sponsors">
+        <div class="container">
+            <h2 class="section-title">Our Partners</h2>
+            <div class="sponsor-marquee" role="region" aria-roledescription="carousel" aria-label="Sponsors" aria-live="off">
+                <ul class="marquee-track" id="sponsorTrack">
+                    <!-- Duplicate set will be injected for seamless loop -->
+                    <!-- Replace src with your real logos -->
+                    <li><img src="assets/sponsors/adidas.png" alt="Adidas" loading="lazy" width="160" height="80"></li>
+                    <li><img src="assets/sponsors/capitec.png" alt="Capitec" loading="lazy" width="160" height="80"></li>
+                    <li><img src="assets/sponsors/discovery.png" alt="Discovery" loading="lazy" width="160" height="80"></li>
+                    <li><img src="assets/sponsors/eng.png" alt="Engen" loading="lazy" width="160" height="80"></li>
+                    <li><img src="assets/sponsors/hollard.png" alt="Hollard" loading="lazy" width="160" height="80"></li>
+                    <li><img src="assets/sponsors/pnp.png" alt="Pick n Pay" loading="lazy" width="160" height="80"></li>
+                    <li><img src="assets/sponsors/uber.png" alt="Uber" loading="lazy" width="160" height="80"></li>
+                </ul>
+            </div>
+            <p class="small sponsors-cta">Want to support the squad? <a href="pages/about.html#sponsorship">View sponsorship options</a></p>
         </div>
     </section>
 
@@ -98,8 +99,7 @@
             <article class="callout">
                 <h2 class="callout-title">From Amateur to SAFA Hollywoodbets</h2>
                 <p class="callout-body">
-                    We field teams across grassroots and regional levels, with UEFA-qualified coaching and a clear pathway for player development.
-                    Ready to be part of it?
+                    We field teams across grassroots and regional levels with UEFA-qualified coaching and a clear pathway for player development.
                 </p>
                 <div class="callout-actions">
                     <a href="pages/booking.html" class="btn">How to Join</a>
@@ -109,6 +109,60 @@
         </div>
     </section>
 
+    <!-- MOMENTS GALLERY -->
+    <section class="moments" aria-label="Club moments">
+        <div class="container">
+            <h2 class="section-title">Moments</h2>
+            <ul class="photo-grid" id="photoGrid">
+                <!-- Replace images with your files. Keep aspect hints for CLS. -->
+                <li>
+                    <figure>
+                        <img src="assets/moments/trophy_01.jpg" alt="U17 lifting the regional trophy" width="1200" height="800" loading="lazy">
+                        <figcaption>U17 champions</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img src="assets/moments/signing_01.jpg" alt="Player signing scholarship papers" width="1200" height="1600" loading="lazy">
+                        <figcaption>Scholarship signing</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img src="assets/moments/squad_01.jpg" alt="Senior squad pre-match lineup" width="1200" height="900" loading="lazy">
+                        <figcaption>Senior squad</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img src="assets/moments/training_01.jpg" alt="High-intensity training under lights" width="1200" height="900" loading="lazy">
+                        <figcaption>Under the lights</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img src="assets/moments/community_01.jpg" alt="Community clinic with junior players" width="1200" height="900" loading="lazy">
+                        <figcaption>Community clinic</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img src="assets/moments/trophy_02.jpg" alt="Captain with player of the tournament award" width="1200" height="900" loading="lazy">
+                        <figcaption>Player of the tournament</figcaption>
+                    </figure>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Lightbox -->
+        <dialog id="lightbox" class="lightbox" aria-label="Image viewer">
+            <button class="lightbox-close" aria-label="Close">×</button>
+            <img id="lightboxImg" alt="">
+            <p id="lightboxCap" class="lightbox-cap"></p>
+            <button class="lightbox-nav prev" aria-label="Previous image">‹</button>
+            <button class="lightbox-nav next" aria-label="Next image">›</button>
+        </dialog>
+    </section>
 
     <!-- EVENTS PREVIEW -->
     <section id="events" class="teaser-section">
@@ -141,13 +195,11 @@
     </section>
 </main>
 
-<!-- FOOTER -->
 <footer>
     <p>&copy; 2025 Goal Getters FC. All rights reserved.</p>
     <p>Follow us for updates and news.</p>
     <ul class="social-links">
         <li><a href="https://www.instagram.com/goal_getters_fc/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-        <!-- Add other real links when available -->
     </ul>
 </footer>
 
@@ -155,58 +207,35 @@
 <div class="fab-container">
     <button class="fab-main" aria-label="Quick actions" title="Quick Actions Menu" aria-expanded="false">✚</button>
     <ul class="fab-actions" aria-hidden="true">
-        <li>
-            <button
-                    id="scrollTopBtn"
-                    class="fab-action fab-scroll"
-                    aria-label="Scroll to top"
-                    title="Scroll to top"
-            >↑</button>
-        </li>
-        <li>
-            <a
-                    href="https://wa.me/27824656428"
-                    class="fab-action fab-whatsapp"
-                    aria-label="WhatsApp"
-                    title="WhatsApp"
-                    target="_blank"
-                    rel="noopener noreferrer"
-            >📲</a>
-        </li>
+        <li><button id="scrollTopBtn" class="fab-action fab-scroll" aria-label="Scroll to top" title="Scroll to top">↑</button></li>
+        <li><a href="https://wa.me/27824656428" class="fab-action fab-whatsapp" aria-label="WhatsApp" title="WhatsApp" target="_blank" rel="noopener noreferrer">📲</a></li>
     </ul>
 </div>
 
 <!-- Vendor -->
 <script src="https://unpkg.com/aos/dist/aos.js"></script>
 
-<!-- Minimal inline scripts: nav, AOS, FAB, placeholders for events/shop -->
+<!-- Scripts -->
 <script>
-    // AOS init
+    // AOS
     document.addEventListener('DOMContentLoaded', function () {
         if (window.AOS) AOS.init({ once: true, duration: 600 });
     });
 
-    // Mobile nav toggle
+    // Mobile nav
     (function () {
         const toggle = document.querySelector('.nav-toggle');
         const menu = document.getElementById('nav-menu');
         if (!toggle || !menu) return;
-
         function setOpen(open) {
             toggle.setAttribute('aria-expanded', String(open));
             menu.classList.toggle('open', open);
         }
-        toggle.addEventListener('click', () => {
-            const open = toggle.getAttribute('aria-expanded') === 'true';
-            setOpen(!open);
-        });
-        // Close when clicking a link
-        menu.addEventListener('click', (e) => {
-            if (e.target.matches('.nav-link')) setOpen(false);
-        });
+        toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+        menu.addEventListener('click', (e) => { if (e.target.matches('.nav-link')) setOpen(false); });
     })();
 
-    // Mark active nav
+    // Active nav
     (function () {
         const path = location.pathname.split('/').pop() || 'index.html';
         document.querySelectorAll('.nav-link').forEach(a => {
@@ -215,60 +244,85 @@
         });
     })();
 
-    // FAB interactions
+    // FAB
     (function () {
         const fabMain = document.querySelector('.fab-main');
         const list = document.querySelector('.fab-actions');
         if (!fabMain || !list) return;
-
         function setOpen(open) {
             fabMain.setAttribute('aria-expanded', String(open));
             list.setAttribute('aria-hidden', String(!open));
             list.classList.toggle('open', open);
         }
-        fabMain.addEventListener('click', () => {
-            const open = fabMain.getAttribute('aria-expanded') === 'true';
-            setOpen(!open);
-        });
-
-        // Scroll to top
+        fabMain.addEventListener('click', () => setOpen(fabMain.getAttribute('aria-expanded') !== 'true'));
         const scrollBtn = document.getElementById('scrollTopBtn');
-        if (scrollBtn) {
-            scrollBtn.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        }
+        if (scrollBtn) scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     })();
 
-    // Simple placeholders for events/shop. Replace with real fetch/render when ready.
+    // Sponsors marquee: duplicate children for seamless loop, pause on hover, reduced motion
+    (function () {
+        const track = document.getElementById('sponsorTrack');
+        if (!track) return;
+        const clone = track.cloneNode(true);
+        clone.classList.add('marquee-track--clone');
+        track.parentElement.appendChild(clone);
+    })();
+
+    // Moments lightbox
+    (function () {
+        const grid = document.getElementById('photoGrid');
+        const dialog = document.getElementById('lightbox');
+        const img = document.getElementById('lightboxImg');
+        const cap = document.getElementById('lightboxCap');
+        const btnClose = dialog?.querySelector('.lightbox-close');
+        const btnPrev = dialog?.querySelector('.prev');
+        const btnNext = dialog?.querySelector('.next');
+        if (!grid || !dialog || !img || !cap) return;
+
+        const items = [...grid.querySelectorAll('figure')];
+        let i = 0;
+
+        function openAt(idx) {
+            i = (idx + items.length) % items.length;
+            const el = items[i].querySelector('img');
+            const text = items[i].querySelector('figcaption')?.textContent || '';
+            img.src = el.src;
+            img.alt = el.alt;
+            cap.textContent = text;
+            if (!dialog.open) dialog.showModal();
+        }
+        function next(n = 1) { openAt(i + n); }
+
+        grid.addEventListener('click', (e) => {
+            const fig = e.target.closest('figure');
+            if (!fig) return;
+            openAt(items.indexOf(fig));
+        });
+
+        btnClose.addEventListener('click', () => dialog.close());
+        btnPrev.addEventListener('click', () => next(-1));
+        btnNext.addEventListener('click', () => next(1));
+        dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
+        dialog.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') next(-1);
+            if (e.key === 'ArrowRight') next(1);
+            if (e.key === 'Escape') dialog.close();
+        });
+    })();
+
+    // Placeholders for events/shop
     (function () {
         const events = document.getElementById('events-container');
         const shop = document.getElementById('shop-container');
         if (events && events.children.length === 0) {
             events.innerHTML = `
-          <article class="card">
-            <h3>Open Training Session</h3>
-            <p>Saturday 09:00 · Randburg Sports Complex</p>
-            <a class="btn btn-small" href="pages/booking.html">Book</a>
-          </article>
-          <article class="card">
-            <h3>Trials Week</h3>
-            <p>Nov 18–22 · U15 & U17</p>
-            <a class="btn btn-small" href="pages/booking.html">Register</a>
-          </article>`;
+        <article class="card"><h3>Open Training Session</h3><p>Saturday 09:00 · Randburg Sports Complex</p><a class="btn btn-small" href="pages/booking.html">Book</a></article>
+        <article class="card"><h3>Trials Week</h3><p>Nov 18–22 · U15 & U17</p><a class="btn btn-small" href="pages/booking.html">Register</a></article>`;
         }
         if (shop && shop.children.length === 0) {
             shop.innerHTML = `
-          <article class="card">
-            <h3>Personal Training</h3>
-            <p>1:1 sessions · Performance plan</p>
-            <a class="btn btn-small" href="pages/shop.html">Enquire</a>
-          </article>
-          <article class="card">
-            <h3>Club Kit</h3>
-            <p>Jersey, shorts, socks</p>
-            <a class="btn btn-small" href="pages/shop.html">View</a>
-          </article>`;
+        <article class="card"><h3>Personal Training</h3><p>1:1 sessions · Performance plan</p><a class="btn btn-small" href="pages/shop.html">Enquire</a></article>
+        <article class="card"><h3>Club Kit</h3><p>Jersey, shorts, socks</p><a class="btn btn-small" href="pages/shop.html">View</a></article>`;
         }
     })();
 </script>
