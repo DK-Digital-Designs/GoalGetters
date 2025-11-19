@@ -1,74 +1,359 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Home – Goal Getters FC</title>
+    <meta charset="utf-8" />
+    <title>Home – Goal Getters FC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Goal Getters FC" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Goal Getters FC — transparent programs, fees, schedules and trial bookings. See everything here, no DMs needed." />
 
-  <!-- inject common <head> tags (favicons, CSS, meta, etc.) -->
-  <script src="assets/js/include-head.js" defer></script>
+    <!-- Open Graph -->
+    <meta property="og:title" content="Goal Getters FC" />
+    <meta property="og:description" content="Transparent programs, fees, schedules and trial bookings." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/images/hero.png" />
+    <meta property="og:url" content="https://example.com/" />
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+
+    <!-- Fonts + CSS -->
+    <link href="https://unpkg.com/aos/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="preload" as="image" href="assets/images/hero.png">
+    <script type="application/ld+json">
+        {
+            "@context":"https://schema.org",
+            "@type":"SportsTeam",
+            "name":"Goal Getters FC",
+            "sport":"Soccer",
+            "url":"https://example.com",
+            "logo":"https://example.com/assets/images/gg_applogo_500.png",
+            "memberOf":{"@type":"SportsOrganization","name":"SAFA"},
+            "areaServed":"Gauteng, South Africa",
+            "sameAs":["https://www.instagram.com/goal_getters_fc/"]
+        }
+    </script>
 </head>
 <body>
-  <!-- SHARED HEADER -->
-  <div id="header-placeholder"></div>
+<header id="site-header" class="navbar" role="banner">
+    <a href="index.html" class="logo" aria-label="Goal Getters FC Home">
+        <img src="assets/images/gg_applogo_500.png" class="logo-img" loading="lazy" width="150" height="150" alt="Goal Getters FC Logo">
+    </a>
 
-  <main>
-    <!-- HERO with video background -->
-    <section class="hero video-hero" data-aos="fade-in">
-      <video
-        class="hero-video"
-        autoplay
-        muted
-        loop
-        playsinline
-        poster="assets/images/hero.png"
-      >
-        <source src="assets/images/training-cones.mp4" type="video/mp4">
-        Your browser doesn’t support HTML5 video.
-      </video>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+        <span class="hamburger" aria-hidden="true"></span>
+    </button>
 
-      <div class="container hero-content">
-        <h1>Reach New Heights with Goal Getters</h1>
-        <p>Your journey to elite football starts here.</p>
-        <a href="booking.html" class="btn">Get Started</a>
-      </div>
+    <nav id="nav-menu" class="nav-menu" role="navigation">
+        <ul>
+            <li><a href="index.html" class="nav-link active" data-nav="home">Home</a></li>
+            <li><a href="pages/about.html" class="nav-link" data-nav="about">About</a></li>
+            <li><a href="pages/booking.html" class="nav-link" data-nav="booking">Booking</a></li>
+            <li><a href="pages/shop.html" class="nav-link" data-nav="shop">Shop</a></li>
+            <li><a href="pages/report.html" class="nav-link" data-nav="report">Report</a></li>
+            <li class="nav-wip"><span class="wip-pill" role="status" aria-label="Work in progress"><span class="dot" aria-hidden="true"></span> WIP</span></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <!-- HERO: value + proof + dual CTA -->
+    <section class="hero video-hero hero--compact" data-aos="fade-in">
+        <video class="hero-video" autoplay muted loop playsinline poster="assets/images/hero.png">
+            <source src="assets/images/training-cones.mp4" type="video/mp4">
+            Your browser doesn’t support HTML5 video.
+        </video>
+        <div class="container hero-content">
+            <h1>Train with a Purpose. Play with a Pathway.</h1>
+            <p>Transparent programs, schedules, and fees. Join a club built on development, discipline, and opportunity.</p>
+            <div class="hero-ctas">
+                <a href="pages/booking.html" class="btn">Book a Trial</a>
+                <a href="#programs" class="btn btn-light">See Programs & Fees</a>
+            </div>
+            <ul class="trust-badges">
+                <li>UEFA-qualified coaching</li>
+                <li>Player pathway: trials & scholarships</li>
+                <li>Safeguarding & consent in place</li>
+            </ul>
+        </div>
     </section>
 
-    <!-- EVENTS PREVIEW -->
-    <section id="events" class="teaser-section">
-      <div class="container">
-        <h2>Upcoming Events</h2>
-        <div id="events-container" class="grid cards"></div>
-      </div>
+    <!-- HOW JOINING WORKS -->
+    <section class="teaser-section alt-bg" id="how">
+        <div class="container">
+            <h2>How Joining Works</h2>
+            <div class="grid cards three-col">
+                <article class="card"><h3>1) Book a Trial</h3><p>Choose an open session or Trials Week. Bring boots, water, and a good attitude.</p></article>
+                <article class="card"><h3>2) Coach Feedback</h3><p>We assess technical level, work rate, and fit. You’ll get clear next steps within 48 hours.</p></article>
+                <article class="card"><h3>3) Register & Start</h3><p>Pick your program, collect kit, and join your squad’s training slots.</p></article>
+            </div>
+        </div>
     </section>
 
-    <!-- SHOP PREVIEW -->
-    <section id="shop" class="teaser-section alt-bg">
-      <div class="container">
-        <h2>Gear & Programs</h2>
-        <div id="shop-container" class="grid cards"></div>
-        <p class="small" style="text-align:center; margin-top:1rem;">
-          We’ll send bank details & finalize your program.
-        </p>
-      </div>
+    <!-- PROGRAMS & FEES -->
+    <section class="teaser-section" id="programs">
+        <div class="container">
+            <h2>Programs & Fees</h2>
+            <div class="grid cards three-col" id="programCards">
+                <article class="card">
+                    <h3>U13 Foundations</h3>
+                    <p class="price">R <strong>650</strong> / month</p>
+                    <ul class="mini">
+                        <li>2x sessions / week</li>
+                        <li>Ball mastery & decision speed</li>
+                        <li>Friendly fixtures</li>
+                    </ul>
+                    <a href="pages/booking.html" class="btn btn-small">Book Trial</a>
+                </article>
+                <article class="card">
+                    <h3>U15–U17 Development</h3>
+                    <p class="price">R <strong>850</strong> / month</p>
+                    <ul class="mini">
+                        <li>3x sessions / week</li>
+                        <li>Tactical roles & transitions</li>
+                        <li>League fixtures</li>
+                    </ul>
+                    <a href="pages/booking.html" class="btn btn-small">Book Trial</a>
+                </article>
+                <article class="card">
+                    <h3>Senior Performance</h3>
+                    <p class="price">R <strong>950</strong> / month</p>
+                    <ul class="mini">
+                        <li>3–4x sessions / week</li>
+                        <li>Video review & S&C basics</li>
+                        <li>Tournament exposure</li>
+                    </ul>
+                    <a href="pages/booking.html" class="btn btn-small">Book Trial</a>
+                </article>
+            </div>
+            <p class="small" style="margin-top:.5rem;">Fees exclude kit. <a href="pages/shop.html">See kit options</a>. Financial assistance available in special cases.</p>
+        </div>
+    </section>
+
+    <!-- THIS WEEK'S SCHEDULE -->
+    <section class="teaser-section alt-bg" id="schedule">
+        <div class="container">
+            <h2>This Week’s Schedule</h2>
+            <div class="table-wrap">
+                <table class="schedule">
+                    <thead><tr><th>Squad</th><th>Day</th><th>Time</th><th>Venue</th></tr></thead>
+                    <tbody id="scheduleBody">
+                    <tr><td>U13</td><td>Tue & Thu</td><td>16:30–18:00</td><td>Randburg Sports Complex</td></tr>
+                    <tr><td>U15</td><td>Mon & Wed</td><td>17:00–18:30</td><td>Randburg Sports Complex</td></tr>
+                    <tr><td>U17</td><td>Tue, Thu</td><td>18:00–19:30</td><td>Randburg Sports Complex</td></tr>
+                    <tr><td>Senior</td><td>Mon, Wed, Fri</td><td>19:30–21:00</td><td>Randburg Sports Complex</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="small">Trialists attend the slot for their age group. Exact field numbers are posted on the day.</p>
+        </div>
+    </section>
+
+    <!-- QUICK PROOF / OUTCOMES -->
+    <section class="teaser-section" id="proof">
+        <div class="container">
+            <h2>Pathway & Outcomes</h2>
+            <div class="grid cards three-col">
+                <article class="card"><h3>Scholarships</h3><p>Players referred into school and academy scholarship pipelines. <span class="small">[Add names once confirmed]</span></p></article>
+                <article class="card"><h3>Tournaments</h3><p>Regional trophies and showcase events to test development.</p></article>
+                <article class="card"><h3>Next-Level Trials</h3><p>Contacts and invites for standout performers.</p></article>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPONSORS BANNER -->
+    <section class="sponsors" aria-label="Club sponsors">
+        <div class="container">
+            <h2 class="section-title">Our Partners</h2>
+            <div class="sponsor-marquee" role="region" aria-roledescription="carousel" aria-label="Sponsors" aria-live="off">
+                <ul class="marquee-track" id="sponsorTrack">
+                    <li><img src="assets/sponsors/adidas.png" alt="Adidas" loading="lazy" width="160" height="80"></li>
+                    <li><img src="assets/sponsors/capitec.png" alt="Capitec" loading="lazy" width="160" height="80"></li>
+                    <li><img src="assets/sponsors/discovery.png" alt="Discovery" loading="lazy" width="160" height="80"></li>
+                    <li><img src="assets/sponsors/eng.png" alt="Engen" loading="lazy" width="160" height="80"></li>
+                    <li><img src="assets/sponsors/hollard.png" alt="Hollard" loading="lazy" width="160" height="80"></li>
+                    <li><img src="assets/sponsors/pnp.png" alt="Pick n Pay" loading="lazy" width="160" height="80"></li>
+                    <li><img src="assets/sponsors/uber.png" alt="Uber" loading="lazy" width="160" height="80"></li>
+                </ul>
+            </div>
+            <p class="small sponsors-cta">Support the squad? <a href="pages/about.html#sponsorship">See sponsorship options</a></p>
+        </div>
+    </section>
+
+    <!-- MOMENTS (kept) -->
+    <section class="moments" aria-label="Club moments">
+        <div class="container">
+            <h2 class="section-title">Moments</h2>
+            <p class="small" style="margin:-.25rem 0 1rem;">Real sessions, real players, real progress.</p>
+            <ul class="photo-grid" id="photoGrid">
+                <li><figure><img src="assets/moments/trophy_01.jpg" alt="U17 lifting the regional trophy" width="1200" height="800" loading="lazy"><figcaption>U17 champions</figcaption></figure></li>
+                <li><figure><img src="assets/moments/signing_01.jpg" alt="Player signing scholarship papers" width="1200" height="1600" loading="lazy"><figcaption>Scholarship signing</figcaption></figure></li>
+                <li><figure><img src="assets/moments/squad_01.jpg" alt="Senior squad pre-match lineup" width="1200" height="900" loading="lazy"><figcaption>Senior squad</figcaption></figure></li>
+                <li><figure><img src="assets/moments/training_01.jpg" alt="High-intensity training under lights" width="1200" height="900" loading="lazy"><figcaption>Under the lights</figcaption></figure></li>
+                <li><figure><img src="assets/moments/community_01.jpg" alt="Community clinic with junior players" width="1200" height="900" loading="lazy"><figcaption>Community clinic</figcaption></figure></li>
+                <li><figure><img src="assets/moments/trophy_02.jpg" alt="Captain with player of the tournament award" width="1200" height="900" loading="lazy"><figcaption>Player of the tournament</figcaption></figure></li>
+            </ul>
+        </div>
+
+        <dialog id="lightbox" class="lightbox" aria-label="Image viewer">
+            <button class="lightbox-close" aria-label="Close">×</button>
+            <img id="lightboxImg" alt="">
+            <p id="lightboxCap" class="lightbox-cap"></p>
+            <button class="lightbox-nav prev" aria-label="Previous image">‹</button>
+            <button class="lightbox-nav next" aria-label="Next image">›</button>
+        </dialog>
+    </section>
+
+    <!-- POLICIES QUICK LINKS -->
+    <section class="teaser-section alt-bg" id="policies">
+        <div class="container">
+            <h2>Policies</h2>
+            <div class="grid cards three-col">
+                <article class="card"><h3>Safeguarding</h3><p>Player welfare is non-negotiable. <a href="pages/about.html#safeguarding">Read more</a></p></article>
+                <article class="card"><h3>Code of Conduct</h3><p>Standards for players, coaches, and parents. <a href="pages/about.html#culture">View</a></p></article>
+                <article class="card"><h3>Privacy</h3><p>Data collected with consent for scheduling and development. <a href="pages/report.html">Policy</a></p></article>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQs -->
+    <section class="teaser-section" id="faq">
+        <div class="container">
+            <h2>FAQs</h2>
+            <div class="faq">
+                <details open><summary>What does a trial include?</summary><p>Warm-up, technical station, small-sided game. Coaches evaluate attitude, effort, and basics.</p></details>
+                <details><summary>What are the fees?</summary><p>See Programs & Fees above. Kit priced separately; payment plans available.</p></details>
+                <details><summary>Where are sessions held?</summary><p>Randburg Sports Complex; match venues vary by league fixtures.</p></details>
+                <details><summary>Which age groups?</summary><p>U13, U15, U17, Senior. We place players where they’ll develop fastest.</p></details>
+            </div>
+        </div>
     </section>
 
     <!-- CONTACT TEASER -->
     <section class="teaser-section">
-      <div class="container">
-        <h2>Need More Info?</h2>
-        <p>
-          Email: <a href="mailto:goalgetterscontact@mail.com">goalgetterscontact@mail.com</a><br>
-          Call: +27&nbsp;72&nbsp;379&nbsp;9907
-        </p>
-      </div>
+        <div class="container">
+            <h2>Ready to Start?</h2>
+            <p>Book a trial or contact us for specifics.</p>
+            <div class="hero-ctas">
+                <a href="pages/booking.html" class="btn">Book a Trial</a>
+                <a href="mailto:goalgetterscontact@mail.com" class="btn btn-light">Email Us</a>
+            </div>
+        </div>
     </section>
-  </main>
+</main>
 
-  <!-- SHARED FOOTER -->
-  <div id="footer-placeholder"></div>
+<footer>
+    <p>&copy; 2025 Goal Getters FC. All rights reserved.</p>
+    <p>Follow us for updates and news.</p>
+    <ul class="social-links">
+        <li><a href="https://www.instagram.com/goal_getters_fc/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+    </ul>
+</footer>
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos/dist/aos.js"></script>
-  <script src="assets/js/main.js"></script>
+<!-- FAB -->
+<div class="fab-container">
+    <button class="fab-main" aria-label="Quick actions" title="Quick Actions Menu" aria-expanded="false">✚</button>
+    <ul class="fab-actions" aria-hidden="true">
+        <li><button id="scrollTopBtn" class="fab-action fab-scroll" aria-label="Scroll to top" title="Scroll to top">↑</button></li>
+        <li><a href="https://wa.me/27824656428" class="fab-action fab-whatsapp" aria-label="WhatsApp" title="WhatsApp" target="_blank" rel="noopener noreferrer">📲</a></li>
+    </ul>
+</div>
+
+<!-- Vendor -->
+<script src="https://unpkg.com/aos/dist/aos.js"></script>
+
+<!-- Scripts -->
+<script>
+    // AOS
+    document.addEventListener('DOMContentLoaded', function () {
+        if (window.AOS) AOS.init({ once: true, duration: 600 });
+    });
+
+    // Mobile nav
+    (function () {
+        const toggle = document.querySelector('.nav-toggle');
+        const menu = document.getElementById('nav-menu');
+        if (!toggle || !menu) return;
+        function setOpen(open) { toggle.setAttribute('aria-expanded', String(open)); menu.classList.toggle('open', open); }
+        toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+        menu.addEventListener('click', (e) => { if (e.target.matches('.nav-link')) setOpen(false); });
+    })();
+
+    // Active nav
+    (function () {
+        const path = location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.nav-link').forEach(a => {
+            const href = a.getAttribute('href');
+            if ((path === '' && href === 'index.html') || href === path) a.classList.add('active');
+        });
+    })();
+
+    // FAB
+    (function () {
+        const fabMain = document.querySelector('.fab-main');
+        const list = document.querySelector('.fab-actions');
+        if (!fabMain || !list) return;
+        function setOpen(open) { fabMain.setAttribute('aria-expanded', String(open)); list.setAttribute('aria-hidden', String(!open)); list.classList.toggle('open', open); }
+        fabMain.addEventListener('click', () => setOpen(fabMain.getAttribute('aria-expanded') !== 'true'));
+        const scrollBtn = document.getElementById('scrollTopBtn');
+        if (scrollBtn) scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    })();
+
+    // Sponsors marquee (duplicate for seamless loop)
+    (function () {
+        const track = document.getElementById('sponsorTrack');
+        if (!track) return;
+        const clone = track.cloneNode(true);
+        clone.classList.add('marquee-track--clone');
+        track.parentElement.appendChild(clone);
+    })();
+
+    // Lightbox
+    (function () {
+        const grid = document.getElementById('photoGrid');
+        const dialog = document.getElementById('lightbox');
+        if (!grid || !dialog) return;
+        const img = document.getElementById('lightboxImg');
+        const cap = document.getElementById('lightboxCap');
+        const btnClose = dialog.querySelector('.lightbox-close');
+        const btnPrev = dialog.querySelector('.prev');
+        const btnNext = dialog.querySelector('.next');
+
+        const items = [...grid.querySelectorAll('figure')];
+        let i = 0;
+        function openAt(idx) {
+            i = (idx + items.length) % items.length;
+            const el = items[i].querySelector('img');
+            img.src = el.src; img.alt = el.alt;
+            cap.textContent = items[i].querySelector('figcaption')?.textContent || '';
+            if (!dialog.open) dialog.showModal();
+        }
+        function next(n=1){ openAt(i + n); }
+
+        grid.addEventListener('click', (e) => {
+            const fig = e.target.closest('figure'); if (!fig) return;
+            openAt(items.indexOf(fig));
+        });
+        btnClose.addEventListener('click', () => dialog.close());
+        btnPrev.addEventListener('click', () => next(-1));
+        btnNext.addEventListener('click', () => next(1));
+        dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
+        dialog.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') next(-1);
+            if (e.key === 'ArrowRight') next(1);
+            if (e.key === 'Escape') dialog.close();
+        });
+    })();
+</script>
 </body>
 </html>
