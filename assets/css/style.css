@@ -154,24 +154,91 @@ h3{font-size:1.1rem}
 .price .was{color:#8b8b8b;text-decoration:line-through;font-weight:600}
 
 /* Sponsors ---------------------------------------------------------------- */
-.section-title{font-family:"Bebas Neue",system-ui,sans-serif;font-size:2.25rem;letter-spacing:.5px;margin:0 0 1rem}
-.sponsors{padding:3rem 0;background:#0b0b0b;color:#eee}
-.sponsors .container{overflow:hidden}
-.sponsors-cta{text-align:center;opacity:.8;margin-top:.75rem}
-.sponsor-marquee{position:relative;overflow:hidden;border-radius:16px;background:#0f0f10;padding:1rem 0}
-.marquee-track,
-.marquee-track--clone{display:grid;grid-auto-flow:column;grid-auto-columns:max-content;gap:2.5rem;align-items:center}
-.marquee-track img{display:block;height:48px;width:auto;filter:grayscale(100%) contrast(1.1) brightness(.95);opacity:.9;transition:filter .2s,opacity .2s,transform .2s}
-.marquee-track img:hover{filter:none;opacity:1;transform:translateY(-2px)}
-.sponsor-marquee{--speed:45s}
-.sponsor-marquee>ul{animation:scrollX var(--speed) linear infinite}
-.sponsor-marquee>.marquee-track--clone{position:absolute;inset:0;transform:translateX(100%);animation:scrollX var(--speed) linear infinite}
-@keyframes scrollX{to{transform:translateX(-100%)}}
-.sponsor-marquee:hover>ul,
-.sponsor-marquee:hover>.marquee-track--clone{animation-play-state:paused}
-@media (prefers-reduced-motion:reduce){
-    .sponsor-marquee>ul,.sponsor-marquee>.marquee-track--clone{animation:none}
+.section-title{
+    font-family:"Bebas Neue",system-ui,sans-serif;
+    font-size:2.25rem;
+    letter-spacing:.5px;
+    margin:0 0 1rem;
 }
+
+.sponsors{
+    padding:3rem 0;
+    background:#0b0b0b;
+    color:#eee;
+}
+
+.sponsors .container{overflow:hidden;}
+
+.sponsors-cta{
+    text-align:center;
+    opacity:.8;
+    margin-top:.75rem;
+}
+
+.sponsor-marquee{
+    position:relative;
+    overflow:hidden;
+    border-radius:16px;
+    background:#0f0f10;
+    padding:1rem 0;
+}
+
+/* single track that scrolls left */
+.sponsor-marquee .marquee-track{
+    display:flex;
+    align-items:center;
+    gap:2rem;
+    list-style:none;
+    margin:0;
+    padding:0 2rem;
+    animation:scrollSponsors 30s linear infinite;
+}
+
+.sponsor-item{
+    display:inline-flex;
+    align-items:center;
+    gap:0.75rem;
+    white-space:nowrap;
+    flex:0 0 auto;
+}
+
+.sponsor-name{
+    font-weight:600;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+}
+
+/* full-colour logos */
+.sponsor-marquee img{
+    display:block;
+    height:48px;
+    width:auto;
+    filter:none;
+    opacity:1;
+    transition:transform .2s;
+}
+
+.sponsor-marquee img:hover{
+    transform:translateY(-2px);
+}
+
+@keyframes scrollSponsors{
+    from { transform:translateX(0); }
+    to   { transform:translateX(-50%); } /* because content is duplicated once */
+}
+
+/* pause on hover */
+.sponsor-marquee:hover .marquee-track{
+    animation-play-state:paused;
+}
+
+@media (prefers-reduced-motion:reduce){
+    .sponsor-marquee .marquee-track{
+        animation:none;
+        transform:none;
+    }
+}
+
 
 /* Moments gallery + Lightbox ---------------------------------------------- */
 .moments{padding:3rem 0}
@@ -341,6 +408,9 @@ table.schedule tbody tr:nth-child(even){
    to the specific section's .container and re-enable only there:
 .with-divider::before{ display:block; }
 */
+
+
+
 
 
 /* End ===================================================================== */

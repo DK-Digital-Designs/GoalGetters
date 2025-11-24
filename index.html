@@ -176,19 +176,50 @@
         <div class="container">
             <h2 class="section-title">Our Partners</h2>
             <div class="sponsor-marquee" role="region" aria-roledescription="carousel" aria-label="Sponsors" aria-live="off">
-                <ul class="marquee-track" id="sponsorTrack">
-                    <li><img src="assets/sponsors/adidas.png" alt="Adidas" loading="lazy" width="160" height="80"></li>
-                    <li><img src="assets/sponsors/capitec.png" alt="Capitec" loading="lazy" width="160" height="80"></li>
-                    <li><img src="assets/sponsors/discovery.png" alt="Discovery" loading="lazy" width="160" height="80"></li>
-                    <li><img src="assets/sponsors/eng.png" alt="Engen" loading="lazy" width="160" height="80"></li>
-                    <li><img src="assets/sponsors/hollard.png" alt="Hollard" loading="lazy" width="160" height="80"></li>
-                    <li><img src="assets/sponsors/pnp.png" alt="Pick n Pay" loading="lazy" width="160" height="80"></li>
-                    <li><img src="assets/sponsors/uber.png" alt="Uber" loading="lazy" width="160" height="80"></li>
+                <ul class="marquee-track">
+                    <!-- sequence A -->
+                    <li class="sponsor-item">
+                        <img src="assets/sponsors/BDJ-FREIGHT-INTERNATIONAL-LOGO-e1709742720515.png"
+                             alt="BDJ International logo" loading="lazy">
+                        <span class="sponsor-name">BDJ International</span>
+                    </li>
+                    <li class="sponsor-item">
+                        <img src="assets/sponsors/BDJ-FREIGHT-INTERNATIONAL-LOGO-e1709742720515.png"
+                             alt="BDJ International logo" loading="lazy">
+                        <span class="sponsor-name">BDJ International</span>
+                    </li>
+                    <li class="sponsor-item">
+                        <img src="assets/sponsors/BDJ-FREIGHT-INTERNATIONAL-LOGO-e1709742720515.png"
+                             alt="BDJ International logo" loading="lazy">
+                        <span class="sponsor-name">BDJ International</span>
+                    </li>
+
+                    <!-- sequence B (exact copy of A for smooth loop) -->
+                    <li class="sponsor-item">
+                        <img src="assets/sponsors/BDJ-FREIGHT-INTERNATIONAL-LOGO-e1709742720515.png"
+                             alt="BDJ International logo" loading="lazy">
+                        <span class="sponsor-name">BDJ International</span>
+                    </li>
+                    <li class="sponsor-item">
+                        <img src="assets/sponsors/BDJ-FREIGHT-INTERNATIONAL-LOGO-e1709742720515.png"
+                             alt="BDJ International logo" loading="lazy">
+                        <span class="sponsor-name">BDJ International</span>
+                    </li>
+                    <li class="sponsor-item">
+                        <img src="assets/sponsors/BDJ-FREIGHT-INTERNATIONAL-LOGO-e1709742720515.png"
+                             alt="BDJ International logo" loading="lazy">
+                        <span class="sponsor-name">BDJ International</span>
+                    </li>
                 </ul>
             </div>
-            <p class="small sponsors-cta">Support the squad? <a href="pages/about.html#sponsorship">See sponsorship options</a></p>
+            <p class="small sponsors-cta">
+                Support the squad? <a href="pages/about.html#sponsorship">See sponsorship options</a>
+            </p>
         </div>
     </section>
+
+
+
 
     <!-- MOMENTS (kept) -->
     <section class="moments" aria-label="Club moments">
@@ -317,6 +348,7 @@
         clone.classList.add('marquee-track--clone');
         track.parentElement.appendChild(clone);
     })();
+
 
     // Lightbox
     (function () {
