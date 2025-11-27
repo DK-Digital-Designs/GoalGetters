@@ -13,11 +13,15 @@
     <meta property="og:type" content="website" />
     <meta property="og:image" content="../assets/images/about-hero.jpg" />
 
+    <!-- Favicons -->
     <link rel="icon" href="../assets/favicon/favicon.ico">
 
-    <!-- CSS -->
+    <!-- CSS (same stack as home) -->
     <link href="https://unpkg.com/aos/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/theme.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link rel="stylesheet" href="../assets/css/about.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -37,203 +41,438 @@
             <li><a href="./booking.html" class="nav-link" data-nav="booking">Booking</a></li>
             <li><a href="./shop.html" class="nav-link" data-nav="shop">Shop</a></li>
             <li class="nav-wip">
-                <span class="wip-pill" role="status" aria-label="Work in progress"><span class="dot" aria-hidden="true"></span> WIP</span>
+                <span class="wip-pill" role="status" aria-label="Work in progress">
+                    <span class="dot" aria-hidden="true"></span> WIP
+                </span>
             </li>
         </ul>
     </nav>
 </header>
 
 <main>
-    <!-- HERO (now smaller and proportional) -->
+    <!-- HERO -->
     <section class="hero video-hero hero--compact" data-aos="fade-in">
         <video class="hero-video" autoplay muted loop playsinline poster="../assets/images/about-hero.jpg">
             <source src="../assets/images/net.mp4" type="video/mp4">
             Your browser doesn’t support HTML5 video.
         </video>
         <div class="container hero-content">
-            <h1>About Us</h1>
-            <p>Holistic player development. Skill, discipline, teamwork, and sportsmanship—on and off the pitch.</p>
+            <h1>About Goal Getters FC</h1>
+            <p>Holistic player development: discipline, detail, and opportunity for every committed player.</p>
         </div>
     </section>
 
-    <!-- CULTURE / IDENTITY with smaller carousel -->
-    <section class="teaser-section alt-bg" id="culture">
-        <div class="container">
-            <h2>Our Culture &amp; Identity</h2>
+    <div class="about-shell">
+        <!-- SIDE / TOP NAV -->
+        <nav class="about-toc" aria-label="On this page">
+            <p class="about-toc-title">On this page</p>
+            <ul>
+                <li><a href="#culture">Culture</a></li>
+                <li><a href="#mission">Mission &amp; Values</a></li>
+                <li><a href="#pathway">Player Pathway</a></li>
+                <li><a href="#coaches">Coaches</a></li>
+                <li><a href="#safeguarding">Safeguarding</a></li>
+                <li><a href="#facilities">Facilities</a></li>
+                <li><a href="#squads">Squads</a></li>
+                <li><a href="#milestones">Milestones</a></li>
+                <li><a href="#sponsorship">Sponsorship</a></li>
+                <li><a href="#faq">FAQs</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
 
-            <div class="carousel-container" data-aos="fade-up">
-                <button class="carousel-btn prev" aria-label="Previous slide">&#10094;</button>
+        <div class="about-content">
+            <!-- CULTURE / IDENTITY – TEXT-ONLY CAROUSEL -->
+            <section class="teaser-section alt-bg" id="culture">
+                <div class="container">
+                    <h2>Our Culture &amp; Identity</h2>
 
-                <div class="culture-slider">
-                    <div class="slides">
-                        <div class="slide"><img src="../assets/images/culture1.jpg" alt="Non-Negotiables"></div>
-                        <div class="slide"><img src="../assets/images/culture2.jpg" alt="Team Above Individuals"></div>
-                        <div class="slide"><img src="../assets/images/culture3.jpg" alt="Winning Mentality"></div>
+                    <div class="carousel-container" data-aos="fade-up">
+                        <button class="carousel-btn prev" aria-label="Previous slide">&#10094;</button>
+
+                        <div class="culture-slider">
+                            <div class="slides">
+                                <!-- Slide 1 -->
+                                <div class="slide">
+                                    <article class="card culture-card">
+                                        <span class="culture-pill">1) Non-Negotiables</span>
+                                        <ul class="tight">
+                                            <li>Maximum effort every session.</li>
+                                            <li>Respect for teammates, staff, officials, and the game.</li>
+                                            <li>Accountability for actions on and off the pitch.</li>
+                                            <li>Discipline in habits, time-keeping, and standards.</li>
+                                            <li>Passion for the badge and the club.</li>
+                                        </ul>
+                                        <p class="small" style="margin-top:.5rem;">
+                                            Players who don’t align will be moved on, regardless of talent or name.
+                                        </p>
+                                        <hr style="margin:1.25rem 0;opacity:.15;">
+
+                                        <span class="culture-pill">2) Team Above Individuals (Brotherhood)</span>
+                                        <ul class="tight">
+                                            <li>Ego is out; the collective is everything.</li>
+                                            <li>No special treatment.</li>
+                                            <li>Everyone defends, presses, and works for the team.</li>
+                                        </ul>
+                                    </article>
+                                </div>
+
+                                <!-- Slide 2 -->
+                                <div class="slide">
+                                    <article class="card culture-card">
+                                        <span class="culture-pill">3) Winning Mentality</span>
+                                        <ul class="tight">
+                                            <li>Losing is not accepted, even in training.</li>
+                                            <li>Competitiveness is fierce but respectful.</li>
+                                            <li>We don’t play for top four; we play to win.</li>
+                                        </ul>
+                                        <hr style="margin:1.25rem 0;opacity:.15;">
+
+                                        <span class="culture-pill">4) Clear Identity of Play</span>
+                                        <ul class="tight">
+                                            <li>Possession-based but intense, vertical, and fast.</li>
+                                            <li>Players must be intelligent and adaptable.</li>
+                                            <li>Strong emphasis on tactical discipline and positional play.</li>
+                                        </ul>
+                                        <hr style="margin:1.25rem 0;opacity:.15;">
+
+                                        <span class="culture-pill">5) Youth Development</span>
+                                        <ul class="tight">
+                                            <li>Young players are trusted with responsibility.</li>
+                                            <li>Development and standards are high from day one.</li>
+                                        </ul>
+                                    </article>
+                                </div>
+
+                                <!-- Slide 3 -->
+                                <div class="slide">
+                                    <article class="card culture-card">
+                                        <span class="culture-pill">6) Emotional Connection &amp; Purpose</span>
+                                        <ul class="tight">
+                                            <li>We play with heart and give fans something to believe in.</li>
+                                        </ul>
+                                        <hr style="margin:1.25rem 0;opacity:.15;">
+
+                                        <span class="culture-pill">7) Relentless Standards</span>
+                                        <ul class="tight">
+                                            <li>Players are detailed about diet, recovery, and focus.</li>
+                                            <li>Training is intense and personalised.</li>
+                                            <li>We chase progression even in victory.</li>
+                                        </ul>
+                                        <hr style="margin:1.25rem 0;opacity:.15;">
+
+                                        <span class="culture-pill">Our Identity</span>
+                                        <ul class="tight">
+                                            <li>Hard-working</li>
+                                            <li>Humble</li>
+                                            <li>Hungry</li>
+                                            <li>Fearless</li>
+                                        </ul>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="carousel-btn next" aria-label="Next slide">&#10095;</button>
+                    </div>
+
+                    <p class="small" style="text-align:center;margin-top:.5rem;">
+                        Maximum effort, accountability, and respect. No shortcuts.
+                    </p>
+                </div>
+            </section>
+
+            <!-- MISSION, VALUES, PHILOSOPHY -->
+            <section class="teaser-section" id="mission">
+                <div class="container">
+                    <h2>Mission, Values, Philosophy</h2>
+                    <div class="grid cards three-col">
+                        <article class="card">
+                            <h3>Mission</h3>
+                            <p>
+                                Provide a clear pathway from grassroots to competitive regional football.
+                                Development comes first; results follow.
+                            </p>
+                        </article>
+                        <article class="card">
+                            <h3>Values</h3>
+                            <ul class="tight">
+                                <li>Discipline and respect.</li>
+                                <li>High work-rate and accountability.</li>
+                                <li>Team before self.</li>
+                                <li>Player welfare and safety.</li>
+                            </ul>
+                        </article>
+                        <article class="card">
+                            <h3>Coaching Philosophy</h3>
+                            <p>
+                                Periodised training with small-sided constraints, decision-making under pressure,
+                                and video-assisted feedback to lock in learning.
+                            </p>
+                        </article>
                     </div>
                 </div>
+            </section>
 
-                <button class="carousel-btn next" aria-label="Next slide">&#10095;</button>
-            </div>
+            <!-- PLAYER PATHWAY -->
+            <section class="teaser-section alt-bg" id="pathway">
+                <div class="container">
+                    <h2>Player Pathway</h2>
+                    <div class="grid cards four-col">
+                        <article class="card">
+                            <h3>Foundations</h3>
+                            <p>U9–U13. Ball mastery, agility, 1v1s, and decision speed. Fun, competitive environment.</p>
+                        </article>
+                        <article class="card">
+                            <h3>Progression</h3>
+                            <p>U15–U17. Tactical roles, pressing triggers, transitions, and strength foundations.</p>
+                        </article>
+                        <article class="card">
+                            <h3>Performance</h3>
+                            <p>U19/Senior. Unit cohesion, set-piece detail, match periodisation, and video review.</p>
+                        </article>
+                        <article class="card">
+                            <h3>Opportunities</h3>
+                            <p>Trials, showcases, scholarship applications, and referrals through partner clubs and schools.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
 
-            <p class="small" style="text-align:center;margin-top:.5rem;">Swipe on mobile. Hover pauses animation.</p>
+            <!-- COACHING STAFF -->
+            <section class="teaser-section" id="coaches">
+                <div class="container">
+                    <h2>Coaching Staff</h2>
+                    <div class="grid cards three-col">
+                        <article class="card">
+                            <h3>Head Coach – Kyle Coimbra</h3>
+                            <p class="coach-meta">U17 &amp; Senior squads</p>
+                            <ul class="tight">
+                                <li>Leads game model, periodisation, and session design.</li>
+                                <li>Focus on accountability, detail, and winning habits.</li>
+                                <li>Works closely with staff on player pathways and selection.</li>
+                            </ul>
+                        </article>
+                        <article class="card">
+                            <h3>Assistant Coach</h3>
+                            <p class="coach-meta">Youth development</p>
+                            <ul class="tight">
+                                <li>Supports technical development in U13–U17.</li>
+                                <li>Individual feedback and extra-contact sessions.</li>
+                                <li>Bridges between training ground and classroom.</li>
+                            </ul>
+                        </article>
+                        <article class="card">
+                            <h3>Goalkeeper / Specialist Coach</h3>
+                            <p class="coach-meta">Across all age groups</p>
+                            <ul class="tight">
+                                <li>Position-specific work for keepers and units.</li>
+                                <li>Set-piece detail and communication habits.</li>
+                                <li>Video review of key moments each block.</li>
+                            </ul>
+                        </article>
+                    </div>
+                    <p class="small" style="margin-top:.75rem;">
+                        Staff list will be updated as new coaches and specialists join the program.
+                    </p>
+                </div>
+            </section>
+
+            <!-- SAFEGUARDING & CONSENT -->
+            <section class="teaser-section alt-bg" id="safeguarding">
+                <div class="container">
+                    <h2>Safeguarding &amp; Consent</h2>
+                    <div class="grid cards two-col">
+                        <article class="card">
+                            <h3>Parental Consent</h3>
+                            <p>
+                                Players under 18 train and appear in media only with guardian consent.
+                                Our registration process and app both include clear consent steps.
+                            </p>
+                        </article>
+                        <article class="card">
+                            <h3>Data Handling</h3>
+                            <p>
+                                We store only essential information for scheduling, communication, and development tracking.
+                                Data is not sold or shared outside football-related activities.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FACILITIES / VENUES -->
+            <section class="teaser-section" id="facilities">
+                <div class="container">
+                    <h2>Facilities &amp; Venues</h2>
+                    <div class="grid cards three-col">
+                        <article class="card">
+                            <h3>Training Ground</h3>
+                            <p>
+                                Primary base at
+                                <strong>Goal Getters Football Club, 132 Bonaero Dr, Bonaero Park, Johannesburg, 1619</strong>.
+                                Sessions are scheduled to maximise contact time and quality.
+                            </p>
+                        </article>
+                        <article class="card">
+                            <h3>Match Venues</h3>
+                            <p>
+                                Fixtures are played at local SAFA and regional league venues.
+                                Weekly schedules and locations are shared via WhatsApp broadcast and the app.
+                            </p>
+                        </article>
+                        <article class="card">
+                            <h3>Equipment</h3>
+                            <p>
+                                Modern training equipment for technical, physical, and tactical sessions,
+                                plus video review tools for key age groups.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AGE GROUPS / SQUADS -->
+            <section class="teaser-section alt-bg" id="squads">
+                <div class="container">
+                    <h2>Age Groups &amp; Squads</h2>
+                    <div class="grid cards four-col">
+                        <article class="card">
+                            <h3>U13</h3>
+                            <p>Intro to roles, scanning habits, ball circulation, and pressing cues.</p>
+                        </article>
+                        <article class="card">
+                            <h3>U15</h3>
+                            <p>Phase play, switching, midfield overloads, and combination play.</p>
+                        </article>
+                        <article class="card">
+                            <h3>U17</h3>
+                            <p>Out-of-possession shape, counters, and set-piece routines.</p>
+                        </article>
+                        <article class="card">
+                            <h3>Senior</h3>
+                            <p>Microcycle planning, opponent analysis, and video-driven feedback.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ACCOLADES / MILESTONES -->
+            <section class="teaser-section" id="milestones">
+                <div class="container">
+                    <h2>Accolades &amp; Milestones</h2>
+                    <div class="timeline">
+                        <div class="t-item">
+                            <span class="t-dot"></span>
+                            <div>
+                                <h3>2024</h3>
+                                <p>First tournament title as Goal Getters FC.</p>
+                            </div>
+                        </div>
+                        <div class="t-item">
+                            <span class="t-dot"></span>
+                            <div>
+                                <h3>2025</h3>
+                                <p>Players shortlisted for school and academy scholarships.</p>
+                            </div>
+                        </div>
+                        <div class="t-item">
+                            <span class="t-dot"></span>
+                            <div>
+                                <h3>2026</h3>
+                                <p>Senior squad promotion and expanded youth intake targets.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TESTIMONIALS -->
+            <section class="teaser-section alt-bg" id="testimonials">
+                <div class="container">
+                    <h2>What Our Players Say</h2>
+                    <div class="grid cards three-col testimonials" aria-live="polite">
+                        <article class="card">
+                            <h3>Player, U17</h3>
+                            <p>“Training has structure and purpose. I feel faster and smarter every week.”</p>
+                        </article>
+                        <article class="card">
+                            <h3>Parent</h3>
+                            <p>“Communication is clear and we can see our child’s progress every month.”</p>
+                        </article>
+                        <article class="card">
+                            <h3>Senior Squad</h3>
+                            <p>“Match prep is elite. We know our roles and the intensity expected.”</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SPONSORSHIP OPTIONS -->
+            <section class="teaser-section" id="sponsorship">
+                <div class="container">
+                    <h2>Sponsorship &amp; Partners</h2>
+                    <div class="grid cards three-col">
+                        <article class="card">
+                            <h3>Kit &amp; Equipment</h3>
+                            <p>Branding on training kit, match jerseys, or equipment with regular social media mentions.</p>
+                        </article>
+                        <article class="card">
+                            <h3>Event Sponsorship</h3>
+                            <p>Support prize giving, holiday camps, or tournaments with visible logo placement and shout-outs.</p>
+                        </article>
+                        <article class="card">
+                            <h3>Custom Packages</h3>
+                            <p>We build win-win partnerships that highlight your business and grow opportunities for players.</p>
+                        </article>
+                    </div>
+                    <p class="small" style="margin-top:.75rem;">
+                        To discuss sponsorship, email
+                        <a href="mailto:goalgetterscontact@mail.com">goalgetterscontact@mail.com</a>.
+                    </p>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section class="teaser-section alt-bg" id="faq">
+                <div class="container">
+                    <h2>FAQs</h2>
+                    <div class="faq">
+                        <details>
+                            <summary>How do I join?</summary>
+                            <p>Book an open training or trials week on the Booking page. Coaches assess and share next steps within 48 hours.</p>
+                        </details>
+                        <details>
+                            <summary>What are the fees?</summary>
+                            <p>Fees depend on age group and program. See “Programs &amp; Fees” on the home page for current pricing.</p>
+                        </details>
+                        <details>
+                            <summary>Where are sessions held?</summary>
+                            <p>
+                                Primary training is at Goal Getters Football Club,
+                                132 Bonaero Dr, Bonaero Park, Johannesburg, 1619.
+                                Match venues vary by league schedule.
+                            </p>
+                        </details>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CONTACT -->
+            <section class="teaser-section" id="contact">
+                <div class="container">
+                    <h2>Get In Touch</h2>
+                    <p>
+                        Email:
+                        <a href="mailto:goalgetterscontact@mail.com">goalgetterscontact@mail.com</a><br>
+                        Call: +27&nbsp;72&nbsp;379&nbsp;9907
+                    </p>
+                </div>
+            </section>
         </div>
-    </section>
-
-    <!-- MISSION, VALUES, PHILOSOPHY -->
-    <section class="teaser-section" id="mission">
-        <div class="container">
-            <h2>Mission, Values, Philosophy</h2>
-            <div class="grid cards three-col">
-                <article class="card">
-                    <h3>Mission</h3>
-                    <p>Provide a clear pathway from grassroots to competitive regional football. Focus on development first. Results follow.</p>
-                </article>
-                <article class="card">
-                    <h3>Values</h3>
-                    <ul class="tight">
-                        <li>Discipline and respect</li>
-                        <li>Work rate and accountability</li>
-                        <li>Team before self</li>
-                        <li>Player welfare and safety</li>
-                    </ul>
-                </article>
-                <article class="card">
-                    <h3>Coaching Philosophy</h3>
-                    <p>Periodised training. Small-sided constraints. Decision-making under pressure. Data-informed, video-assisted feedback.</p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- PLAYER PATHWAY -->
-    <section class="teaser-section alt-bg" id="pathway">
-        <div class="container">
-            <h2>Player Pathway</h2>
-            <div class="grid cards four-col">
-                <article class="card">
-                    <h3>Foundations</h3>
-                    <p>U9–U13. Ball mastery, agility, decision speed. Fun first, technique always.</p>
-                </article>
-                <article class="card">
-                    <h3>Progression</h3>
-                    <p>U15–U17. Tactical roles, pressing triggers, transitions. Strength and conditioning basics.</p>
-                </article>
-                <article class="card">
-                    <h3>Performance</h3>
-                    <p>U19/Senior. Unit cohesion, set-piece detail, match periodisation, video review.</p>
-                </article>
-                <article class="card">
-                    <h3>Opportunities</h3>
-                    <p>Trials, showcases, scholarship applications, and referrals through partner clubs and schools.</p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- SAFEGUARDING & CONSENT -->
-    <section class="teaser-section" id="safeguarding">
-        <div class="container">
-            <h2>Safeguarding & Consent</h2>
-            <div class="grid cards two-col">
-                <article class="card">
-                    <h3>Parental Consent</h3>
-                    <p>Minors use the app only with guardian consent. In-app age gate enforces this. If “No,” access is blocked.</p>
-                </article>
-                <article class="card">
-                    <h3>Data Handling</h3>
-                    <p>Player data originates from coach-collected consent forms. The app extends that agreement for scheduling, attendance, and development tracking.</p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- FACILITIES / VENUES -->
-    <section class="teaser-section alt-bg" id="facilities">
-        <div class="container">
-            <h2>Facilities & Venues</h2>
-            <div class="grid cards three-col">
-                <article class="card">
-                    <h3>Training Ground</h3>
-                    <p>Randburg Sports Complex. Grass and floodlit sessions. <span class="small">[Update with your exact field/slot]</span></p>
-                </article>
-                <article class="card">
-                    <h3>Match Venues</h3>
-                    <p>Regional SAFA league venues. Fixture comms shared in-app and via WhatsApp broadcast.</p>
-                </article>
-                <article class="card">
-                    <h3>Equipment</h3>
-                    <p>Cones, hurdles, GPS trackers (pilot), iPad video review, recovery tools. <span class="small">[Adjust to actual]</span></p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- AGE GROUPS / SQUADS -->
-    <section class="teaser-section" id="squads">
-        <div class="container">
-            <h2>Age Groups & Squads</h2>
-            <div class="grid cards four-col">
-                <article class="card"><h3>U13</h3><p>Intro to roles. Ball circulation and pressing cues.</p></article>
-                <article class="card"><h3>U15</h3><p>Phase play, switching, midfield overloads.</p></article>
-                <article class="card"><h3>U17</h3><p>Out of possession shape, counters, set-piece reps.</p></article>
-                <article class="card"><h3>Senior</h3><p>Microcycle planning, opponent analysis, video feedback.</p></article>
-            </div>
-        </div>
-    </section>
-
-    <!-- ACCOLADES / MILESTONES -->
-    <section class="teaser-section alt-bg" id="milestones">
-        <div class="container">
-            <h2>Accolades & Milestones</h2>
-            <div class="timeline">
-                <div class="t-item"><span class="t-dot"></span><div><h3>2024</h3><p>First tournament win. <span class="small">[Edit name and level]</span></p></div></div>
-                <div class="t-item"><span class="t-dot"></span><div><h3>2025</h3><p>Two players awarded scholarships. <span class="small">[Add details]</span></p></div></div>
-                <div class="t-item"><span class="t-dot"></span><div><h3>2026</h3><p>Senior squad promotion target. <span class="small">[Update goal]</span></p></div></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section class="teaser-section" id="testimonials">
-        <div class="container">
-            <h2>What Our Players Say</h2>
-            <div class="grid cards three-col testimonials" aria-live="polite">
-                <article class="card"><h3>Player, U17</h3><p>“Training has structure and purpose. I feel faster and smarter every week.”</p></article>
-                <article class="card"><h3>Parent</h3><p>“Clear communication and visible progress. The program builds confidence.”</p></article>
-                <article class="card"><h3>Senior Squad</h3><p>“Match prep is elite. We know our roles and the intensity expected.”</p></article>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="teaser-section alt-bg" id="faq">
-        <div class="container">
-            <h2>FAQs</h2>
-            <div class="faq">
-                <details>
-                    <summary>How do I join?</summary>
-                    <p>Book an open training or trials week on the Booking page. Coaches assess and share next steps.</p>
-                </details>
-                <details>
-                    <summary>What are the fees?</summary>
-                    <p>Program fees vary by age group and duration. See Shop for kit and program options. <span class="small">[Replace with real fees]</span></p>
-                </details>
-                <details>
-                    <summary>Where are sessions held?</summary>
-                    <p>Primary training at Randburg Sports Complex. Matches at league venues. <span class="small">[Confirm]</span></p>
-                </details>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="teaser-section" id="contact">
-        <div class="container">
-            <h2>Get In Touch</h2>
-            <p>Email: <a href="mailto:goalgetterscontact@mail.com">goalgetterscontact@mail.com</a><br>Call: +27&nbsp;72&nbsp;379&nbsp;9907</p>
-        </div>
-    </section>
+    </div>
 </main>
+
 
 <footer>
     <p>&copy; 2025 Goal Getters FC. All rights reserved.</p>
@@ -242,12 +481,43 @@
     </ul>
 </footer>
 
-<!-- FAB -->
+<!-- FAB: Contact GoalGetters -->
 <div class="fab-container">
-    <button class="fab-main" aria-label="Quick actions" title="Quick Actions Menu" aria-expanded="false">✚</button>
+    <button class="fab-main"
+            aria-label="Contact GoalGetters"
+            title="Contact GoalGetters"
+            aria-expanded="false">
+        ?
+    </button>
     <ul class="fab-actions" aria-hidden="true">
-        <li><button id="scrollTopBtn" class="fab-action fab-scroll" aria-label="Scroll to top" title="Scroll to top">↑</button></li>
-        <li><a href="https://wa.me/27824656428" class="fab-action fab-whatsapp" aria-label="WhatsApp" title="WhatsApp" target="_blank" rel="noopener noreferrer">📲</a></li>
+        <li>
+            <a href="tel:+27824656428"
+               class="fab-action fab-call"
+               aria-label="Call GoalGetters"
+               title="Call GoalGetters">
+                📞
+            </a>
+        </li>
+        <li>
+            <a href="https://wa.me/27824656428"
+               class="fab-action fab-whatsapp"
+               aria-label="WhatsApp GoalGetters"
+               title="WhatsApp GoalGetters"
+               target="_blank"
+               rel="noopener noreferrer">
+                💬
+            </a>
+        </li>
+        <li>
+            <a href="https://www.google.com/maps?q=Goal+Getters+Football+Club,+132+Bonaero+Dr,+Bonaero+Park,+Johannesburg,+1619"
+               class="fab-action fab-map"
+               aria-label="Open Goal Getters Football Club in Google Maps"
+               title="Open Goal Getters Football Club in Google Maps"
+               target="_blank"
+               rel="noopener noreferrer">
+                📍
+            </a>
+        </li>
     </ul>
 </div>
 
@@ -264,23 +534,44 @@
         const toggle = document.querySelector('.nav-toggle');
         const menu = document.getElementById('nav-menu');
         if (!toggle || !menu) return;
-        const setOpen = (o)=>{ toggle.setAttribute('aria-expanded', String(o)); menu.classList.toggle('open', o); };
-        toggle.addEventListener('click', ()=> setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
-        menu.addEventListener('click', e => { if (e.target.matches('.nav-link')) setOpen(false); });
+        function setOpen(open) {
+            toggle.setAttribute('aria-expanded', String(open));
+            menu.classList.toggle('open', open);
+        }
+        toggle.addEventListener('click', () =>
+            setOpen(toggle.getAttribute('aria-expanded') !== 'true')
+        );
+        menu.addEventListener('click', (e) => {
+            if (e.target.matches('.nav-link')) setOpen(false);
+        });
     })();
 
-    // FAB
+    // FAB – Contact widget (same behaviour as home)
     (function () {
         const fabMain = document.querySelector('.fab-main');
         const list = document.querySelector('.fab-actions');
         if (!fabMain || !list) return;
-        const setOpen = (o)=>{ fabMain.setAttribute('aria-expanded', String(o)); list.setAttribute('aria-hidden', String(!o)); list.classList.toggle('open', o); };
-        fabMain.addEventListener('click', ()=> setOpen(fabMain.getAttribute('aria-expanded') !== 'true'));
-        const scrollBtn = document.getElementById('scrollTopBtn');
-        if (scrollBtn) scrollBtn.addEventListener('click', ()=> window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        function setOpen(open) {
+            fabMain.setAttribute('aria-expanded', String(open));
+            list.setAttribute('aria-hidden', String(!open));
+            list.classList.toggle('open', open);
+        }
+
+        fabMain.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = fabMain.getAttribute('aria-expanded') === 'true';
+            setOpen(!isOpen);
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!fabMain.contains(e.target) && !list.contains(e.target)) {
+                setOpen(false);
+            }
+        });
     })();
 
-    // Simple carousel (smaller, swipe, keyboard)
+    // Simple culture carousel
     (function () {
         const container = document.querySelector('.culture-slider');
         const track = document.querySelector('.slides');
@@ -290,24 +581,69 @@
         if (!container || !track || !slides.length) return;
 
         let idx = 0;
-        function update(){ track.style.transform = `translateX(-${idx * 100}%)`; }
-        prev.addEventListener('click', ()=>{ idx = (idx - 1 + slides.length) % slides.length; update(); });
-        next.addEventListener('click', ()=>{ idx = (idx + 1) % slides.length; update(); });
+        function update() {
+            track.style.transform = `translateX(-${idx * 100}%)`;
+        }
 
-        // Pause on hover to reduce motion
-        container.addEventListener('mouseenter', ()=> track.style.transitionDuration = '.0s');
-        container.addEventListener('mouseleave', ()=> track.style.transitionDuration = '.35s');
+        prev.addEventListener('click', () => {
+            idx = (idx - 1 + slides.length) % slides.length;
+            update();
+        });
+        next.addEventListener('click', () => {
+            idx = (idx + 1) % slides.length;
+            update();
+        });
 
         // Swipe
         let startX = null;
-        track.addEventListener('touchstart', e => startX = e.touches[0].clientX, {passive:true});
-        track.addEventListener('touchend', e => {
+        track.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        }, { passive: true });
+
+        track.addEventListener('touchend', (e) => {
             if (startX == null) return;
             const dx = e.changedTouches[0].clientX - startX;
-            if (Math.abs(dx) > 40) { idx = dx > 0 ? (idx - 1 + slides.length) % slides.length : (idx + 1) % slides.length; update(); }
+            if (Math.abs(dx) > 40) {
+                idx = dx > 0
+                    ? (idx - 1 + slides.length) % slides.length
+                    : (idx + 1) % slides.length;
+                update();
+            }
             startX = null;
-        }, {passive:true});
+        }, { passive: true });
     })();
+
+    // About page TOC highlighting
+    (function () {
+        const tocLinks = document.querySelectorAll('.about-toc a[href^="#"]');
+        if (!tocLinks.length) return;
+
+        const sections = Array.from(tocLinks)
+            .map(link => document.querySelector(link.getAttribute('href')))
+            .filter(Boolean);
+
+        if (!sections.length) return;
+
+        function setActive(id) {
+            tocLinks.forEach(link => {
+                link.classList.toggle('is-active', link.getAttribute('href') === '#' + id);
+            });
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setActive(entry.target.id);
+                }
+            });
+        }, {
+            rootMargin: '-45% 0px -50% 0px',
+            threshold: 0
+        });
+
+        sections.forEach(section => observer.observe(section));
+    })();
+
 </script>
 </body>
 </html>

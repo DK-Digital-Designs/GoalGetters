@@ -339,14 +339,47 @@ s
     </ul>
 </footer>
 
-<!-- FAB -->
+<!-- FAB: Contact GoalGetters -->
 <div class="fab-container">
-    <button class="fab-main" aria-label="Quick actions" title="Quick Actions Menu" aria-expanded="false">✚</button>
+    <button class="fab-main"
+            aria-label="Contact GoalGetters"
+            title="Contact GoalGetters"
+            aria-expanded="false">
+        ?
+    </button>
     <ul class="fab-actions" aria-hidden="true">
-        <li><button id="scrollTopBtn" class="fab-action fab-scroll" aria-label="Scroll to top" title="Scroll to top">↑</button></li>
-        <li><a href="https://wa.me/27824656428" class="fab-action fab-whatsapp" aria-label="WhatsApp" title="WhatsApp" target="_blank" rel="noopener noreferrer">📲</a></li>
+        <li>
+            <a href="tel:+27824656428"
+               class="fab-action fab-call"
+               aria-label="Call GoalGetters"
+               title="Call GoalGetters">
+                📞
+            </a>
+        </li>
+        <li>
+            <a href="https://wa.me/27824656428"
+               class="fab-action fab-whatsapp"
+               aria-label="WhatsApp GoalGetters"
+               title="WhatsApp GoalGetters"
+               target="_blank"
+               rel="noopener noreferrer">
+                💬
+            </a>
+        </li>
+        <li>
+            <a href="https://www.google.com/maps?q=Goal+Getters+Football+Club,+132+Bonaero+Dr,+Bonaero+Park,+Johannesburg,+1619"
+               class="fab-action fab-map"
+               aria-label="Open Goal Getters Football Club in Google Maps"
+               title="Open Goal Getters Football Club in Google Maps"
+               target="_blank"
+               rel="noopener noreferrer">
+                📍
+            </a>
+        </li>
+
     </ul>
 </div>
+
 
 <!-- Vendor -->
 <script src="https://unpkg.com/aos/dist/aos.js"></script>
@@ -377,16 +410,33 @@ s
         });
     })();
 
-    // FAB
+    // FAB – Contact widget
     (function () {
         const fabMain = document.querySelector('.fab-main');
         const list = document.querySelector('.fab-actions');
         if (!fabMain || !list) return;
-        function setOpen(open) { fabMain.setAttribute('aria-expanded', String(open)); list.setAttribute('aria-hidden', String(!open)); list.classList.toggle('open', open); }
-        fabMain.addEventListener('click', () => setOpen(fabMain.getAttribute('aria-expanded') !== 'true'));
-        const scrollBtn = document.getElementById('scrollTopBtn');
-        if (scrollBtn) scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        function setOpen(open) {
+            fabMain.setAttribute('aria-expanded', String(open));
+            list.setAttribute('aria-hidden', String(!open));
+            list.classList.toggle('open', open);
+        }
+
+        fabMain.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = fabMain.getAttribute('aria-expanded') === 'true';
+            setOpen(!isOpen);
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!fabMain.contains(e.target) && !list.contains(e.target)) {
+                setOpen(false);
+            }
+        });
     })();
+
+
 
     // Sponsors marquee (duplicate for seamless loop)
     (function () {
