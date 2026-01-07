@@ -1,189 +1,238 @@
-/* ========================================================================
-   Goal Getters – about.css
-   About page typography, team grid, and modal
-   ======================================================================== */
+/* About page layout ------------------------------------------------------- */
 
-/* About page tweaks: slightly lighter muted tone for dark sections */
-:root {
-    --muted:#cfcfcf;
-}
-
-.mega-title {
-    font-family: var(--font-display);
-    font-size: clamp(2.4rem, 6vw, 5rem);
-    line-height: .95;
-    letter-spacing: .02em;
-    text-transform: uppercase;
-    margin: .25rem 0 1rem 0;
-}
-.eyebrow {
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: .9rem;
-    color: var(--muted);
-    display: block;
-    margin-bottom: .5rem;
-}
-.lead-narrow {
-    font-size: 1.05rem;
-    color: #e6e6e6;
-    max-width: 52ch;
-}
-
-/* Team grid */
-.team-grid {
+.about-shell{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1rem;
-}
-.team-card {
-    background: #111;
-    border: 1px solid #1f1f1f;
-    border-radius: 10px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
+    gap: 2rem;
 }
 
-/* Make the card a layering context */
-.team-card { position: relative; isolation: isolate; }
+/* On this page nav -------------------------------------------------------- */
 
-/* subtle gradient overlay */
-.team-card::before {
-    content: "";
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,.65), rgba(0,0,0,0));
-    opacity: 0;
-    transition: opacity .25s ease;
+.about-toc{
+    position: sticky;
+    top: 120px;
+    z-index: 30; /* keep TOC above section stripes and content */
+    align-self: flex-start;
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-lg);
+    background: rgba(244,239,230,0.95);
+    backdrop-filter: blur(18px);
+    box-shadow: var(--shadow-1);
+    font-size: .85rem;
+}
+
+
+.about-toc-title{
+    font-family: var(--font-display);
+    letter-spacing: .06em;
+    font-size: .9rem;
+    margin: 0 0 .75rem;
+    text-transform: uppercase;
+}
+
+.about-toc ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+}
+
+.about-toc a{
+    display: block;
+    padding: .35rem .6rem;
+    border-radius: 999px;
+    text-decoration: none;
+    color: var(--muted);
+    transition:
+            background-color .2s ease,
+            color .2s ease,
+            transform .1s ease;
+}
+
+.about-toc a:hover{
+    background: var(--surface);
+    color: var(--text);
+    transform: translateX(2px);
+}
+
+.about-toc a.is-active{
+    background: var(--accent);
+    color: var(--accent-ink);
+}
+
+/* Full-width stripes for each section ------------------------------------ */
+/* Eggshell (body) vs white (surface) like table rows. */
+
+.about-content .teaser-section{
+    position: relative;
+    padding: clamp(2rem,4vw,4rem) 0;
+    background: transparent;
+    border: none;
     z-index: 0;
 }
 
-/* CTA pill — no extra HTML needed */
-.team-card::after {
-    content: "View profile";
-    position: absolute; left: 14px; bottom: 12px;
-    font-weight: 800; letter-spacing: .02em;
-    padding: .4rem .75rem;
-    border-radius: 999px;
-    background: var(--accent); color: var(--bg);
-    transform: translateY(8px);
-    opacity: 0;
-    transition: transform .25s ease, opacity .25s ease;
-    z-index: 1;
-}
-
-/* image zoom/saturate on hover */
-.team-card img { transition: transform .35s ease, filter .35s ease; }
-.team-card:hover img { transform: scale(1.05); filter: saturate(1.15) contrast(1.05); }
-
-/* lift + glow + accent border */
-.team-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 14px 36px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.04) inset;
-    border-color: var(--accent);
-}
-.team-card:hover::before { opacity: 1; }
-.team-card:hover::after  { opacity: 1; transform: translateY(0); }
-
-/* keyboard accessibility */
-.team-card:focus-visible {
-    outline: none;
-    box-shadow:
-            0 0 0 3px var(--bg),
-            0 0 0 5px var(--accent);
-    border-color: var(--accent);
-}
-.team-card:focus-visible::before { opacity: 1; }
-.team-card:focus-visible::after  { opacity: 1; transform: translateY(0); }
-
-/* Touch devices: keep CTA visible (no hover) */
-@media (hover: none) {
-    .team-card::after { opacity: 1; transform: none; }
-}
-
-/* Respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-    .team-card, .team-card * { transition: none !important; }
-}
-
-.team-card .tc-body {
-    padding: 1rem;
-}
-.team-card .tc-name {
-    font-weight: 800;
-    margin: .25rem 0;
-}
-.team-card .tc-role {
-    color: #bdbdbd;
-    font-size: .95rem;
-}
-
-/* Modal */
-.modal {
-    position: fixed;
-    inset: 0;
-    display: none;
-    background: rgba(0,0,0,.55);
-    backdrop-filter: blur(3px);
-    z-index: 9999;
-}
-.modal.open { display: grid; place-items: center; }
-.modal-card {
-    width: min(900px, 94vw);
-    max-height: 90vh;
-    overflow: auto;
-    background: #0f0f0f;
-    border: 1px solid #242424;
-    border-radius: 12px;
-    padding: 1.25rem;
-}
-.modal-close {
-    position: sticky;
+.about-content .teaser-section::before{
+    content:"";
+    position: absolute;
     top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    background: var(--bg);              /* eggshell row */
+    z-index: -1;
+}
+
+.about-content .teaser-section.alt-bg::before{
+    background: var(--surface);         /* white row */
+}
+
+/* keep container normal inside */
+.about-content .teaser-section .container{
+    position: relative;
+}
+
+/* Culture slider – text carousel ----------------------------------------- */
+/* Overrides image-carousel assumptions so content isn't clipped. */
+
+.about-content .carousel-container{
+    position: relative;
+    max-width: 100%;
+}
+
+.about-content .culture-slider{
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(0,0,0,.06);
+    box-shadow: var(--shadow-1);
+    background: rgba(244,239,230,0.95);
+    backdrop-filter: blur(16px);
+    padding: 1.1rem 1.2rem;
+
+    max-height: none;
+    aspect-ratio: auto;
+}
+
+.about-content .slides{
+    display: flex;
+    align-items: stretch;
+    height: auto;
+    transition: transform .35s ease;
+}
+
+.about-content .slide{
+    min-width: 100%;
+    height: auto;
+}
+
+/* Inner culture card */
+
+.culture-card{
+    height: auto;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    padding: .25rem .25rem 0;
+}
+
+.culture-card ul{
+    margin: 0 0 .4rem;
+    padding-left: 1.1rem;
+}
+
+.culture-pill{
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    margin-bottom: .35rem;
     display: inline-block;
-    margin-left: auto;
-    background: #1f1f1f;
-    border: 1px solid #2e2e2e;
-    color: #fff;
-    padding: .4rem .7rem;
-    border-radius: 8px;
+    padding: .2rem .55rem;
+    border-radius: 999px;
+    background: rgba(0,0,0,.06);
+}
+
+/* Carousel buttons – ensure left & right are visible --------------------- */
+
+.carousel-container .carousel-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    border: 0;
+    background: #fff;
+    color: #111;
+    box-shadow: var(--shadow-1);
     cursor: pointer;
 }
-.modal-header {
-    display: grid;
-    grid-template-columns: 160px 1fr;
-    gap: 1rem;
-    align-items: center;
-}
-.modal-header img {
-    width: 160px;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-.modal-title {
-    font-family: var(--font-display);
-    text-transform: uppercase;
-    font-size: clamp(1.6rem, 3vw, 2.4rem);
-}
-.modal-role { color: #cfcfcf; margin-top: .25rem; }
-.modal-quote {
-    margin-top: .75rem;
-    font-size: 1.05rem;
-    color: #e8e8e8;
-}
-.modal-section { margin-top: 1.2rem; }
-.modal-section h4 { margin-bottom: .4rem; }
-.columns-3 {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0,1fr));
-    gap: 1rem;
-}
-.columns-3 ul { margin: 0; padding: 0; list-style: none; }
-.columns-3 li { margin: .35rem 0; color: #d7d7d7; }
 
-@media (max-width: 800px) {
-    .modal-header { grid-template-columns: 1fr; }
-    .columns-3 { grid-template-columns: 1fr; }
+.carousel-container .carousel-btn.prev{ left: 12px; }
+.carousel-container .carousel-btn.next{ right: 12px; }
+
+/* Coaches cards ----------------------------------------------------------- */
+
+.coach-meta{
+    font-size: .8rem;
+    opacity: .75;
+    margin-top: -.25rem;
+    margin-bottom: .5rem;
+}
+
+/* Make all cards on about use same surface background -------------------- */
+
+#mission .card,
+#pathway .card,
+#coaches .card,
+#safeguarding .card,
+#facilities .card,
+#squads .card,
+#testimonials .card,
+#sponsorship .card{
+    background: var(--surface);
+}
+
+/* Responsive tweaks ------------------------------------------------------- */
+
+@media (max-width: 960px){
+    .about-shell{
+        display: block;
+        padding: 1.5rem 1rem 3rem;
+    }
+
+    .about-toc{
+        position: static;
+        margin-bottom: 1.25rem;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+        backdrop-filter: none;
+    }
+
+    .about-toc ul{
+        flex-direction: row;
+        overflow-x: auto;
+        white-space: nowrap;
+        gap: .5rem;
+        padding-bottom: .25rem;
+    }
+
+    .about-toc a{
+        background: rgba(0,0,0,.04);
+    }
+
+    .about-toc a.is-active{
+        background: var(--accent);
+    }
+
+    .about-content .culture-slider{
+        padding: .85rem .9rem;
+    }
 }
