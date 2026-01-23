@@ -44,8 +44,8 @@ h3{font-size:1.1rem}
     position:sticky;top:0;z-index:50;
     display:flex;align-items:center;gap:1rem;
     padding:.6rem 1rem;
-    background:rgba(231,226,215,.85);
-    backdrop-filter:saturate(120%) blur(10px);
+    background:rgba(231,226,215,.92);
+    backdrop-filter:saturate(140%) blur(20px);
     border-bottom:1px solid rgba(0,0,0,.08);
 }
 .logo-img{width:60px;height:60px;object-fit:contain}
@@ -97,7 +97,7 @@ h3{font-size:1.1rem}
 }
 .btn:hover{transform:translateY(-1px);box-shadow:0 12px 24px var(--accent-glow-strong)}
 .btn.btn-small{padding:.6rem .9rem;font-size:.95rem}
-.btn-light{background:#ffffff14;border:1px solid #ffffff2a}
+.btn-light{background:rgba(255,255,255,.25);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.4);color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.3)}
 
 /* Teaser sections --------------------------------------------------------- */
 .teaser-section{padding:clamp(2rem,4vw,4rem) 0}
