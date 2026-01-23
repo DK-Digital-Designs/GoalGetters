@@ -4,6 +4,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "build": "vite build",
     "preview": "vite preview"
   },
@@ -20,6 +22,7 @@
   "homepage": "https://github.com/DK-Digital-Designs/GoalGetters#readme",
   "description": "",
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "vite": "^7.3.1"
   }
 }
