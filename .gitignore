@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.DS_Store
+*.local
+.env
+.idea/
+.vscode/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.temp/
+_backup/
+whatsapp_button_extracted/
+replace-videos.ps1

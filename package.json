@@ -1,0 +1,25 @@
+{
+  "name": "goalgetters",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DK-Digital-Designs/GoalGetters.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DK-Digital-Designs/GoalGetters/issues"
+  },
+  "homepage": "https://github.com/DK-Digital-Designs/GoalGetters#readme",
+  "description": "",
+  "devDependencies": {
+    "vite": "^7.3.1"
+  }
+}

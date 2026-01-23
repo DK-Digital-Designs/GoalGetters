@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <title>Home – Goal Getters FC</title>
@@ -8,7 +9,8 @@
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Goal Getters FC" />
     <meta name="theme-color" content="#000000" />
-    <meta name="description" content="Goal Getters FC — transparent programs, fees, schedules and trial bookings. See everything here, no DMs needed." />
+    <meta name="description"
+        content="Goal Getters FC — transparent programs, fees, schedules and trial bookings. See everything here, no DMs needed." />
 
     <!-- Open Graph -->
     <meta property="og:title" content="Goal Getters FC" />
@@ -31,10 +33,21 @@
     <link rel="stylesheet" href="assets/css/theme.css">
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/whatsapp-fab.css">
 
 
 
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
 
     <link rel="preload" as="image" href="assets/images/hero.png">
     <script type="application/ld+json">
@@ -51,439 +64,456 @@
         }
     </script>
 </head>
+
 <body>
-<header id="site-header" class="navbar" role="banner">
-    <a href="index.html" class="logo" aria-label="Goal Getters FC Home">
-        <img src="assets/images/gg_applogo_500.png" class="logo-img" loading="lazy" width="150" height="150" alt="Goal Getters FC Logo">
-    </a>
+    <header id="site-header" class="navbar" role="banner">
+        <a href="index.html" class="logo" aria-label="Goal Getters FC Home">
+            <img src="assets/images/gg_applogo_500.png" class="logo-img" loading="lazy" width="150" height="150"
+                alt="Goal Getters FC Logo">
+        </a>
 
-    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
-        <span class="hamburger" aria-hidden="true"></span>
-    </button>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+            <span class="hamburger" aria-hidden="true"></span>
+        </button>
 
-    <nav id="nav-menu" class="nav-menu" role="navigation">
-        <ul>
-            <li><a href="index.html" class="nav-link active" data-nav="home">Home</a></li>
-            <li><a href="pages/about.html" class="nav-link" data-nav="about">About</a></li>
-            <li><a href="pages/booking.html" class="nav-link" data-nav="booking">Booking</a></li>
-            <li><a href="pages/shop.html" class="nav-link" data-nav="shop">Shop</a></li>
-            <li><a href="pages/report.html" class="nav-link" data-nav="report">Report</a></li>
-            <li class="nav-wip"><span class="wip-pill" role="status" aria-label="Work in progress"><span class="dot" aria-hidden="true"></span> WIP</span></li>
-        </ul>
-    </nav>
-</header>
+        <nav id="nav-menu" class="nav-menu" role="navigation">
+            <ul>
+                <li><a href="index.html" class="nav-link active" data-nav="home">Home</a></li>
+                <li><a href="pages/about.html" class="nav-link" data-nav="about">About</a></li>
+                <li><a href="pages/booking.html" class="nav-link" data-nav="booking">Booking</a></li>
 
-<main>
-    <!-- HERO: value + proof + dual CTA -->
-    <section class="hero video-hero hero--compact" data-aos="fade-in">
-        <video class="hero-video" autoplay muted loop playsinline poster="assets/images/hero.png">
-            <source src="assets/images/training-cones.mp4" type="video/mp4">
-            Your browser doesn’t support HTML5 video.
-        </video>
-        <div class="container hero-content">
-            <h1>Train with a Purpose. Play with a Pathway.</h1>
-            <p>Transparent programs, schedules, and fees. Join a club built on development, discipline, and opportunity.</p>
-            <div class="hero-ctas">
-                <a href="pages/booking.html" class="btn">Book a Trial</a>
-                <a href="#programs" class="btn btn-light">See Programs & Fees</a>
-            </div>
-            <ul class="trust-badges">
-                <li>UEFA-qualified coaching</li>
-                <li>Player pathway: trials & scholarships</li>
-                <li>Safeguarding & consent in place</li>
+                <li class="nav-wip"><span class="wip-pill" role="status" aria-label="Work in progress"><span class="dot"
+                            aria-hidden="true"></span> WIP</span></li>
             </ul>
-        </div>
-    </section>
+        </nav>
+    </header>
 
-    <!-- HOW JOINING WORKS -->
-    <section class="teaser-section alt-bg" id="how">
-        <div class="container">
-            <h2>How Joining Works</h2>
-            <div class="grid cards three-col">
-                <article class="card"><h3>1) Book a Trial</h3><p>Choose an open session or Trials Week. Bring boots, water, and a good attitude.</p></article>
-                <article class="card"><h3>2) Coach Feedback</h3><p>We assess technical level, work rate, and fit. You’ll get clear next steps within 48 hours.</p></article>
-                <article class="card"><h3>3) Register & Start</h3><p>Pick your program, collect kit, and join your squad’s training slots.</p></article>
+    <main>
+        <!-- HERO: value + proof + dual CTA -->
+        <section class="hero hero--compact" data-aos="fade-in"
+            style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/images/hero_bg.png') center/cover no-repeat; min-height: 80vh; position: relative; overflow: hidden; display: flex; align-items: center;">
+             <!-- Video replaced with static background -->
+            <div class="container hero-content">
+                <h1>Train with a Purpose. Play with a Pathway.</h1>
+                <p>Transparent programs, schedules, and fees. Join a club built on development, discipline, and
+                    opportunity.</p>
+                <div class="hero-ctas">
+                    <a href="pages/booking.html" class="btn">Book a Trial</a>
+                    <a href="#programs" class="btn btn-light">See Programs & Fees</a>
+                </div>
+                <ul class="trust-badges">
+                    <li>UEFA-qualified coaching</li>
+                    <li>Player pathway: trials & scholarships</li>
+                    <li>Safeguarding & consent in place</li>
+                </ul>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- PROGRAMS & FEES -->
-    <section class="teaser-section" id="programs">
-        <div class="container">
-            <h2>Programs & Fees</h2>
-            <div class="grid cards three-col" id="programCards">
-                <article class="card">
-                    <h3>U13 Foundations</h3>
-                    <p class="price">R <strong>650</strong> / month</p>
-                    <ul class="mini">
-                        <li>2x sessions / week</li>
-                        <li>Ball mastery & decision speed</li>
-                        <li>Friendly fixtures</li>
+        <!-- HOW JOINING WORKS -->
+        <section class="teaser-section alt-bg" id="how">
+            <div class="container">
+                <h2>How Joining Works</h2>
+                <div class="grid cards three-col">
+                    <article class="card">
+                        <h3>1) Book a Trial</h3>
+                        <p>Choose an open session or Trials Week. Bring boots, water, and a good attitude.</p>
+                    </article>
+                    <article class="card">
+                        <h3>2) Coach Feedback</h3>
+                        <p>We assess technical level, work rate, and fit. You’ll get clear next steps within 48 hours.
+                        </p>
+                    </article>
+                    <article class="card">
+                        <h3>3) Register & Start</h3>
+                        <p>Pick your program, collect kit, and join your squad’s training slots.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROGRAMS & FEES -->
+        <section class="teaser-section" id="programs">
+            <div class="container">
+                <h2>Programs & Fees</h2>
+                <div class="grid cards three-col" id="programCards">
+                    <article class="card">
+                        <h3>U13 Foundations</h3>
+                        <p class="price">R <strong>650</strong> / month</p>
+                        <ul class="mini">
+                            <li>2x sessions / week</li>
+                            <li>Ball mastery & decision speed</li>
+                            <li>Friendly fixtures</li>
+                        </ul>
+                        <a href="pages/booking.html" class="btn btn-small">Book Trial</a>
+                    </article>
+                    <article class="card">
+                        <h3>U15–U17 Development</h3>
+                        <p class="price">R <strong>850</strong> / month</p>
+                        <ul class="mini">
+                            <li>3x sessions / week</li>
+                            <li>Tactical roles & transitions</li>
+                            <li>League fixtures</li>
+                        </ul>
+                        <a href="pages/booking.html" class="btn btn-small">Book Trial</a>
+                    </article>
+                    <article class="card">
+                        <h3>Senior Performance</h3>
+                        <p class="price">R <strong>950</strong> / month</p>
+                        <ul class="mini">
+                            <li>3–4x sessions / week</li>
+                            <li>Video review & S&C basics</li>
+                            <li>Tournament exposure</li>
+                        </ul>
+                        <a href="pages/booking.html" class="btn btn-small">Book Trial</a>
+                    </article>
+                </div>
+                <p class="small" style="margin-top:.5rem;">Fees exclude kit. <a href="pages/shop.html">See kit
+                        options</a>. Financial assistance available in special cases.</p>
+            </div>
+        </section>
+
+        <!-- UPCOMING EVENTS -->
+        <section class="teaser-section alt-bg" id="schedule">
+            <div class="container">
+                <h2>Upcoming Events</h2>
+                <div class="table-wrap">
+                    <table class="schedule">
+                        <thead>
+                            <tr>
+                                <th>Event</th>
+                                <th>Squad</th>
+                                <th>Day</th>
+                                <th>Time</th>
+                                <th>Venue</th>
+                            </tr>
+                        </thead>
+                        <tbody id="scheduleBody">
+                            <tr>
+                                <td>Prize Giving</td>
+                                <td>All</td>
+                                <td>7 December</td>
+                                <td>17:00–22:00</td>
+                                <td>
+                                    <a href="https://www.google.com/maps?q=Shangri-la+Academy+Hall" target="_blank"
+                                        rel="noopener">
+                                        Shangri-la Academy Hall
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Holiday Camp</td>
+                                <td>All</td>
+                                <td>9–13 December</td>
+                                <td>09:00–13:00</td>
+                                <td>
+                                    <a href="https://www.google.com/maps?q=132+Bonaero+Drive" target="_blank"
+                                        rel="noopener">
+                                        132 Bonaero Drive
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Open Trials</td>
+                                <td>All</td>
+                                <td>16 December</td>
+                                <td>TBC</td>
+                                <td>
+                                    <a href="https://www.google.com/maps?q=132+Bonaero+Drive" target="_blank"
+                                        rel="noopener">
+                                        132 Bonaero Drive
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="small">
+                    Dates and times are subject to change. Final details will be confirmed on our social channels.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- QUICK PROOF / OUTCOMES -->
+        <section class="teaser-section" id="proof">
+            <div class="container">
+                <h2>Pathway & Outcomes</h2>
+                <div class="grid cards three-col">
+                    <article class="card">
+                        <h3>Scholarships</h3>
+                        <p>Players referred into school and academy scholarship pipelines. <span class="small">[Add
+                                names once confirmed]</span></p>
+                    </article>
+                    <article class="card">
+                        <h3>Tournaments</h3>
+                        <p>Regional trophies and showcase events to test development.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Next-Level Trials</h3>
+                        <p>Contacts and invites for standout performers.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- SPONSORS BANNER -->
+        <section class="sponsors" aria-label="Club sponsors">
+            <div class="container">
+                <h2 class="section-title">Our Partners</h2>
+                <div class="sponsor-marquee" role="region" aria-roledescription="carousel" aria-label="Sponsors"
+                    aria-live="off">
+                    <ul class="marquee-track">
+                        <!-- sequence A -->
+                        <li class="sponsor-item">
+                            <img src="assets/sponsors/BDJ-FREIGHT-INTERNATIONAL-LOGO-e1709742720515.png"
+                                alt="BDJ International logo" loading="lazy">
+                            <span class="sponsor-name">BDJ International</span>
+                        </li>
+                        <li class="sponsor-item">
+                            <img src="assets/sponsors/BDJ-FREIGHT-INTERNATIONAL-LOGO-e1709742720515.png"
+                                alt="BDJ International logo" loading="lazy">
+                            <span class="sponsor-name">BDJ International</span>
+                        </li>
+                        <li class="sponsor-item">
+                            <img src="assets/sponsors/BDJ-FREIGHT-INTERNATIONAL-LOGO-e1709742720515.png"
+                                alt="BDJ International logo" loading="lazy">
+                            <span class="sponsor-name">BDJ International</span>
+                        </li>
+
+                        <!-- sequence B (exact copy of A for smooth loop) -->
+                        <li class="sponsor-item">
+                            <img src="assets/sponsors/BDJ-FREIGHT-INTERNATIONAL-LOGO-e1709742720515.png"
+                                alt="BDJ International logo" loading="lazy">
+                            <span class="sponsor-name">BDJ International</span>
+                        </li>
+                        <li class="sponsor-item">
+                            <img src="assets/sponsors/BDJ-FREIGHT-INTERNATIONAL-LOGO-e1709742720515.png"
+                                alt="BDJ International logo" loading="lazy">
+                            <span class="sponsor-name">BDJ International</span>
+                        </li>
+                        <li class="sponsor-item">
+                            <img src="assets/sponsors/BDJ-FREIGHT-INTERNATIONAL-LOGO-e1709742720515.png"
+                                alt="BDJ International logo" loading="lazy">
+                            <span class="sponsor-name">BDJ International</span>
+                        </li>
                     </ul>
-                    <a href="pages/booking.html" class="btn btn-small">Book Trial</a>
-                </article>
-                <article class="card">
-                    <h3>U15–U17 Development</h3>
-                    <p class="price">R <strong>850</strong> / month</p>
-                    <ul class="mini">
-                        <li>3x sessions / week</li>
-                        <li>Tactical roles & transitions</li>
-                        <li>League fixtures</li>
-                    </ul>
-                    <a href="pages/booking.html" class="btn btn-small">Book Trial</a>
-                </article>
-                <article class="card">
-                    <h3>Senior Performance</h3>
-                    <p class="price">R <strong>950</strong> / month</p>
-                    <ul class="mini">
-                        <li>3–4x sessions / week</li>
-                        <li>Video review & S&C basics</li>
-                        <li>Tournament exposure</li>
-                    </ul>
-                    <a href="pages/booking.html" class="btn btn-small">Book Trial</a>
-                </article>
+                </div>
+                <p class="small sponsors-cta">
+                    Support the squad? <a href="pages/about.html#sponsorship">See sponsorship options</a>
+                </p>
             </div>
-            <p class="small" style="margin-top:.5rem;">Fees exclude kit. <a href="pages/shop.html">See kit options</a>. Financial assistance available in special cases.</p>
-        </div>
-    </section>
-
-    <!-- UPCOMING EVENTS -->
-    <section class="teaser-section alt-bg" id="schedule">
-        <div class="container">
-            <h2>Upcoming Events</h2>
-            <div class="table-wrap">
-                <table class="schedule">
-                    <thead>
-                    <tr>
-                        <th>Event</th>
-                        <th>Squad</th>
-                        <th>Day</th>
-                        <th>Time</th>
-                        <th>Venue</th>
-                    </tr>
-                    </thead>
-                    <tbody id="scheduleBody">
-                    <tr>
-                        <td>Prize Giving</td>
-                        <td>All</td>
-                        <td>7 December</td>
-                        <td>17:00–22:00</td>
-                        <td>
-                            <a href="https://www.google.com/maps?q=Shangri-la+Academy+Hall"
-                               target="_blank" rel="noopener">
-                                Shangri-la Academy Hall
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Holiday Camp</td>
-                        <td>All</td>
-                        <td>9–13 December</td>
-                        <td>09:00–13:00</td>
-                        <td>
-                            <a href="https://www.google.com/maps?q=132+Bonaero+Drive"
-                               target="_blank" rel="noopener">
-                                132 Bonaero Drive
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Open Trials</td>
-                        <td>All</td>
-                        <td>16 December</td>
-                        <td>TBC</td>
-                        <td>
-                            <a href="https://www.google.com/maps?q=132+Bonaero+Drive"
-                               target="_blank" rel="noopener">
-                                132 Bonaero Drive
-                            </a>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <p class="small">
-                Dates and times are subject to change. Final details will be confirmed on our social channels.
-            </p>
-        </div>
-    </section>
+        </section>
 
 
-    <!-- QUICK PROOF / OUTCOMES -->
-    <section class="teaser-section" id="proof">
-        <div class="container">
-            <h2>Pathway & Outcomes</h2>
-            <div class="grid cards three-col">
-                <article class="card"><h3>Scholarships</h3><p>Players referred into school and academy scholarship pipelines. <span class="small">[Add names once confirmed]</span></p></article>
-                <article class="card"><h3>Tournaments</h3><p>Regional trophies and showcase events to test development.</p></article>
-                <article class="card"><h3>Next-Level Trials</h3><p>Contacts and invites for standout performers.</p></article>
-            </div>
-        </div>
-    </section>
 
-    <!-- SPONSORS BANNER -->
-    <section class="sponsors" aria-label="Club sponsors">
-        <div class="container">
-            <h2 class="section-title">Our Partners</h2>
-            <div class="sponsor-marquee" role="region" aria-roledescription="carousel" aria-label="Sponsors" aria-live="off">
-                <ul class="marquee-track">
-                    <!-- sequence A -->
-                    <li class="sponsor-item">
-                        <img src="assets/sponsors/BDJ-FREIGHT-INTERNATIONAL-LOGO-e1709742720515.png"
-                             alt="BDJ International logo" loading="lazy">
-                        <span class="sponsor-name">BDJ International</span>
-                    </li>
-                    <li class="sponsor-item">
-                        <img src="assets/sponsors/BDJ-FREIGHT-INTERNATIONAL-LOGO-e1709742720515.png"
-                             alt="BDJ International logo" loading="lazy">
-                        <span class="sponsor-name">BDJ International</span>
-                    </li>
-                    <li class="sponsor-item">
-                        <img src="assets/sponsors/BDJ-FREIGHT-INTERNATIONAL-LOGO-e1709742720515.png"
-                             alt="BDJ International logo" loading="lazy">
-                        <span class="sponsor-name">BDJ International</span>
-                    </li>
 
-                    <!-- sequence B (exact copy of A for smooth loop) -->
-                    <li class="sponsor-item">
-                        <img src="assets/sponsors/BDJ-FREIGHT-INTERNATIONAL-LOGO-e1709742720515.png"
-                             alt="BDJ International logo" loading="lazy">
-                        <span class="sponsor-name">BDJ International</span>
+        <!-- MOMENTS (kept) -->
+        <section class="moments" aria-label="Club moments">
+            <div class="container">
+                <h2 class="section-title">Moments</h2>
+                <p class="small" style="margin:-.25rem 0 1rem;">Real sessions, real players, real progress.</p>
+                <ul class="photo-grid" id="photoGrid">
+                    <li>
+                        <figure><img src="assets/moments/PlayerSigning.jpg" alt="U17 lifting the regional trophy"
+                                width="1279" height="797" loading="lazy">
+                            <figcaption> Sign Here ✍️</figcaption>
+                        </figure>
                     </li>
-                    <li class="sponsor-item">
-                        <img src="assets/sponsors/BDJ-FREIGHT-INTERNATIONAL-LOGO-e1709742720515.png"
-                             alt="BDJ International logo" loading="lazy">
-                        <span class="sponsor-name">BDJ International</span>
+                    <li>
+                        <figure><img src="assets/moments/WhatsApp-Image-2025-02-28-at-20.54.40_ddbe9377.jpg"
+                                alt="U17 lifting the regional trophy" width="1200" height="800" loading="lazy">
+                            <figcaption>U17 champions</figcaption>
+                        </figure>
                     </li>
-                    <li class="sponsor-item">
-                        <img src="assets/sponsors/BDJ-FREIGHT-INTERNATIONAL-LOGO-e1709742720515.png"
-                             alt="BDJ International logo" loading="lazy">
-                        <span class="sponsor-name">BDJ International</span>
+                    <li>
+                        <figure><img src="assets/moments/WhatsApp-Image-2025-02-28-at-20.54.40_ddbe9377.jpg"
+                                alt="U17 lifting the regional trophy" width="1200" height="800" loading="lazy">
+                            <figcaption>U17 champions</figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure><img src="assets/moments/WhatsApp-Image-2025-02-28-at-20.54.40_ddbe9377.jpg"
+                                alt="U17 lifting the regional trophy" width="1200" height="800" loading="lazy">
+                            <figcaption>U17 champions</figcaption>
+                        </figure>
                     </li>
                 </ul>
             </div>
-            <p class="small sponsors-cta">
-                Support the squad? <a href="pages/about.html#sponsorship">See sponsorship options</a>
-            </p>
-        </div>
-    </section>
+            s
+            <dialog id="lightbox" class="lightbox" aria-label="Image viewer">
+                <button class="lightbox-close" aria-label="Close">×</button>
+                <img id="lightboxImg" alt="">
+                <p id="lightboxCap" class="lightbox-cap"></p>
+                <button class="lightbox-nav prev" aria-label="Previous image">‹</button>
+                <button class="lightbox-nav next" aria-label="Next image">›</button>
+            </dialog>
+        </section>
 
-
-
-
-    <!-- MOMENTS (kept) -->
-    <section class="moments" aria-label="Club moments">
-        <div class="container">
-            <h2 class="section-title">Moments</h2>
-            <p class="small" style="margin:-.25rem 0 1rem;">Real sessions, real players, real progress.</p>
-            <ul class="photo-grid" id="photoGrid">
-                <li><figure><img src="assets/moments/PlayerSigning.jpg" alt="U17 lifting the regional trophy" width="1279" height="797" loading="lazy"><figcaption> Sign Here ✍️</figcaption></figure></li>
-                <li><figure><img src="assets/moments/WhatsApp-Image-2025-02-28-at-20.54.40_ddbe9377.jpg" alt="U17 lifting the regional trophy" width="1200" height="800" loading="lazy"><figcaption>U17 champions</figcaption></figure></li>
-                <li><figure><img src="assets/moments/WhatsApp-Image-2025-02-28-at-20.54.40_ddbe9377.jpg" alt="U17 lifting the regional trophy" width="1200" height="800" loading="lazy"><figcaption>U17 champions</figcaption></figure></li>
-                <li><figure><img src="assets/moments/WhatsApp-Image-2025-02-28-at-20.54.40_ddbe9377.jpg" alt="U17 lifting the regional trophy" width="1200" height="800" loading="lazy"><figcaption>U17 champions</figcaption></figure></li>
-            </ul>
-        </div>
-s
-        <dialog id="lightbox" class="lightbox" aria-label="Image viewer">
-            <button class="lightbox-close" aria-label="Close">×</button>
-            <img id="lightboxImg" alt="">
-            <p id="lightboxCap" class="lightbox-cap"></p>
-            <button class="lightbox-nav prev" aria-label="Previous image">‹</button>
-            <button class="lightbox-nav next" aria-label="Next image">›</button>
-        </dialog>
-    </section>
-
-    <!-- POLICIES QUICK LINKS -->
-    <section class="teaser-section alt-bg" id="policies">
-        <div class="container">
-            <h2>Policies</h2>
-            <div class="grid cards three-col">
-                <article class="card"><h3>Safeguarding</h3><p>Player welfare is non-negotiable. <a href="pages/about.html#safeguarding">Read more</a></p></article>
-                <article class="card"><h3>Code of Conduct</h3><p>Standards for players, coaches, and parents. <a href="pages/about.html#culture">View</a></p></article>
-                <article class="card"><h3>Privacy</h3><p>Data collected with consent for scheduling and development. <a href="pages/report.html">Policy</a></p></article>
+        <!-- POLICIES QUICK LINKS -->
+        <section class="teaser-section alt-bg" id="policies">
+            <div class="container">
+                <h2>Policies</h2>
+                <div class="grid cards three-col">
+                    <article class="card">
+                        <h3>Safeguarding</h3>
+                        <p>Player welfare is non-negotiable. <a href="pages/about.html#safeguarding">Read more</a></p>
+                    </article>
+                    <article class="card">
+                        <h3>Code of Conduct</h3>
+                        <p>Standards for players, coaches, and parents. <a href="pages/about.html#culture">View</a></p>
+                    </article>
+                    <article class="card">
+                        <h3>Privacy</h3>
+                        <p>Data collected with consent for scheduling and development. <a Privacy statement available on
+                                request.</p>
+                    </article>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- FAQs -->
-    <section class="teaser-section" id="faq">
-        <div class="container">
-            <h2>FAQs</h2>
-            <div class="faq">
-                <details open><summary>What does a trial include?</summary><p>Warm-up, technical station, small-sided game. Coaches evaluate attitude, effort, and basics.</p></details>
-                <details><summary>What are the fees?</summary><p>See Programs & Fees above. Kit priced separately; payment plans available.</p></details>
-                <details><summary>Where are sessions held?</summary><p>Randburg Sports Complex; match venues vary by league fixtures.</p></details>
-                <details><summary>Which age groups?</summary><p>U13, U15, U17, Senior. We place players where they’ll develop fastest.</p></details>
+        <!-- FAQs -->
+        <section class="teaser-section" id="faq">
+            <div class="container">
+                <h2>FAQs</h2>
+                <div class="faq">
+                    <details open>
+                        <summary>What does a trial include?</summary>
+                        <p>Warm-up, technical station, small-sided game. Coaches evaluate attitude, effort, and basics.
+                        </p>
+                    </details>
+                    <details>
+                        <summary>What are the fees?</summary>
+                        <p>See Programs & Fees above. Kit priced separately; payment plans available.</p>
+                    </details>
+                    <details>
+                        <summary>Where are sessions held?</summary>
+                        <p>Randburg Sports Complex; match venues vary by league fixtures.</p>
+                    </details>
+                    <details>
+                        <summary>Which age groups?</summary>
+                        <p>U13, U15, U17, Senior. We place players where they’ll develop fastest.</p>
+                    </details>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CONTACT TEASER -->
-    <section class="teaser-section">
-        <div class="container">
-            <h2>Ready to Start?</h2>
-            <p>Book a trial or contact us for specifics.</p>
-            <div class="hero-ctas">
-                <a href="pages/booking.html" class="btn">Book a Trial</a>
-                <a href="mailto:goalgetterscontact@mail.com" class="btn btn-light">Email Us</a>
+        <!-- CONTACT TEASER -->
+        <section class="teaser-section">
+            <div class="container">
+                <h2>Ready to Start?</h2>
+                <p>Book a trial or contact us for specifics.</p>
+                <div class="hero-ctas">
+                    <a href="pages/booking.html" class="btn">Book a Trial</a>
+                    <a href="mailto:goalgetterscontact@mail.com" class="btn btn-light">Email Us</a>
+                </div>
             </div>
-        </div>
-    </section>
-</main>
+        </section>
+    </main>
 
-<footer>
-    <p>&copy; 2025 Goal Getters FC. All rights reserved.</p>
-    <p>Follow us for updates and news.</p>
-    <ul class="social-links">
-        <li><a href="https://www.instagram.com/goal_getters_fc/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-    </ul>
-</footer>
+    <footer>
+        <p>&copy; 2026 Goal Getters FC. All rights reserved.</p>
+        <p>Follow us for updates and news.</p>
+        <ul class="social-links">
+            <li><a href="https://www.instagram.com/goal_getters_fc/" target="_blank"
+                    rel="noopener noreferrer">Instagram</a></li>
+        </ul>
+        <p class="small" style="margin-top: 1rem; opacity: 0.7;">
+            <a href="pages/privacy.html">Privacy Policy</a> |
+            <a href="pages/cookies.html">Cookies</a> |
+            <a href="pages/terms.html">Terms & Conditions</a>
+        </p>
+        <p class="small" style="margin-top: 0.5rem; opacity: 0.6;">
+            Built by <a href="https://dkdigitaldesigns.com" target="_blank" rel="noopener">DK Digital Designs</a>
+        </p>
+    </footer>
 
-<!-- FAB: Contact GoalGetters -->
-<div class="fab-container">
-    <button class="fab-main"
-            aria-label="Contact GoalGetters"
-            title="Contact GoalGetters"
-            aria-expanded="false">
-        ?
-    </button>
-    <ul class="fab-actions" aria-hidden="true">
-        <li>
-            <a href="tel:+27824656428"
-               class="fab-action fab-call"
-               aria-label="Call GoalGetters"
-               title="Call GoalGetters">
-                📞
-            </a>
-        </li>
-        <li>
-            <a href="https://wa.me/27824656428"
-               class="fab-action fab-whatsapp"
-               aria-label="WhatsApp GoalGetters"
-               title="WhatsApp GoalGetters"
-               target="_blank"
-               rel="noopener noreferrer">
-                💬
-            </a>
-        </li>
-        <li>
-            <a href="https://www.google.com/maps?q=Goal+Getters+Football+Club,+132+Bonaero+Dr,+Bonaero+Park,+Johannesburg,+1619"
-               class="fab-action fab-map"
-               aria-label="Open Goal Getters Football Club in Google Maps"
-               title="Open Goal Getters Football Club in Google Maps"
-               target="_blank"
-               rel="noopener noreferrer">
-                📍
-            </a>
-        </li>
-
-    </ul>
-</div>
+    <!-- WhatsApp FAB -->
+    <a href="https://wa.me/27824656428" class="whatsapp-fab" target="_blank" rel="noopener noreferrer"
+        aria-label="Chat on WhatsApp">
+        <img src="assets/images/whatsapp-button.svg" alt="Chat on WhatsApp" />
+    </a>
 
 
-<!-- Vendor -->
-<script src="https://unpkg.com/aos/dist/aos.js"></script>
+    <!-- Vendor -->
+    <script src="https://unpkg.com/aos/dist/aos.js"></script>
 
-<!-- Scripts -->
-<script>
-    // AOS
-    document.addEventListener('DOMContentLoaded', function () {
-        if (window.AOS) AOS.init({ once: true, duration: 600 });
-    });
-
-    // Mobile nav
-    (function () {
-        const toggle = document.querySelector('.nav-toggle');
-        const menu = document.getElementById('nav-menu');
-        if (!toggle || !menu) return;
-        function setOpen(open) { toggle.setAttribute('aria-expanded', String(open)); menu.classList.toggle('open', open); }
-        toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
-        menu.addEventListener('click', (e) => { if (e.target.matches('.nav-link')) setOpen(false); });
-    })();
-
-    // Active nav
-    (function () {
-        const path = location.pathname.split('/').pop() || 'index.html';
-        document.querySelectorAll('.nav-link').forEach(a => {
-            const href = a.getAttribute('href');
-            if ((path === '' && href === 'index.html') || href === path) a.classList.add('active');
-        });
-    })();
-
-    // FAB – Contact widget
-    (function () {
-        const fabMain = document.querySelector('.fab-main');
-        const list = document.querySelector('.fab-actions');
-        if (!fabMain || !list) return;
-
-        function setOpen(open) {
-            fabMain.setAttribute('aria-expanded', String(open));
-            list.setAttribute('aria-hidden', String(!open));
-            list.classList.toggle('open', open);
-        }
-
-        fabMain.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const isOpen = fabMain.getAttribute('aria-expanded') === 'true';
-            setOpen(!isOpen);
+    <!-- Scripts -->
+    <script>
+        // AOS
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.AOS) AOS.init({ once: true, duration: 600 });
         });
 
-        // Close when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!fabMain.contains(e.target) && !list.contains(e.target)) {
-                setOpen(false);
+        // Mobile nav
+        (function () {
+            const toggle = document.querySelector('.nav-toggle');
+            const menu = document.getElementById('nav-menu');
+            if (!toggle || !menu) return;
+            function setOpen(open) { toggle.setAttribute('aria-expanded', String(open)); menu.classList.toggle('open', open); }
+            toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+            menu.addEventListener('click', (e) => { if (e.target.matches('.nav-link')) setOpen(false); });
+        })();
+
+        // Active nav
+        (function () {
+            const path = location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.nav-link').forEach(a => {
+                const href = a.getAttribute('href');
+                if ((path === '' && href === 'index.html') || href === path) a.classList.add('active');
+            });
+        })();
+
+
+
+
+
+        // Sponsors marquee (duplicate for seamless loop)
+        (function () {
+            const track = document.getElementById('sponsorTrack');
+            if (!track) return;
+            const clone = track.cloneNode(true);
+            clone.classList.add('marquee-track--clone');
+            track.parentElement.appendChild(clone);
+        })();
+
+
+        // Lightbox
+        (function () {
+            const grid = document.getElementById('photoGrid');
+            const dialog = document.getElementById('lightbox');
+            if (!grid || !dialog) return;
+            const img = document.getElementById('lightboxImg');
+            const cap = document.getElementById('lightboxCap');
+            const btnClose = dialog.querySelector('.lightbox-close');
+            const btnPrev = dialog.querySelector('.prev');
+            const btnNext = dialog.querySelector('.next');
+
+            const items = [...grid.querySelectorAll('figure')];
+            let i = 0;
+            function openAt(idx) {
+                i = (idx + items.length) % items.length;
+                const el = items[i].querySelector('img');
+                img.src = el.src; img.alt = el.alt;
+                cap.textContent = items[i].querySelector('figcaption')?.textContent || '';
+                if (!dialog.open) dialog.showModal();
             }
-        });
-    })();
+            function next(n = 1) { openAt(i + n); }
 
-
-
-    // Sponsors marquee (duplicate for seamless loop)
-    (function () {
-        const track = document.getElementById('sponsorTrack');
-        if (!track) return;
-        const clone = track.cloneNode(true);
-        clone.classList.add('marquee-track--clone');
-        track.parentElement.appendChild(clone);
-    })();
-
-
-    // Lightbox
-    (function () {
-        const grid = document.getElementById('photoGrid');
-        const dialog = document.getElementById('lightbox');
-        if (!grid || !dialog) return;
-        const img = document.getElementById('lightboxImg');
-        const cap = document.getElementById('lightboxCap');
-        const btnClose = dialog.querySelector('.lightbox-close');
-        const btnPrev = dialog.querySelector('.prev');
-        const btnNext = dialog.querySelector('.next');
-
-        const items = [...grid.querySelectorAll('figure')];
-        let i = 0;
-        function openAt(idx) {
-            i = (idx + items.length) % items.length;
-            const el = items[i].querySelector('img');
-            img.src = el.src; img.alt = el.alt;
-            cap.textContent = items[i].querySelector('figcaption')?.textContent || '';
-            if (!dialog.open) dialog.showModal();
-        }
-        function next(n=1){ openAt(i + n); }
-
-        grid.addEventListener('click', (e) => {
-            const fig = e.target.closest('figure'); if (!fig) return;
-            openAt(items.indexOf(fig));
-        });
-        btnClose.addEventListener('click', () => dialog.close());
-        btnPrev.addEventListener('click', () => next(-1));
-        btnNext.addEventListener('click', () => next(1));
-        dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
-        dialog.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') next(-1);
-            if (e.key === 'ArrowRight') next(1);
-            if (e.key === 'Escape') dialog.close();
-        });
-    })();
-</script>
+            grid.addEventListener('click', (e) => {
+                const fig = e.target.closest('figure'); if (!fig) return;
+                openAt(items.indexOf(fig));
+            });
+            btnClose.addEventListener('click', () => dialog.close());
+            btnPrev.addEventListener('click', () => next(-1));
+            btnNext.addEventListener('click', () => next(1));
+            dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
+            dialog.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') next(-1);
+                if (e.key === 'ArrowRight') next(1);
+                if (e.key === 'Escape') dialog.close();
+            });
+        })();
+    </script>
 </body>
+
 </html>
