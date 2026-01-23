@@ -1,0 +1,20 @@
+[
+  {
+    "plan": "R250",
+    "title": "One-on-one Session",
+    "features": ["Specialized private training", "1-hour session"],
+    "link": "mailto:goalgetterscontact@mail.com?subject=Book%20One-on-one%20Session"
+  },
+  {
+    "plan": "R200",
+    "title": "Small Team Training",
+    "features": ["1-hour private session", "Max 6 players per session", "Personal attention"],
+    "link": "mailto:goalgetterscontact@mail.com?subject=Book%20Small%20Team%20Training"
+  },
+  {
+    "plan": "R550",
+    "title": "Join the Team",
+    "features": ["2 training sessions/week", "Skill workshops & tactical guidance", "Off-season matches"],
+    "link": "mailto:goalgetterscontact@mail.com?subject=Join%20the%20Team"
+  }
+]

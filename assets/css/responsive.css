@@ -1,0 +1,137 @@
+﻿/* ========================================================================
+   Goal Getters – responsive.css
+   Breakpoints, hover/interaction and reduced-motion tweaks
+   ======================================================================== */
+
+/* ------------------------------------------------------------------------
+   Global / base.css responsive rules
+   ------------------------------------------------------------------------ */
+
+/* Sponsors marquee – respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .sponsor-marquee .marquee-track{
+        animation:none;
+        transform:none;
+    }
+}
+
+/* Moments grid tweaks on wide screens */
+@media (min-width:1100px){
+    .photo-grid li:nth-child(2n){grid-column:span 3}
+    .photo-grid li:nth-child(3n){grid-column:span 6}
+    .photo-grid li:nth-child(2n) img{aspect-ratio:3/4}
+}
+
+/* Carousel hover state only when hover is supported */
+@media (hover:hover){
+    .carousel-btn:hover{
+        background:#111;
+        color:#fff;
+    }
+}
+
+/* Section-specific grids: tablet */
+@media (max-width:960px){
+    .grid.cards.four-col{grid-template-columns:repeat(2,1fr)}
+}
+
+/* Section-specific grids: mobile */
+@media (max-width:680px){
+    .grid.cards.two-col,
+    .grid.cards.three-col,
+    .grid.cards.four-col{
+        grid-template-columns:1fr;
+    }
+}
+
+/* Active nav underline only when hover is supported */
+@media (hover:hover){
+    .nav-link.active{
+        box-shadow:0 0 0 2px var(--accent) inset;
+    }
+}
+
+/* Navbar + nav menu + hero margin – mobile layout */
+@media (max-width:920px){
+    .navbar{padding:.5rem .75rem}
+    .nav-toggle{
+        display:inline-flex;
+        width:42px;
+        height:42px;
+        align-items:center;
+        justify-content:center;
+        border-radius:8px;
+        background:rgba(0,0,0,.06);
+        border:none;
+        cursor:pointer;
+    }
+    .hamburger,
+    .hamburger::before,
+    .hamburger::after{
+        content:"";
+        display:block;
+        width:20px;
+        height:2px;
+        background:#111;
+        border-radius:2px;
+    }
+    .hamburger::before{transform:translateY(-6px)}
+    .hamburger::after{transform:translateY(4px)}
+
+    .nav-menu{
+        position:absolute;
+        inset:64px 12px auto 12px;
+        display:none;
+    }
+    .nav-menu.open{display:block}
+    .nav-menu ul{
+        flex-direction:column;
+        gap:.5rem;
+        padding:12px;
+        background:var(--surface);
+        border:1px solid rgba(0,0,0,.08);
+        border-radius:var(--radius-lg);
+        box-shadow:var(--shadow-2);
+    }
+
+    .hero{margin:.75rem}
+
+    /* hide decorative divider line on narrow layouts */
+    .teaser-section .container::before{
+        display:none;
+    }
+}
+
+/* ------------------------------------------------------------------------
+   About page / about.css responsive rules
+   ------------------------------------------------------------------------ */
+
+/* Touch devices: always show CTA pill */
+@media (hover: none) {
+    .team-card::after{
+        opacity:1;
+        transform:none;
+    }
+}
+
+/* Respect reduced motion on team cards + modal */
+@media (prefers-reduced-motion: reduce) {
+    .team-card,
+    .team-card *{
+        transition:none !important;
+    }
+}
+
+/* Modal + columns layout on smaller screens */
+@media (max-width:800px){
+    .modal-header{
+        grid-template-columns:1fr;
+    }
+    .columns-3{
+        grid-template-columns:1fr;
+    }
+}
+
+/* ========================================================================
+   End responsive.css
+   ======================================================================== */

@@ -1,0 +1,23 @@
+﻿/* ========================================================================
+   Goal Getters – theme.css
+   Design tokens (colors, radii, shadows, fonts)
+   ======================================================================== */
+
+:root{
+    --font-display:'Bebas Neue', sans-serif;
+
+    --bg:#e7e2d7;
+    --surface:#f4efe6;
+    --text:#151515;
+    --muted:#5a5a5a;
+    --line:#1b1b1b;
+    --accent:#FFD451;
+    --accent-ink:#1a1200;
+    --accent-glow:rgba(255,212,81,.45);
+    --accent-glow-strong:rgba(255,212,81,.6);
+    --radius-lg:24px;
+    --radius-sm:12px;
+    --shadow-1:0 8px 24px rgba(0,0,0,.08), 0 2px 8px rgba(0,0,0,.06);
+    --shadow-2:0 12px 40px rgba(0,0,0,.12);
+    --container:1200px;
+}
