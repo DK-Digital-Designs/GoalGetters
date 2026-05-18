@@ -1,0 +1,69 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFab from '../components/WhatsAppFab.astro';
+import '../styles/global.css';
+import type { SiteSettings } from '../lib/types';
+
+type Props = {
+  title: string;
+  description: string;
+  currentPath: string;
+  settings: SiteSettings;
+};
+
+const { title, description, currentPath, settings } = Astro.props;
+const canonical = new URL(Astro.url.pathname, 'https://goalgettersfc.co.za').toString();
+const pageTitle = title === settings.title ? title : `${title} | ${settings.title}`;
+const ogImage = new URL(settings.logo, 'https://goalgettersfc.co.za').toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#070707" />
+    <link rel="canonical" href={canonical} />
+
+    <title>{pageTitle}</title>
+
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="/assets/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'SportsTeam',
+      name: settings.title,
+      sport: 'Soccer',
+      url: 'https://goalgettersfc.co.za',
+      logo: ogImage,
+      areaServed: settings.location,
+      sameAs: settings.instagramUrl ? [settings.instagramUrl] : [],
+    })} />
+  </head>
+  <body>
+    <Header settings={settings} currentPath={currentPath} />
+    <main>
+      <slot />
+    </main>
+    <Footer settings={settings} />
+    <WhatsAppFab settings={settings} />
+  </body>
+</html>

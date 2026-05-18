@@ -1,0 +1,52 @@
+---
+import EmptyState from '../components/EmptyState.astro';
+import SectionIntro from '../components/SectionIntro.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getFixtureEvents, getSiteSettings } from '../lib/content';
+import { trialMessage, whatsappUrl } from '../lib/whatsapp';
+
+const settings = await getSiteSettings();
+const fixtures = await getFixtureEvents();
+const contactHref = whatsappUrl(trialMessage, settings.whatsappNumber);
+---
+
+<BaseLayout title="Fixtures and Events" description="Confirmed Goal Getters FC fixtures, events, and match-day updates." currentPath="/fixtures" settings={settings}>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Fixtures</h1>
+      <p>Match-day information stays clean: only confirmed fixtures and events are shown.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionIntro title="Match-Day Board" body="The CMS controls this list, so old dates can be removed without touching code." />
+      {fixtures.length > 0 ? (
+        <div class="fixture-list">
+          {fixtures.map((fixture) => (
+            <article class="match-card">
+              <div>
+                <h3>{fixture.title}</h3>
+                <p>{[fixture.team, fixture.opponent && `vs ${fixture.opponent}`].filter(Boolean).join(' ')}</p>
+                <div class="meta-line">
+                  {fixture.venue && <span>{fixture.venue}</span>}
+                  {fixture.result && <span>{fixture.result}</span>}
+                </div>
+              </div>
+              <strong class="match-date">
+                {new Date(fixture.dateTime as string).toLocaleDateString('en-ZA', { day: '2-digit', month: 'short' })}
+              </strong>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <EmptyState
+          title="No Confirmed Fixtures Published"
+          body="There are no confirmed fixtures or events on the site at the moment. Use WhatsApp for the latest club communication."
+          href={contactHref}
+          label="WhatsApp the Club"
+        />
+      )}
+    </div>
+  </section>
+</BaseLayout>

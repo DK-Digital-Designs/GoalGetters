@@ -1,0 +1,21 @@
+---
+import type { SiteSettings } from '../lib/types';
+import { trialMessage, whatsappUrl } from '../lib/whatsapp';
+
+type Props = {
+  settings: SiteSettings;
+};
+
+const { settings } = Astro.props;
+---
+
+<a
+  class="whatsapp-fab"
+  href={whatsappUrl(trialMessage, settings.whatsappNumber)}
+  target="_blank"
+  rel="noopener"
+  aria-label="WhatsApp Goal Getters FC"
+>
+  <img src="/assets/images/whatsapp-button.svg" alt="" width="28" height="28" />
+  <span>WhatsApp</span>
+</a>

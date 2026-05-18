@@ -1,0 +1,69 @@
+---
+import EmptyState from '../components/EmptyState.astro';
+import SectionIntro from '../components/SectionIntro.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getSiteSettings, getSponsors } from '../lib/content';
+import { imageAlt, imageSrc } from '../lib/images';
+import { sponsorMessage, whatsappUrl } from '../lib/whatsapp';
+
+const settings = await getSiteSettings();
+const sponsors = await getSponsors();
+const sponsorHref = whatsappUrl(sponsorMessage, settings.whatsappNumber);
+---
+
+<BaseLayout title="Sponsors" description="Sponsor and partner opportunities for Goal Getters FC." currentPath="/sponsors" settings={settings}>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Sponsors</h1>
+      <p>Support a local football environment with a visible black and gold platform for community-minded partners.</p>
+      <div class="hero-actions">
+        <a class="btn" href={sponsorHref} target="_blank" rel="noopener">Start a Sponsor Enquiry</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionIntro title="Active Partners" body="Partner logos appear only when marked active in the CMS." />
+      {sponsors.length > 0 ? (
+        <div class="sponsor-wall">
+          {sponsors.map((sponsor) => (
+            <article class="sponsor-card">
+              {imageSrc(sponsor.logo) && <img src={imageSrc(sponsor.logo)} alt={imageAlt(sponsor.logo, `${sponsor.name} logo`)} loading="lazy" />}
+              <h3>{sponsor.name}</h3>
+              {sponsor.description && <p>{sponsor.description}</p>}
+              {sponsor.website && <a class="btn btn-secondary" href={sponsor.website} target="_blank" rel="noopener">Visit Partner</a>}
+            </article>
+          ))}
+        </div>
+      ) : (
+        <EmptyState
+          title="Partner Space Available"
+          body="This page is ready for verified partner logos and descriptions as soon as the club confirms them."
+          href={sponsorHref}
+          label="Enquire About Sponsorship"
+        />
+      )}
+    </div>
+  </section>
+
+  <section class="section section-dark">
+    <div class="container">
+      <SectionIntro title="Sponsor Surfaces" body="The site gives sponsors useful visibility without inventing package claims or pricing." />
+      <div class="card-grid">
+        <article class="sponsor-card">
+          <h3>Digital Recognition</h3>
+          <p>Partner presence across the website once approved by the club.</p>
+        </article>
+        <article class="sponsor-card">
+          <h3>Match-Day Visibility</h3>
+          <p>Fixture and event surfaces can carry confirmed partner recognition.</p>
+        </article>
+        <article class="sponsor-card">
+          <h3>Community Impact</h3>
+          <p>Support training, development, and local football access through a trusted club channel.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

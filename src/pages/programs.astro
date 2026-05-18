@@ -1,0 +1,51 @@
+---
+import SectionIntro from '../components/SectionIntro.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPrograms, getSiteSettings } from '../lib/content';
+import { imageAlt, imageSrc } from '../lib/images';
+import { trialMessage, whatsappUrl } from '../lib/whatsapp';
+
+const settings = await getSiteSettings();
+const programs = await getPrograms();
+const trialHref = whatsappUrl(trialMessage, settings.whatsappNumber);
+---
+
+<BaseLayout title="Programs" description="Confirmed Goal Getters FC training and development programs." currentPath="/programs" settings={settings}>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Programs</h1>
+      <p>Training options are displayed only when there is enough confirmed detail to publish responsibly.</p>
+      <div class="hero-actions">
+        <a class="btn" href={trialHref} target="_blank" rel="noopener">Book a Trial</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionIntro
+        title="Training Options"
+        body="Current fees, dates, and squad placement are confirmed directly by the club."
+      />
+      <div class="card-grid">
+        {programs.map((program) => (
+          <article class="feature-card">
+            {imageSrc(program.image) && <img src={imageSrc(program.image)} alt={imageAlt(program.image, program.title)} loading="lazy" />}
+            <div class="feature-card-content">
+              <h3>{program.title}</h3>
+              <p>{program.description}</p>
+              <div class="meta-line">
+                {program.ageGroup && <span>{program.ageGroup}</span>}
+                {program.schedule && <span>{program.schedule}</span>}
+                {program.fee && <span>{program.fee}</span>}
+              </div>
+              <div class="action-row">
+                <a class="btn btn-secondary" href={trialHref} target="_blank" rel="noopener">Enquire</a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

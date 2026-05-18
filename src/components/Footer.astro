@@ -1,0 +1,51 @@
+---
+import type { SiteSettings } from '../lib/types';
+import { sponsorMessage, trialMessage, whatsappUrl } from '../lib/whatsapp';
+
+type Props = {
+  settings: SiteSettings;
+};
+
+const { settings } = Astro.props;
+const trialHref = whatsappUrl(trialMessage, settings.whatsappNumber);
+const sponsorHref = whatsappUrl(sponsorMessage, settings.whatsappNumber);
+---
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <a class="brand footer-brand" href="/">
+        <img src={settings.logo} alt="Goal Getters FC crest" width="58" height="58" />
+        <span>Goal Getters FC</span>
+      </a>
+      <p>{settings.description}</p>
+    </div>
+
+    <div>
+      <h2>Club</h2>
+      <a href="/about">About</a>
+      <a href="/programs">Programs</a>
+      <a href="/fixtures">Fixtures</a>
+      <a href="/sponsors">Sponsors</a>
+    </div>
+
+    <div>
+      <h2>Contact</h2>
+      <a href={trialHref} target="_blank" rel="noopener">WhatsApp trials</a>
+      <a href={sponsorHref} target="_blank" rel="noopener">Sponsor enquiries</a>
+      {settings.email && <a href={`mailto:${settings.email}`}>{settings.email}</a>}
+      {settings.instagramUrl && <a href={settings.instagramUrl} target="_blank" rel="noopener">Instagram</a>}
+    </div>
+
+    <div>
+      <h2>Legal</h2>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/cookies">Cookie Policy</a>
+      <a href="/terms">Terms and Conditions</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; {new Date().getFullYear()} Goal Getters FC. All rights reserved.</p>
+    <p>Built by <a href="https://dkdigitaldesigns.com" target="_blank" rel="noopener">DK Digital Designs</a></p>
+  </div>
+</footer>

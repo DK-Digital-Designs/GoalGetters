@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getLegalPage, getSiteSettings } from '../lib/content';
+
+const settings = await getSiteSettings();
+const page = await getLegalPage('terms');
+---
+
+<BaseLayout title={page.title} description={page.description} currentPath="/terms" settings={settings}>
+  <section class="page-hero">
+    <div class="container">
+      <h1>{page.title}</h1>
+      <p>{page.description}</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container legal-stack">
+      {page.sections.map((section) => (
+        <article class="legal-card">
+          <h2>{section.heading}</h2>
+          <p>{section.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

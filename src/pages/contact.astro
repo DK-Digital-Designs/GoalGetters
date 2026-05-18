@@ -1,0 +1,71 @@
+---
+import SectionIntro from '../components/SectionIntro.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getFaqs, getSiteSettings } from '../lib/content';
+import { sponsorMessage, trialMessage, whatsappUrl } from '../lib/whatsapp';
+
+const settings = await getSiteSettings();
+const faqs = await getFaqs();
+const trialHref = whatsappUrl(trialMessage, settings.whatsappNumber);
+const sponsorHref = whatsappUrl(sponsorMessage, settings.whatsappNumber);
+---
+
+<BaseLayout title="Contact" description="Contact Goal Getters FC for trials, training, and sponsorship enquiries." currentPath="/contact" settings={settings}>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Contact</h1>
+      <p>WhatsApp is the fastest route for trials, training questions, and sponsor enquiries.</p>
+      <div class="hero-actions">
+        <a class="btn" href={trialHref} target="_blank" rel="noopener">Book a Trial</a>
+        <a class="btn btn-secondary" href={sponsorHref} target="_blank" rel="noopener">Sponsor the Club</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionIntro title="Club Channels" body="Confirmed public contact details are kept in the CMS site settings." />
+      <div class="contact-grid">
+        <article class="contact-card">
+          <h3>WhatsApp</h3>
+          <p>Use WhatsApp for trial and training enquiries.</p>
+          <div class="action-row">
+            <a class="btn btn-secondary" href={trialHref} target="_blank" rel="noopener">Message the Club</a>
+          </div>
+        </article>
+        {settings.email && (
+          <article class="contact-card">
+            <h3>Email</h3>
+            <p>Use email for longer enquiries or documents.</p>
+            <div class="action-row">
+              <a class="btn btn-secondary" href={`mailto:${settings.email}`}>Email the Club</a>
+            </div>
+          </article>
+        )}
+        {settings.instagramUrl && (
+          <article class="contact-card">
+            <h3>Instagram</h3>
+            <p>Follow match-day graphics, club media, and quick updates.</p>
+            <div class="action-row">
+              <a class="btn btn-secondary" href={settings.instagramUrl} target="_blank" rel="noopener">Open Instagram</a>
+            </div>
+          </article>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark">
+    <div class="container">
+      <SectionIntro title="Questions" body="Simple answers for the most common enquiries." />
+      <div class="faq-list">
+        {faqs.map((faq) => (
+          <details>
+            <summary>{faq.question}</summary>
+            <p>{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

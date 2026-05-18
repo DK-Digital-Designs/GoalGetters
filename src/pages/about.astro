@@ -1,0 +1,63 @@
+---
+import SectionIntro from '../components/SectionIntro.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCoaches, getSiteSettings } from '../lib/content';
+import { imageAlt, imageSrc } from '../lib/images';
+
+const settings = await getSiteSettings();
+const coaches = await getCoaches();
+---
+
+<BaseLayout title="About" description="Goal Getters FC culture, standards, and coaching approach." currentPath="/about" settings={settings}>
+  <section class="page-hero">
+    <div class="container">
+      <h1>About Goal Getters FC</h1>
+      <p>A home-grown club with a black and gold identity, built around discipline, integrity, technique, and player accountability.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionIntro title="Culture" body="The club is direct about standards. Talent matters, but habits carry the player." />
+      <div class="card-grid">
+        <article class="feature-card-content feature-card">
+          <h3>Discipline</h3>
+          <p>Players are expected to respect the session, teammates, staff, officials, and the badge.</p>
+        </article>
+        <article class="feature-card-content feature-card">
+          <h3>Development</h3>
+          <p>Training puts technical detail, decision speed, and game understanding into repeatable habits.</p>
+        </article>
+        <article class="feature-card-content feature-card">
+          <h3>Opportunity</h3>
+          <p>The pathway is built for committed players who want clearer next steps and a stronger football home.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  {coaches.length > 0 && (
+    <section class="section section-dark">
+      <div class="container">
+        <SectionIntro title="Coaching" body="Coach records only display confirmed information from the CMS or launch content." />
+        <div class="fixture-list">
+          {coaches.map((coach) => (
+            <article class="coach-card">
+              {imageSrc(coach.image) && <img src={imageSrc(coach.image)} alt={imageAlt(coach.image, coach.name)} loading="lazy" />}
+              <div class="coach-content">
+                <h3>{coach.name}</h3>
+                <strong>{coach.role}</strong>
+                <p>{coach.bio}</p>
+                {coach.credentials && coach.credentials.length > 0 && (
+                  <ul class="credentials">
+                    {coach.credentials.map((credential) => <li>{credential}</li>)}
+                  </ul>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+</BaseLayout>

@@ -1,0 +1,208 @@
+---
+import EmptyState from '../components/EmptyState.astro';
+import SectionIntro from '../components/SectionIntro.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import {
+  getCoaches,
+  getFixtureEvents,
+  getGalleryMoments,
+  getPrograms,
+  getSiteSettings,
+  getSponsors,
+} from '../lib/content';
+import { imageAlt, imageSrc } from '../lib/images';
+import { sponsorMessage, trialMessage, whatsappUrl } from '../lib/whatsapp';
+
+const settings = await getSiteSettings();
+const [programs, fixtures, sponsors, moments, coaches] = await Promise.all([
+  getPrograms(),
+  getFixtureEvents(),
+  getSponsors(),
+  getGalleryMoments(),
+  getCoaches(),
+]);
+const trialHref = whatsappUrl(trialMessage, settings.whatsappNumber);
+const sponsorHref = whatsappUrl(sponsorMessage, settings.whatsappNumber);
+const featuredCoach = coaches[0];
+const upcoming = fixtures.slice(0, 3);
+const visiblePrograms = programs.slice(0, 3);
+const visibleMoments = moments.slice(0, 3);
+---
+
+<BaseLayout title={settings.title} description={settings.description} currentPath="/" settings={settings}>
+  <section class="hero" style={`--hero-image: url('${settings.heroImage}')`}>
+    <div class="hero-inner">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <h1><span>Goal</span><span>Getters FC</span></h1>
+          <p>Discipline. Development. Opportunity. A home-grown Johannesburg football club built for players who want more from the game.</p>
+          <div class="hero-actions">
+            <a class="btn" href={trialHref} target="_blank" rel="noopener">Book a Trial</a>
+            <a class="btn btn-secondary" href={sponsorHref} target="_blank" rel="noopener">Sponsor the Club</a>
+          </div>
+        </div>
+        <aside class="hero-panel" aria-label="Club summary">
+          <h2>Est. 2023</h2>
+          <p>{settings.location}</p>
+          <p>Elite training, team coaching, and player development with standards on and off the pitch.</p>
+        </aside>
+      </div>
+      <div class="cred-strip" aria-label="Club proof points">
+        <span><strong>JHB</strong><em>South Africa</em></span>
+        <span><strong>Black Gold</strong><em>Club identity</em></span>
+        <span><strong>WhatsApp</strong><em>Fast enquiries</em></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionIntro
+        title="Player Pathway"
+        body="Programs stay focused on detail, commitment, and clear communication. Fees and schedules are only shown when confirmed by the club."
+      />
+      <div class="card-grid">
+        {visiblePrograms.map((program) => (
+          <article class="feature-card">
+            {imageSrc(program.image) && (
+              <img src={imageSrc(program.image)} alt={imageAlt(program.image, program.title)} loading="lazy" />
+            )}
+            <div class="feature-card-content">
+              <h3>{program.title}</h3>
+              <p>{program.description}</p>
+              <div class="meta-line">
+                {program.ageGroup && <span>{program.ageGroup}</span>}
+                {program.schedule && <span>{program.schedule}</span>}
+                {program.fee && <span>{program.fee}</span>}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+      <div class="action-row">
+        <a class="btn btn-secondary" href="/programs">View Programs</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark">
+    <div class="container">
+      <SectionIntro
+        title="Upcoming Fixtures"
+        body="Match-day updates appear here when they have been confirmed by the club."
+      />
+      {upcoming.length > 0 ? (
+        <div class="fixture-list">
+          {upcoming.map((item) => (
+            <article class="match-card">
+              <div>
+                <h3>{item.title}</h3>
+                <p>{[item.team, item.opponent && `vs ${item.opponent}`].filter(Boolean).join(' ')}</p>
+                <div class="meta-line">
+                  {item.venue && <span>{item.venue}</span>}
+                  {item.result && <span>{item.result}</span>}
+                </div>
+              </div>
+              <strong class="match-date">
+                {new Date(item.dateTime as string).toLocaleDateString('en-ZA', { day: '2-digit', month: 'short' })}
+              </strong>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <EmptyState
+          title="No Confirmed Fixtures Published"
+          body="The club will only publish fixtures and events here once details are confirmed. Use WhatsApp for the latest club communication."
+          href={trialHref}
+          label="WhatsApp the Club"
+        />
+      )}
+    </div>
+  </section>
+
+  {featuredCoach && (
+    <section class="section">
+      <div class="container">
+        <SectionIntro
+          title="Founder Standard"
+          body="The club culture is simple: show up with discipline, train with detail, and respect the badge."
+        />
+        <article class="coach-card">
+          {imageSrc(featuredCoach.image) && (
+            <img src={imageSrc(featuredCoach.image)} alt={imageAlt(featuredCoach.image, featuredCoach.name)} loading="lazy" />
+          )}
+          <div class="coach-content">
+            <h3>{featuredCoach.name}</h3>
+            <strong>{featuredCoach.role}</strong>
+            <p>{featuredCoach.bio}</p>
+            {featuredCoach.credentials && featuredCoach.credentials.length > 0 && (
+              <ul class="credentials">
+                {featuredCoach.credentials.map((credential) => <li>{credential}</li>)}
+              </ul>
+            )}
+          </div>
+        </article>
+      </div>
+    </section>
+  )}
+
+  <section class="section section-dark">
+    <div class="container">
+      <SectionIntro
+        title="Partners"
+        body="The sponsor surface is clean by design: active partners are only displayed when confirmed in the CMS."
+      />
+      {sponsors.length > 0 ? (
+        <div class="sponsor-wall">
+          {sponsors.map((sponsor) => (
+            <article class="sponsor-card">
+              {imageSrc(sponsor.logo) && (
+                <img src={imageSrc(sponsor.logo)} alt={imageAlt(sponsor.logo, `${sponsor.name} logo`)} loading="lazy" />
+              )}
+              <h3>{sponsor.name}</h3>
+              {sponsor.description && <p>{sponsor.description}</p>}
+            </article>
+          ))}
+        </div>
+      ) : (
+        <EmptyState
+          title="Sponsor the Club"
+          body="Support a home-grown football environment with visible community impact and a clean digital platform for partner recognition."
+          href={sponsorHref}
+          label="Start a Sponsor Enquiry"
+        />
+      )}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionIntro title="Club Moments" body="Real club media gives the site its texture and keeps the story grounded." />
+      <div class="gallery-grid">
+        {visibleMoments.map((moment) => (
+          <figure class="moment-card">
+            {imageSrc(moment.image) && (
+              <img src={imageSrc(moment.image)} alt={imageAlt(moment.image, moment.caption)} loading="lazy" />
+            )}
+            <figcaption>{moment.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark">
+    <div class="container">
+      <div class="split">
+        <div>
+          <h2 class="display">Ready to Move?</h2>
+          <p class="lead">Trial, training, and sponsor enquiries go straight through WhatsApp so the club can respond with current details.</p>
+        </div>
+        <div class="hero-actions">
+          <a class="btn" href={trialHref} target="_blank" rel="noopener">Book a Trial</a>
+          <a class="btn btn-secondary" href={sponsorHref} target="_blank" rel="noopener">Sponsor the Club</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
